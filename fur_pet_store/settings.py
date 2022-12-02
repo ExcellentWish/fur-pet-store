@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'allauth',
     'allauth.account',
-    'allauth.socialaccount'
+    'allauth.socialaccount',
+    'home',
 ]
 
 CSRF_TRUSTED_ORIGINS = ['https://8000-excellentwi-furpetstore-rexm9e7e1d0.ws-eu77.gitpod.io']
@@ -79,7 +80,10 @@ ROOT_URLCONF = 'fur_pet_store.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates'),
+            os.path.join(BASE_DIR, 'templates', 'allauth'),
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
