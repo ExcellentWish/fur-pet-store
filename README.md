@@ -29,3 +29,6 @@ You can now use the `heroku` CLI program - try running `heroku apps` to confirm 
 
 ------
 
+
+Issue with back backports.zoneinfo==0.2.1 
+solution backports.zoneinfo==0.2.1;python_version<"3.9" for heroku deployment
