@@ -28,7 +28,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = "DEVELOPMENT" in os.environ
 
 X_FRAME_OPTIONS = "SAMEORIGIN"
 ALLOWED_HOSTS = ['fur-pets-store.herokuapp.com','localhost']
@@ -48,10 +48,10 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'home',
-    'products'
+    'products',
 ]
 
-CSRF_TRUSTED_ORIGINS = ['https://8000-excellentwi-furpetstore-rexm9e7e1d0.ws-eu77.gitpod.io']
+CSRF_TRUSTED_ORIGINS = ['https://8000-excellentwi-furpetstore-rexm9e7e1d0.ws-eu81.gitpod.io']
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
