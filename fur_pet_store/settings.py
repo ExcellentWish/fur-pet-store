@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'home',
     'products',
+    'bag',
 
     # other
     'storages',
@@ -58,7 +59,7 @@ CSRF_TRUSTED_ORIGINS = ['https://8000-excellentwi-furpetstore-rexm9e7e1d0.ws-eu8
 
 if 'DEVELOPMENT' in os.environ:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-    DEFAULT_FROM_EMAIL = 'heiwa-gallery@example.com'
+    DEFAULT_FROM_EMAIL = 'furpets@example.com'
 else:
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
     EMAIL_HOST = 'smtp.gmail.com'
@@ -66,7 +67,7 @@ else:
     EMAIL_PORT = 587
     EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
     EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
-    DEFAULT_FROM_EMAIL = f"FurPets <{os.environ.get('EMAIL_HOST_USER')}>"
+    DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
 
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 ACCOUNT_EMAIL_REQUIRED = True

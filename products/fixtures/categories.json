@@ -61,4 +61,18 @@
         "name": "threats",
         "friendly_name": "Threats"
     }
+}, {
+    "pk": 10,
+    "model": "products.category",
+    "fields": {
+        "name": "cats",
+        "friendly_name": "Cats"
+    }
+}, {
+    "pk": 10,
+    "model": "products.category",
+    "fields": {
+        "name": "dogs",
+        "friendly_name": "Dogs"
+    }
 }]
