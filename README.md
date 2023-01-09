@@ -30,6 +30,7 @@ This is a full-stack frameworks project built using Django, Python, HTML, CSS, a
       - [Heroku](#heroku)
       - [ElephantSQl](#elephantsql)
       - [Heroku Deployment](#heroku-deployment)
+  - [Credits](#credits)
   - [Acknowledgements](#acknowledgements)
   - [Gitpod Reminders](#gitpod-reminders)
 
@@ -229,6 +230,10 @@ In the Deploy tab:
 4. Choose the correct repository for your application and click on `Connect`.
 5. You can then choose to deploy the project manually or automatically, automatic deployment will generate a new application every time you push a change to Github, whereas manual deployment requires you to push the `Deploy Branch` button whenever you want a change made.
 6. Once you have chosen your deployment method and have clicked `Deploy Branch` your application will be built and you should see the below `View` button, click this to open your application:
+
+## Credits
+
+https://codepen.io/scanfcode
 
 ## Acknowledgements
 

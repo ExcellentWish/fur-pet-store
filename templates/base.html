@@ -110,18 +110,19 @@
     </div>
     <div class="row bg-white">
       <nav class="navbar navbar-expand-lg navbar-light w-100">
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-          </button>
-          {% include 'includes/mobile-top-header.html' %}
-          {% include 'includes/main-nav.html' %}
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav"
+          aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        {% include 'includes/mobile-top-header.html' %}
+        {% include 'includes/main-nav.html' %}
       </nav>
-  </div>
-  <div id="delivery-banner" class="row text-center">
+    </div>
+    <div id="delivery-banner" class="row text-center">
       <div class="col bg-black text-white">
-          <h4 class="logo-font my-1">Free delivery on orders over €{{ free_shipping_threshold }}!</h4>                
-      </div>            
-  </div>
+        <h4 class="logo-font my-1">Free delivery on orders over €{{ free_shipping_threshold }}!</h4>
+      </div>
+    </div>
   </header>
   {% if messages %}
   <div class="message-container"></div>
@@ -135,57 +136,63 @@
 
   {% block postloadjs %}
   {% endblock %}
-  <!-- Footer -->
-  <footer class="page-footer font-small text-center" id="main-footer">
-
+  <!-- Footer -->  <!--Footer from https://codepen.io/scanfcode/pen/MEZPNd-->
+  <footer class="site-footer">
     <div class="container">
-        <!-- Grid column -->
-        <div class="row d-flex justify-content-around">
-            <div class="col-sm-8 col-md-6 col-lg-4 mt-4 pb-2">
-                
-            </div>
-            <!--Map-->
-            <div class="col-sm-8 col-md-6 col-lg-4 mt-4 pb-2">
-                
-            </div>
+      <div class="row">
+        <div class="col-sm-12 col-md-6">
+          <h6>Sign up</h6>
 
-            <div class="col-sm-8 col-md-6 col-lg-4 mt-4 pb-2">
-                <h5 class="footer-heading">Stay in touch</h5>
-                <p id="email-link"><a href="">Contact Us</a>
-                </p>
-                <div class="mb-2 flex-center">
-                    <!-- Social media links -->
-                    <!-- Facebook -->
-                    <a class="icons" href="https://www.facebook.com/"
-                        aria-label="Take a look at our facebook, opens in a new tab" target="_blank"
-                        rel="noreferrer">
-                        <i class="fa-brands fa-facebook fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-                    </a>
-                    <!-- Twitter -->
-                    <a class="icons" href="https://twitter.com/?lang=en"
-                        aria-label="Take a look at our instagram, opens in a new tab" target="_blank"
-                        rel="noreferrer">
-                        <i class="fa-brands fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-                    </a>
-                    <!--Instagram-->
-                    <a class="icons" href="https://www.instagram.com/" aria-label="Take a look at our instagram, opens in a new tab" target="_blank"
-                        rel="noreferrer">
-                        <i class="fa-brands fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-                    </a>
-                </div>
-            </div>
         </div>
+
+        <div class="col-xs-6 col-md-3">
+          <h6>Categories</h6>
+          <ul class="footer-links">
+            <li><a href="#">TBD</a></li>
+          </ul>
+        </div>
+
+        <div class="col-xs-6 col-md-3">
+          <h6>Quick Links</h6>
+          <ul class="footer-links">
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="#">Food</a></li>
+            <li><a href="#">Pet Essentials</a></li>
+            <li><a href="#/">Special Offers</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+      <hr>
     </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-sm-6 col-xs-12">
+          <p class="copyright-text">Copyright: <span id="copyright"></span>© All Rights Reserved by
+            <a href="https://github.com/ExcellentWish" target="_blank">Nigel Doheny</a>.
+          </p>
+        </div>
 
-
-    <!-- Copyright -->
-    <div class="footer-copyright text-center py-3">Copyright: <span id="copyright"></span>©
-        <p>FurPets Store</p>
+        <div class="col-md-4 col-sm-6 col-xs-12">
+          <ul class="social-icons">
+            <li><a class="facebook" href=href="https://www.facebook.com/"
+                aria-label="Take a look at our facebook, opens in a new tab" target="_blank" rel="noreferrer">
+                <i class="fa-brands fa-facebook fa-lg white-text mr-md-5 mr-3 fa-2x"> </i></a></li>
+            <li><a class="twitter" href="https://twitter.com/?lang=en"
+                aria-label="Take a look at our instagram, opens in a new tab" target="_blank" rel="noreferrer">
+                <i class="fa-brands fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i></a></li>
+            <li><a class="instagram" href="https://www.instagram.com/"
+              aria-label="Take a look at our instagram, opens in a new tab" target="_blank" rel="noreferrer">
+              <i class="fa-brands fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i></a></li>
+          </ul>
+        </div>
+      </div>
     </div>
-    <!-- Copyright -->
+    <script>
+      $("#copyright").text(new Date().getFullYear());
+    </script>
 
-</footer>
-
+  </footer>
 </body>
 
 </html>
