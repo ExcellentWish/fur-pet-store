@@ -1,8 +1,13 @@
 .carousel-caption {
     color: #fff;
+    width:320px;
     background-color: #000;
+    margin:auto;
+    
 }
 
-.carousel-inner {
-    height: 450px;
+.carousel-inner > .carousel-item > img{ 
+    margin:auto;
+    width:640px;
+    height:720px;
 }
