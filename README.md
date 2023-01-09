@@ -233,7 +233,7 @@ In the Deploy tab:
 
 ## Credits
 
-https://codepen.io/scanfcode
+https://codepen.io/scanfcode for footer
 
 ## Acknowledgements
 
