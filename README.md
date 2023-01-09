@@ -45,9 +45,12 @@ The target audience for 'Fur Pets Store' are:
 These users will be looking for:
 - An informative website, with information that is easy-to-find & concise
 - Current & up-to-date products, with essential information such as price, category, and images
-- A way to place orders
-- A way to contact the website
-- The ability to make a user account to manage their orders
+- Ability to view & purchase prints that are for sale
+- User account functionality to view past orders and store billing information
+
+This website will offer all of these things whilst also allowing for intuitive navigation and comfortability of use.
+
+It is assumed that there will be an even split between users viewing the website on their mobiles phone and laptops. Therefore creating something responsive is integral to the design, I have used Bootstrap grids and elements & custom CSS to allow for this.
 
 This website will offer all of these things whilst also allowing for intuitive navigation and comfort of use. 
 
@@ -83,7 +86,10 @@ The menus and reservations app both require databases to store information so I 
 ## Skeleton
 [Wireframes can be viewed here](assets/wireframes/WIREFRAMES.md)
 
+Please note the actual website differs slightly from the original wireframes.
+
 The theme of simplicity follows through to the design, I've used bootstrap columns and rows to divide the pages and tried to keep the same layout throughout so that the user has a sense of ease when on the various pages. 
+Some content has been hidden on mobiles to ensure that there is never any information overload or that the screen is taken up by content not completely required.
 
 ## Surface
 
@@ -137,7 +143,6 @@ I have used several technologies that have enabled this design to work:
     - Used to generate responsive image used in README file.
 - [Image Resizer](https://imageresizer.com/)
     - Used to help improve Lighthouse score.
-
 - [ElephantSQL](https://www.elephantsql.com/)
   - I have ElephantSQL database in deployment to store the data for my models.
 
@@ -146,9 +151,18 @@ I have used several technologies that have enabled this design to work:
 ### Code Validation
 
 ### Manual Testing
+I have tested this project manually myself and have also had it peer-reviewed & tested by friends and family on multiple devices and screen sizes.
+Testing document is found [here]()
 
 ### Automated Testing
+I have used the Coverage library throughout testing to keep track of how much of my Python code was covered by the tests I had written. From running the coverage report my website has 66% of my code tested. The remaining code is covered by manual testing.
 
+To generate your own coverage report from the command line:
+
+1. Install the package using `pip3 install coverage`
+2. Run `coverage run manage.py test`
+3. Then `coverage html` to generate the report
+4. You can view the report in a browser by using the command `python3 -m http.server` and opening the `index.html` file from inside the `htmlcov` folder.
 
 ### Bugs and Fixes
 
