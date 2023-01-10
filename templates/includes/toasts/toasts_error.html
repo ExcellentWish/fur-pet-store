@@ -1,0 +1,19 @@
+<div aria-live="polite" aria-atomic="true" class="position-relative">
+    <div class="toast-container position-absolute top-0 end-0 p-3"></div>
+        <div class="toast custom-toast rounded-0 border-top-0" data-bs-autohide="false" role="alert"
+            aria-live="assertive" aria-atomic="true">
+            <div class="arrow-up arrow-danger"></div>
+            <div class="w-100 toast-capper bg-danger"></div>
+            <div class="toast-header bg-white text-dark">
+                <strong class="mr-auto">Error!</strong>
+                <button type="button" class="btn-close me-2 m-auto" id="toastbtn" data-bs-dismiss="toast"
+                    aria-label="Close">
+
+                </button>
+            </div>
+            <div class="toast-body bg-white">
+                {{ message }}
+            </div>
+        </div>
+    </div>
+</div>

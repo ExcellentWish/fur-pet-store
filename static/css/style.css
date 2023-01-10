@@ -56,6 +56,22 @@ body {
     border: 1px solid black !important;
 }
 
+/*--------------------------------For bootstrap toasts*/
+.message-container {
+    position: fixed;
+    top: 72px;
+    right: 15px;
+    z-index: 99999999999;
+}
+
+.toast {
+    overflow: visible;
+}
+
+.toast-capper {
+    height: 2px;
+}
+
 /* -------------------------------- Footer from https://codepen.io/scanfcode/pen/MEZPNd*/
 .site-footer {
     position: fixed;
