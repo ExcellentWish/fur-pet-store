@@ -29,7 +29,6 @@ class Product(models.Model):
                                  blank=True)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
-    
     quantity_in_stock = models.IntegerField(blank=False)
     in_stock = models.BooleanField(default=False)
     animal_type = models.CharField(max_length=254, blank=True)
