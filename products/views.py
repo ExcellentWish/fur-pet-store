@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import View
+from .forms import ProductForm
 from .models import Product
 
 # Create your views here.
