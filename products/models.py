@@ -40,3 +40,9 @@ class Product(models.Model):
     def get_stock_level(self):
         # get number in stock 
         return self.quantity_in_stock
+
+    def change_to_out_of_stock(self):
+        # automatically change stock label
+        if self.quantity_in_stock < 1:
+            self.in_stock = False
+            self.save()
