@@ -86,6 +86,12 @@ body {
     height: 2px;
 }
 
+/*--------------------------------For product filtering*/
+a.category-badge>span.badge:hover {
+    background: #212529 !important;
+    color: #fff !important;
+}
+
 /* -------------------------------- Footer from https://codepen.io/scanfcode/pen/MEZPNd*/
 .site-footer {
     position: fixed;
