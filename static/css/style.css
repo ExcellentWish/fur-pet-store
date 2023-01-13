@@ -86,7 +86,7 @@ body {
     height: 2px;
 }
 
-/*--------------------------------For product filtering*/
+/*--------------------------------For product filtering buttons*/
 a.category-badge>span.badge:hover {
     background: #212529 !important;
     color: #fff !important;

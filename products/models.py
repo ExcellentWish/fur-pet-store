@@ -13,7 +13,7 @@ class Category(models.Model):
         return self.name
 
     def get_friendly_name(self):
-        # return name to display on site 
+        # return name to display on site
         return self.friendly_name
 
 
