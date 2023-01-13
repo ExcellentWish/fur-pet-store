@@ -1,5 +1,4 @@
 from django.urls import path, include
-from .forms import ProductForm
 from . import views
 
 urlpatterns = [

@@ -1,6 +1,6 @@
 from django import forms
-from . import views
 from .models import Product, Category
+
 
 
 class ProductForm(forms.ModelForm):
