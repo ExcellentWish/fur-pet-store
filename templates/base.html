@@ -92,7 +92,7 @@
             </div>
           </li>
           <li class="list-inline-item">
-            <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="">
+            <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="{% url 'view_bag' %}">
               <div class="text-center">
                 <div><i class="fas fa-shopping-bag fa-lg"></i></div>
                 <p class="my-0">
@@ -197,7 +197,7 @@
             <a href="https://github.com/ExcellentWish" target="_blank">Nigel Doheny</a>.
           </p>
         </div>
-
+{% url 'products' %}
         <div class="col-md-4 col-sm-6 col-xs-12">
           <ul class="social-icons">
             <li><a class="facebook" href=href="https://www.facebook.com/"
