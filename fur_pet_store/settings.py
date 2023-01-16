@@ -51,11 +51,17 @@ INSTALLED_APPS = [
     'products',
     'bag',
     'checkout',
-    'profiles'
+    'profiles',
 
     # other
+    'crispy_forms',
+    "crispy_bootstrap5"
     'storages',
 ]
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 CSRF_TRUSTED_ORIGINS = ['https://8000-excellentwi-furpetstore-rexm9e7e1d0.ws-eu82.gitpod.io']
 
@@ -117,6 +123,10 @@ TEMPLATES = [
                 'django.template.context_processors.media',
                 'bag.contexts_processor.bag_contents',
             ],
+            'builtins': [
+                'crispy_forms.templatetags.crispy_forms_tags',
+                'crispy_forms.templatetags.crispy_forms_field',
+            ]
         },
     },
 ]

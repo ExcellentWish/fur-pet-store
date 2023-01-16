@@ -32,4 +32,3 @@ class OrderAdmin(admin.ModelAdmin):
     ordering = ('-date',)
 
 admin.site.register(Order, OrderAdmin)
-
