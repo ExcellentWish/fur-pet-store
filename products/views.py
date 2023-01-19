@@ -89,9 +89,11 @@ def add_product(request):
     return render(request, template, context)
 
 def animal_products(request, animal_choice):
+    # Filter between cats or dogs
     category = request.GET.get('category', None)
     if category:
         products = Product.objects.filter(animal_choice=animal_choice, category=category)
     else:
         products = Product.objects.filter(animal_choice=animal_choice)
     return render(request, 'products/animal_products.html', {'products': products})
+
