@@ -113,7 +113,7 @@ a.category-badge>span.badge:hover {
     background: #212529 !important;
     color: #fff !important;
 }
-
+/* Hide footer https://codepen.io/MarinaKam/pen/RBPKgq  */
 #footer-container {
     position: fixed;
     bottom: 0px;
@@ -350,4 +350,5 @@ a.category-badge>span.badge:hover {
     .header-container {
         padding-top: 164px;
     }
+    
 }
