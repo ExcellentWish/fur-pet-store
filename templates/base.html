@@ -29,13 +29,13 @@
 
   {% block corejs %}
   <script src="https://kit.fontawesome.com/0f96215e04.js" crossorigin="anonymous"></script>
-  <script src="https://code.jquery.com/jquery-3.6.2.min.js"
-    integrity="sha256-2krYZKh//PcchRtd+H+VyyQoZ/e3EcrkxhM8ycwASPA=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+    integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
     integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
   </script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
-    integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
   </script>
   {% endblock %}
 
@@ -71,7 +71,8 @@
       <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
         <ul class="list-inline list-unstyled text-center text-lg-right my-0">
           <li class="list-inline-item dropdown">
-            <a class="text-black nav-link" href="#" id="user-options" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="text-black nav-link" href="#" id="user-options" data-bs-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
               <div class="text-center">
                 <div><i class="fas fa-user fa-lg"></i></div>
                 <p class="my-0">My Account</p>
@@ -91,7 +92,8 @@
             </div>
           </li>
           <li class="list-inline-item">
-            <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="{% url 'view_bag' %}">
+            <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link"
+              href="{% url 'view_bag' %}">
               <div class="text-center">
                 <div><i class="fas fa-shopping-bag fa-lg"></i></div>
                 <p class="my-0">
@@ -126,17 +128,17 @@
   {% if messages %}
   <div class="message-container">
     {% for message in messages %}
-      {% with message.level as level %}
-        {% if level == 40 %}
-          {% include 'includes/toasts/toast_error.html' %}
-        {% elif level == 30 %}
-          {% include 'includes/toasts/toast_warning.html' %}
-        {% elif level == 25 %}
-          {% include 'includes/toasts/toasts_success.html' %}
-        {% else %}
-          {% include 'includes/toasts/toast_info.html' %}
-        {% endif %}
-      {% endwith %}
+    {% with message.level as level %}
+    {% if level == 40 %}
+    {% include 'includes/toasts/toast_error.html' %}
+    {% elif level == 30 %}
+    {% include 'includes/toasts/toast_warning.html' %}
+    {% elif level == 25 %}
+    {% include 'includes/toasts/toasts_success.html' %}
+    {% else %}
+    {% include 'includes/toasts/toast_info.html' %}
+    {% endif %}
+    {% endwith %}
     {% endfor %}
   </div>
   {% endif %}
@@ -146,71 +148,6 @@
 
   {% block content %}
   {% endblock %}
-
-  {% block footer_content %}
-<!-- Footer -->  <!--Footer from https://codepen.io/scanfcode/pen/MEZPNd-->
-<footer class="site-footer">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-12 col-md-6">
-        <h6>Sign up</h6>
-
-      </div>
-
-      <div class="col-xs-6 col-md-3">
-        <h6>Categories</h6>
-        <ul class="footer-links">
-          <li><a href="{% url 'animal_products' animal_choice='cat' %}">Cats</a></li>
-          <li><a href="{% url 'animal_products' animal_choice='dog' %}">Dogs</a></li>
-          <li><a href="{% url 'products' %}?category=bedding">Bedding</a></li>
-          <li><a href="{% url 'products' %}?category=toys' %}">Toys</a></li>
-          <li><a href="{% url 'products' %}?category=leads_collar' %}">Leads &amp; Collars</a></li>
-          
-        </ul>
-      </div>
-
-      <div class="col-xs-6 col-md-3">
-        <h6>Quick Links</h6>
-        <ul class="footer-links">
-          <li><a href="{% url 'home' %}">Home</a></li>
-          <li><a href="{% url 'products' %}">Pet Essentials</a></li>
-          <li><a href="{% url 'about' %}">About</a></li>
-          <li><a href="{% url 'terms_conditions' %}">Terms &amp; Conditions </a></li>
-          <li><a href="{% url 'privacy_policy' %}">Privacy Policy</a></li>
-        </ul>
-      </div>
-    </div>
-    <hr>
-  </div>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-8 col-sm-6 col-xs-12">
-        <p class="copyright-text">Copyright: <span id="copyright"></span>© All Rights Reserved by
-          <a href="https://github.com/ExcellentWish" target="_blank">Nigel Doheny</a>.
-        </p>
-      </div>
-
-      <div class="col-md-4 col-sm-6 col-xs-12">
-        <ul class="social-icons">
-          <li><a class="facebook" href=href="https://www.facebook.com/"
-              aria-label="Take a look at our facebook, opens in a new tab" target="_blank" rel="noreferrer">
-              <i class="fa-brands fa-facebook fa-lg white-text mr-md-5 mr-3 fa-2x"> </i></a></li>
-          <li><a class="twitter" href="https://twitter.com/?lang=en"
-              aria-label="Take a look at our instagram, opens in a new tab" target="_blank" rel="noreferrer">
-              <i class="fa-brands fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i></a></li>
-          <li><a class="instagram" href="https://www.instagram.com/"
-            aria-label="Take a look at our instagram, opens in a new tab" target="_blank" rel="noreferrer">
-            <i class="fa-brands fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i></a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <script>
-    $("#copyright").text(new Date().getFullYear());
-  </script>
-
-</footer>
-{% endblock %}
 
   {% block postloadjs %}
   <script>
@@ -224,9 +161,87 @@
       let bsToast = new bootstrap.Toast(toastEl, option)
       bsToast.show();
     })
-    </script>
+  </script>
   {% endblock %}
-  
+  <!-- Footer -->
+  <!--Footer from https://codepen.io/scanfcode/pen/MEZPNd-->
+  <section id="footer-container">
+    <div class="button">Click Me!</div>
+    <div class="body">
+    <footer class="site-footer">
+
+      <div class="container">
+        
+        <div class="row">
+          <div class="col-sm-12 col-md-6">
+            <h6>Sign up</h6>
+
+          </div>
+
+          <div class="col-xs-6 col-md-3">
+            <h6>Categories</h6>
+            <ul class="footer-links">
+              <li><a href="{% url 'animal_products' animal_choice='cat' %}">Cats</a></li>
+              <li><a href="{% url 'animal_products' animal_choice='dog' %}">Dogs</a></li>
+              <li><a href="{% url 'products' %}?category=bedding">Bedding</a></li>
+              <li><a href="{% url 'products' %}?category=toys' %}">Toys</a></li>
+              <li><a href="{% url 'products' %}?category=leads_collar' %}">Leads &amp; Collars</a></li>
+
+            </ul>
+          </div>
+
+          <div class="col-xs-6 col-md-3">
+            <h6>Quick Links</h6>
+            <ul class="footer-links">
+              <li><a href="{% url 'home' %}">Home</a></li>
+              <li><a href="{% url 'products' %}">Pet Essentials</a></li>
+              <li><a href="{% url 'about' %}">About</a></li>
+              <li><a href="{% url 'terms_conditions' %}">Terms &amp; Conditions </a></li>
+              <li><a href="{% url 'privacy_policy' %}">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+        <hr>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-sm-6 col-xs-12">
+            <p class="copyright-text">Copyright: <span id="copyright"></span>© All Rights Reserved by
+              <a href="https://github.com/ExcellentWish" target="_blank">Nigel Doheny</a>.
+            </p>
+          </div>
+
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <ul class="social-icons">
+              <li><a class="facebook" href=href="https://www.facebook.com/"
+                  aria-label="Take a look at our facebook, opens in a new tab" target="_blank" rel="noreferrer">
+                  <i class="fa-brands fa-facebook fa-lg white-text mr-md-5 mr-3 fa-2x"> </i></a></li>
+              <li><a class="twitter" href="https://twitter.com/?lang=en"
+                  aria-label="Take a look at our instagram, opens in a new tab" target="_blank" rel="noreferrer">
+                  <i class="fa-brands fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i></a></li>
+              <li><a class="instagram" href="https://www.instagram.com/"
+                  aria-label="Take a look at our instagram, opens in a new tab" target="_blank" rel="noreferrer">
+                  <i class="fa-brands fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </footer>
+  </div>
+  </section>
+
+  <script>
+    $("#copyright").text(new Date().getFullYear());
+  </script>
+  <script>
+    $("#footer-container .body").hide();
+    $("#footer-container .button").click(function () {
+      $(this).next("#footer-container div").slideToggle(400);
+      $(this).toggleClass("expanded")
+    });
+  </script>
+
 </body>
 
 </html>

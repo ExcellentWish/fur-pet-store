@@ -59,10 +59,12 @@ body {
 .bg-black {
     background: #000 !important;
 }
+
 /*--------------------------------For bag*/
 .btn-outline-black {
     background: white;
-    color: black !important; /* use important to override link colors for <a> elements */
+    color: black !important;
+    /* use important to override link colors for <a> elements */
     border: 1px solid black;
 }
 
@@ -82,6 +84,12 @@ body {
     position: fixed;
     background: white;
     z-index: -1;
+}
+
+.card-img-top,
+.img-fluid {
+    height: 480px;
+    width: 480px;
 }
 
 /*--------------------------------For bootstrap toasts*/
@@ -106,9 +114,56 @@ a.category-badge>span.badge:hover {
     color: #fff !important;
 }
 
-/* -------------------------------- Footer from https://codepen.io/scanfcode/pen/MEZPNd*/
-.site-footer {
+#footer-container {
     position: fixed;
+    bottom: 0px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    margin: 0;
+
+}
+
+#footer-container .button:before {
+    content: "+ ";
+}
+
+
+
+#footer-container .expanded:before {
+    content: "- ";
+    position: relative;
+}
+
+
+#footer-container .button {
+    position: relative;
+    font-size: 1.1em;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #e25454;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px 5px 0px 0px;
+    padding: 5px 20px 5px 20px;
+    background-color: #e25454;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    -webkit-box-shadow: 4px 0px 5px 0px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 4px 0px 5px 0px rgba(0, 0, 0, 0.3);
+    box-shadow: 4px 0px 5px 0px rgba(0, 0, 0, 0.3);
+    
+}
+
+
+
+
+/* -------------------------------- Footer from https://codepen.io/scanfcode/pen/MEZPNd*/
+
+
+.site-footer {
     left: 0;
     bottom: 0;
     width: 100%;
