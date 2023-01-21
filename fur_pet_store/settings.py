@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     # other
     'crispy_forms',
     'crispy_bootstrap5',
+    'django_countries',
     
     'storages',
 ]
