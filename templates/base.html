@@ -28,6 +28,8 @@
   {% endblock %}
 
   {% block corejs %}
+  <!-- fonts awesome -->
+  <script src="https://kit.fontawesome.com/0f96215e04.js" crossorigin="anonymous"></script>
   <!-- Jquery cdn link -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
     integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
@@ -155,23 +157,10 @@
   {% block content %}
   {% endblock %}
 
-  {% block postloadjs %}
-  <script>
-    let toastElList = [].slice.call(document.querySelectorAll('.toast'))
-    let toastList = toastElList.map(function (toastEl) {
-      let option = {
-        animation: true,
-        autohide: false,
-        delay: 5000,
-      }
-      let bsToast = new bootstrap.Toast(toastEl, option)
-      bsToast.show();
-    })
-  </script>
-  {% endblock %}
+  
   <!-- Footer -->
   <!--Footer from https://codepen.io/scanfcode/pen/MEZPNd-->
-  <!-- <section id="footer-container">
+  <section id="footer-container">
     <div class="button">Click here for more information!</div>
     <div class="body">
       <footer class="site-footer">
@@ -236,18 +225,11 @@
       </footer>
     </div>
   </section>
-
-  <!-- <script>
-    $("#copyright").text(new Date().getFullYear());
-  </script>
-  <script>
-    $("#footer-container .body").hide();
-    $("#footer-container .button").click(function () {
-      $(this).next("#footer-container div").slideToggle(400);
-      $(this).toggleClass("expanded")
-    });
-  </script> --> -->
-
+  {% block postloadjs %}
+  
+    <script src="{% static 'js/base.js' %}"></script>
+    
+  {% endblock %}
 
 </body>
 

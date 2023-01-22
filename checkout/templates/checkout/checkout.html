@@ -33,7 +33,7 @@
                     <div class="col-7 offset-2">
                         <p class="mb-1 mt-0 small text-muted">Item</p>
                     </div>
-                    <div class="col-3 text-right">
+                    <div class="col-3 text-end">
                         <p class="mb-1 mt-0 small text-muted">Subtotal</p>
                     </div>
                 </div>
@@ -53,13 +53,13 @@
                             <p class="my-0 small">Size: {% if item.product.has_sizes %}{{ item.size|upper }}{% else %}N/A{% endif %}</p>
                             <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
                         </div>
-                        <div class="col-3 text-right">url
+                        <div class="col-3 text-end">
                             <p class="my-0 small text-muted">€{{ item.product.price | calc_subtotal:item.quantity }}</p>
                         </div>
                     </div>
                 {% endfor %}
                 <hr class="my-0">
-                <div class="row text-black text-right">
+                <div class="row text-black text-end">
                     <div class="col-7 offset-2">
                         <p class="my-0">Order Total:</p>
                         <p class="my-0">Delivery:</p>
@@ -112,7 +112,7 @@
                         <input type="hidden" value="{{ client_secret }}" name="client_secret">
                     </fieldset>
 
-                    <div class="submit-button text-right mt-5 mb-2">                    
+                    <div class="submit-button text-end mt-5 mb-2">                    
 						<a href="{% url 'view_bag' %}" class="btn btn-outline-black rounded-0">
 							<span class="icon">
 								<i class="fas fa-chevron-left"></i>
