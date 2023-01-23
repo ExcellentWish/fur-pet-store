@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row d-flex text-center">
+            <div class="col"><h2>Fur Pets Home</h2></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+
+{% load crispy_forms_tags %}
+<div class="container">
+    <div class="row d-flex justify-content-center">
+        <div class="col-sm-8">
+            <h2 class="text-center mt-2 mb-3">Contact us</h2>
+        </div>
+    </div>
+    <!-- Contact form -->
+    <div class="row d-flex justify-content-center">
+        <div class="col-sm-4 col-md-6">
+            <form method="POST" class="contact-form mb-3 uni full-form" >
+
+                {% csrf_token %}
+                {{ contact_form | crispy }}
+
+                <button type="submit" class="button mt-4 text-center submit-button">Send message</button>
+            </form>
+
+        </div>
+    </div>
+
+    {% endblock %}
