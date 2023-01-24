@@ -9,6 +9,7 @@ This is a full-stack frameworks project built using Django, Python, HTML, CSS, a
 # Table of Contents
 - [Fur Pets Store](#fur-pets-store)
 - [Table of Contents](#table-of-contents)
+  - [Business Model](#business-model)
   - [User Experience](#user-experience)
   - [User Stories](#user-stories)
   - [Scope](#scope)
@@ -34,6 +35,9 @@ This is a full-stack frameworks project built using Django, Python, HTML, CSS, a
   - [Acknowledgements](#acknowledgements)
   - [Gitpod Reminders](#gitpod-reminders)
 
+
+## Business Model
+It is a B2C business model, with targeted customer being individuals, and focus on single transactions. It is aiming to target individuals who is interested in online shopping, pet lovers and looking for unique pet toys. Or people who want to purchase unique gifts for their family or friends pets.
 
 ## User Experience
 
