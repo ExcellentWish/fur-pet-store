@@ -3,6 +3,8 @@ from django.views import generic, View
 from django.core.mail import send_mail
 from .forms import ContactForm
 from django.http import HttpResponseRedirect
+from django.contrib import messages
+from django.contrib.auth.models import User
 
 # Create your views here.
 
