@@ -5,6 +5,9 @@ from .forms import ContactForm
 from django.http import HttpResponseRedirect
 from django.contrib import messages
 from django.contrib.auth.models import User
+from django.conf import settings
+from fur_pet_store.views import handler404, handler500
+from profiles.models import UserProfile
 
 # Create your views here.
 
@@ -34,23 +37,51 @@ def send_message(request, contact_form):
     recipient_list = [settings.EMAIL_HOST_USER]
     send_mail(subject, message, email_from, recipient_list)
 
+
+def get_customer_instance(request, User):
+    # Returns customer instance if User is logged in
+    customer_email = request.user.email
+    customer = UserProfile.objects.filter(email=customer_email).first()
+    return customer
+
+
 class ContactPage(View):
 
     def get(self, request, *args, **kwargs):
+
         contact_form = ContactForm()
         template = 'home/contact_us.html'
+        if request.user.is_authenticated:
+            # if user is logged in pre-populate the fields
+            contact_form = ContactForm(initial={'name': request.user.first_name + " " + request.user.last_name, 'email': request.user.email})
+        else:
+            contact_form = ContactForm()
         return render(request, template, {'contact_form': contact_form})
 
-
-    def contact_form(request):
-
+    def post(self, request, User=User, *args, **kwargs):
         if request.method == 'POST':
             contact_form = ContactForm(request.POST)
-
-            if form.is_valid():
-                return render(request, 'home/contact_us.html', {'contact_form': contact_form})
-
-            else:
+            if contact_form.is_valid():
+                # Return blank form so the same message isn't posted twice.
+                send_message(request, contact_form)
                 contact_form = ContactForm()
+                messages.add_message(
+                    request, messages.SUCCESS, "Thank you for contacting us, one of our staff will be in touch shortly."
+                )
+                return render(request, 'home/contact_us.html', {'contact_form': contact_form})
+            else:
+                contact_form = ContactForm(request.POST)
+                messages.add_message(
+                request, messages.ERROR, "Something is not right with your form - please make sure your email address is entered in the correct format.")
 
-            return render(request, 'home/contact_us.html', {'contact_form': contact_form})
+            return render(request, template, {'contact_form': contact_form})
+
+
+
+def handler404(request, exception):
+    """ Error Handler 404 - Page Not Found """
+    return render(request, "errors/404.html", status=404)
+
+def handler500(request):
+    """ Error Handler 500- Page Not Found """
+    return render(request, "errors/500.html", status=500)
