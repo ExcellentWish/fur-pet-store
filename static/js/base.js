@@ -13,7 +13,7 @@ $("#copyright").text(new Date().getFullYear());
 
 
 $("#footer-container .body").hide();
-$("#footer-container .button").click(function () {
+$("#footer-container .footer-button").click(function () {
     $(this).next("#footer-container div").slideToggle(400);
     $(this).toggleClass("expanded")
 });
