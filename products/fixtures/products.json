@@ -1,0 +1,26 @@
+[{
+    "pk": 1,
+    "model": "products.product",
+    "fields": {
+        "name": "Automatic Ball Thrower",
+        "description": "Keep your dog entertained for hours with an automatic thrower and save your elbow.",
+        "price": 19.99,
+        "category": 2,
+        "rating": 4.6,
+        "image": "dog-automatic-throw.jpg",
+        "animal_choice" : "Dog"
+    }
+}, {
+    "pk": 2,
+    "model": "products.product",
+    "fields": {
+        "name": "Cat Ball Toy",
+        "description": "Keep your purr-fect pet entertained for hours with this ball",
+        "price": 4.99,
+        "category": 2,
+        "rating": 4.1,
+        "image": "cat-ball-toy.jpg",
+        "animal_choice" : "Cat"
+    }
+
+}]

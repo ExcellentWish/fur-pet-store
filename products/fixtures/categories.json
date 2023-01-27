@@ -1,0 +1,36 @@
+[{
+    "pk": 1,
+    "model": "products.category",
+    "fields": {
+        "name": "bedding",
+        "friendly_name": "Bedding"
+    }
+}, {
+    "pk": 2,
+    "model": "products.category",
+    "fields": {
+        "name": "toys",
+        "friendly_name": "Toys"
+    }
+}, {
+    "pk": 3,
+    "model": "products.category",
+    "fields": {
+        "name": "leads_collar",
+        "friendly_name": "Leads & Collars"
+    }
+}, {
+    "pk": 4,
+    "model": "products.category",
+    "fields": {
+        "name": "cats",
+        "friendly_name": "Cats"
+    }
+}, {
+    "pk": 5,
+    "model": "products.category",
+    "fields": {
+        "name": "dogs",
+        "friendly_name": "Dogs"
+    }
+}]
