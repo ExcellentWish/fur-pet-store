@@ -12,9 +12,9 @@ let toastList = toastElList.map(function (toastEl) {
 $("#copyright").text(new Date().getFullYear());
 
 
-$("#footer-container .body").hide();
-$("#footer-container .footer-button").click(function () {
-    $(this).next("#footer-container div").slideToggle(400);
-    $(this).toggleClass("expanded")
-});
+// $("#footer-container .body").hide();
+// $("#footer-container .footer-button").click(function () {
+//     $(this).next("#footer-container div").slideToggle(400);
+//     $(this).toggleClass("expanded")
+// });
   
