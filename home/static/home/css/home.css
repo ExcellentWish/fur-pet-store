@@ -1,7 +1,5 @@
 .carousel-caption {
-    color: #fff;
     width:320px;
-    background-color: #000;
     margin:auto;
     
 }
@@ -12,8 +10,57 @@
     height:720px;
 }
 
+.carousel-item {
+    height: 60vh;
+}
+
+.carousel-image {
+    height: auto;
+    width: 100%;
+}
+
+.carousel-link {
+    color: white;
+    font-weight: bolder;
+    text-decoration: underline;
+}
+
+.carousel-link:hover {
+    color: #85c280;
+    background-color: #0d5c63;
+    text-decoration: none;
+}
+
 #aboutdog{
     margin:auto;
 }
 
+@media screen and (min-width:280px) {
+    .carousel-item {
+        height: 27vh;
+    }
+}
 
+@media screen and (min-width: 426px) {
+    .carousel-item {
+        height: 25vh;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .carousel-item {
+        height: 29vh;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .carousel-item {
+        height: 36vh;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .carousel-item {
+        height: 50vh;
+    }
+}
