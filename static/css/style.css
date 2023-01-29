@@ -329,7 +329,6 @@ a.category-badge>span.badge:hover {
     font-size: 15px;
     line-height: 24px;
     color: #737373;
-    z-index: 9999;
 }
 
 .site-footer hr {
