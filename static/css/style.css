@@ -276,38 +276,10 @@ a.category-badge>span.badge:hover {
 
 }
 
-#footer-container .footer-button:before {
-    content: "+ ";
-}
 
 
 
-#footer-container .expanded:before {
-    content: "- ";
-    position: relative;
-}
 
-
-#footer-container .footer-button {
-    position: relative;
-    font-size: 1.1em;
-    cursor: pointer;
-    margin-left: auto;
-    margin-right: auto;
-    border: 2px solid #e25454;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    border-radius: 5px 5px 0px 0px;
-    padding: 5px 20px 5px 20px;
-    background-color: #e25454;
-    color: #fff;
-    text-align: center;
-    text-decoration: none;
-    -webkit-box-shadow: 4px 0px 5px 0px rgba(0, 0, 0, 0.3);
-    -moz-box-shadow: 4px 0px 5px 0px rgba(0, 0, 0, 0.3);
-    box-shadow: 4px 0px 5px 0px rgba(0, 0, 0, 0.3);
-    
-}
 /* Mailchimp */
 #mc_embed_signup {
     background: #fff;
@@ -324,7 +296,7 @@ a.category-badge>span.badge:hover {
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color: #26272b;
+    background-color: #B44;
     padding: 45px 0 20px;
     font-size: 15px;
     line-height: 24px;
@@ -477,13 +449,7 @@ a.category-badge>span.badge:hover {
         background-color: #3b5998
     }
 
-    .social-icons a.twitter:hover {
-        background-color: #00aced
-    }
-
-    .social-icons a.instagram:hover {
-        background-color: #007bb6
-    }
+    
 }
 @media (max-width:767px) {
     .social-icons li.title {
@@ -518,4 +484,73 @@ a.category-badge>span.badge:hover {
 
     
 }
+@media (max-width:768px) {
+
+    .site-footer {
+      padding-bottom: 0
+    }
+  
+    .footer-contact {
+      text-align: center;
+      float: none;
+    }
+  
+    .site-footer .copyright-text,
+    .site-footer .social-icons {
+      text-align: center
+    }
+  
     
+  
+    #main-title h1 {
+      font-size: 75px;
+  
+    }
+  
+  
+    .social-icons li.title {
+      display: block;
+      margin-right: 0;
+      font-weight: 600
+    }
+  
+    .footer-row>* {
+      width: 50%;
+    }
+  
+    .mailchimp-logo {
+      width: 2.5rem;
+    }
+  }
+  
+  @media screen and (min-width:769px) {
+    .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+  
+  }
+  
+  @media (max-width:991px) {
+    .site-footer [class^=col-] {
+      margin-bottom: 30px
+    }
+  }
+  
+  @media screen and (min-width:1200px) {
+  
+    .text-responsive {
+      font-size: 1.5rem;
+    }
+  
+    .mailchimp-logo {
+      width: 10rem;
+    }
+  }
+  
+  @media screen and (min-width:1700px) {
+  
+    body,
+    p {
+      font-size: 1.2rem;
+    }
+  }

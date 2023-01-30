@@ -97,7 +97,13 @@ The theme of simplicity follows through to the design, I've used bootstrap colum
 Some content has been hidden on mobiles to ensure that there is never any information overload or that the screen is taken up by content not completely required.
 
 ## Surface
+Animals only see in black and white. Myth. It was once thought that animals, including cats and dogs, could only see in black and white. However, scientists have proven this to be a myth. In all animals, including humans, the perception of colour is determined by the presence of cells in the eye called cone photoreceptors. Cats and dogs have two kinds of cones, which are sensitive to blue and green light
 
+Cats and dogs are colour blind. Fact. To see in full colour as we know it, humans use three cones – red, blue and green. However cats and dogs only have blue and green cones. This means they have a much more muted perception of colour, which is akin to colour blindness in humans. 
+
+The source of this information is from https://adelaidevet.com.au/pet-library/can-animals-see-colour#:~:text=Fact,to%20colour%20blindness%20in%20humans.
+
+Which is why you will see the colors red, blue and green throughout my project.
 
 ## Features
 
