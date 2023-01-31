@@ -6,7 +6,7 @@ body {
     background: url('/media/backgroundDogCat.jpg') no-repeat center center fixed;
     background-size: cover;
     height: calc(100vh - 164px);
-    color: #555;
+    color: #fff;
     font-family: 'Lato';
 }
 
@@ -92,6 +92,7 @@ input[name='q']::placeholder {
 
 
 
+
 /*--------------------------------For bootstrap toasts*/
 .message-container {
     position: fixed;
@@ -111,8 +112,10 @@ input[name='q']::placeholder {
 /* Allauth form formatting */
 
 .allauth-form-inner-content p {
-    margin-top: 1.5rem; /* mt-4 */
-    color: #6c757d; /* text-secondary */
+    margin-top: 1.5rem;
+    /* mt-4 */
+    color: #6c757d;
+    /* text-secondary */
 }
 
 .allauth-form-inner-content input {
@@ -130,8 +133,8 @@ input[name='q']::placeholder {
 
 .allauth-form-inner-content button,
 .allauth-form-inner-content input[type='submit'] {
-	/* btn */
-	display: inline-block;
+    /* btn */
+    display: inline-block;
     font-weight: 400;
     color: #fff;
     text-align: center;
@@ -148,18 +151,19 @@ input[name='q']::placeholder {
     border-radius: 0;
 
     /* standard bootstrap btn transitions */
-    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 
 .allauth-form-inner-content button:hover,
-.allauth-form-inner-content input[type='submit']:hover {	
-	color: #fff;
+.allauth-form-inner-content input[type='submit']:hover {
+    color: #fff;
     background-color: #222;
     border-color: #222;
 }
 
 .allauth-form-inner-content a {
-	color: #17a2b8; /* text-info */
+    color: #17a2b8;
+    /* text-info */
 }
 
 /*--------------------------------For product filtering buttons*/
@@ -172,25 +176,25 @@ a.category-badge>span.badge:hover {
 #notfound {
     position: relative;
     height: 100vh;
-  }
+}
 
-  #notfound .notfound {
+#notfound .notfound {
     position: absolute;
     left: 50%;
     top: 50%;
     -webkit-transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
-  }
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
 
-  .notfound {
+.notfound {
     max-width: 560px;
     width: 100%;
     padding-left: 160px;
     line-height: 1.1;
-  }
+}
 
-  .notfound .notfound-404 {
+.notfound .notfound-404 {
     position: absolute;
     left: 0;
     top: 0;
@@ -199,22 +203,22 @@ a.category-badge>span.badge:hover {
     height: 140px;
     background: url("fur-pet-store/media/emoji.png");
     background-size: cover;
-  }
+}
 
-  .notfound .notfound-404:before {
+.notfound .notfound-404:before {
     content: '';
     position: absolute;
     width: 100%;
     height: 100%;
     -webkit-transform: scale(2.4);
-        -ms-transform: scale(2.4);
-            transform: scale(2.4);
+    -ms-transform: scale(2.4);
+    transform: scale(2.4);
     border-radius: 50%;
     background-color: #f2f5f8;
     z-index: -1;
-  }
+}
 
-  .notfound h1 {
+.notfound h1 {
     font-family: 'Nunito', sans-serif;
     font-size: 65px;
     font-weight: 700;
@@ -222,49 +226,47 @@ a.category-badge>span.badge:hover {
     margin-bottom: 10px;
     color: #151723;
     text-transform: uppercase;
-  }
+}
 
-  .notfound h2 {
+.notfound h2 {
     font-family: 'Nunito', sans-serif;
     font-size: 21px;
     font-weight: 400;
     margin: 0;
     text-transform: uppercase;
     color: #151723;
-  }
+}
 
-  .notfound p {
+.notfound p {
     font-family: 'Nunito', sans-serif;
     color: #999fa5;
     font-weight: 400;
-  }
+}
 
-  .notfound a {
+.notfound a {
     font-family: 'Nunito', sans-serif;
     display: inline-block;
     font-weight: 700;
     border-radius: 40px;
     text-decoration: none;
     color: #388dbc;
-  }
+}
 
 @media only screen and (max-width: 767px) {
     .notfound .notfound-404 {
-      width: 110px;
-      height: 110px;
+        width: 110px;
+        height: 110px;
     }
+
     .notfound {
-      padding-left: 15px;
-      padding-right: 15px;
-      padding-top: 110px;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-top: 110px;
     }
-  }
+}
 
 
 /* Hide footer https://codepen.io/MarinaKam/pen/RBPKgq  */
-#footer-container > li{
-    display: inline;
-}
 
 #footer-container {
     position: fixed;
@@ -272,13 +274,9 @@ a.category-badge>span.badge:hover {
     left: 0;
     width: 100%;
     text-align: center;
-    margin: 0;
+    margin: auto;
 
 }
-
-
-
-
 
 /* Mailchimp */
 #mc_embed_signup {
@@ -286,7 +284,7 @@ a.category-badge>span.badge:hover {
     clear: left;
     font: 14px Helvetica, Arial, sans-serif;
     width: 600px;
-  }
+}
 
 
 /* -------------------------------- Footer from https://codepen.io/scanfcode/pen/MEZPNd*/
@@ -303,55 +301,7 @@ a.category-badge>span.badge:hover {
     color: #fff;
 }
 
-.site-footer hr {
-    border-top-color: #bbb;
-    opacity: 0.5
-}
 
-.site-footer hr.small {
-    margin: 20px 0
-}
-
-.site-footer h6 {
-    color: #fff;
-    font-size: 16px;
-    text-transform: uppercase;
-    margin-top: 5px;
-    letter-spacing: 2px
-}
-
-.site-footer a:hover {
-    color: #3366cc;
-    text-decoration: none;
-}
-
-.footer-links {
-    padding-left: 0;
-    list-style: none
-}
-
-.footer-links li {
-    display: block
-}
-
-
-
-.footer-links a:active,
-.footer-links a:focus,
-.footer-links a:hover {
-    color: #3366cc;
-    text-decoration: none;
-}
-
-.footer-links.inline li {
-    display: inline-block
-}
-
-.site-footer .social-icons {
-    text-align: right;
-    display: inline;
-    
-}
 
 
 
@@ -361,88 +311,6 @@ a.category-badge>span.badge:hover {
     color: #fff;
     margin: 0;
 }
-
-@media (max-width:991px) {
-    .site-footer [class^=col-] {
-        margin-bottom: 30px
-    }
-}
-
-@media (max-width:767px) {
-    .site-footer {
-        padding-bottom: 0
-    }
-
-    .site-footer .copyright-text,
-    .site-footer .social-icons {
-        text-align: center
-    }
-
-
-    .social-icons {
-        padding-left: 0;
-        margin-bottom: 0;
-        list-style: none
-    }
-
-    .social-icons li {
-        display: inline;
-        margin-bottom: 4px
-    }
-
-    .social-icons li.title {
-        margin-right: 15px;
-        text-transform: uppercase;
-        color: #96a2b2;
-        font-weight: 700;
-        font-size: 23px
-    }
-
-    .social-icons a {
-        background-color: #eceeef;
-        color: #818a91;
-        font-size: 16px;
-        display: inline-block;
-        line-height: 44px;
-        width: 44px;
-        height: 44px;
-        text-align: center;
-        margin-right: 8px;
-        border-radius: 100%;
-        -webkit-transition: all .2s linear;
-        -o-transition: all .2s linear;
-        transition: all .2s linear
-    }
-
-    .social-icons a:active,
-    .social-icons a:focus,
-    .social-icons a:hover {
-        color: #fff;
-        background-color: #29aafe
-    }
-
-    .social-icons.size-sm a {
-        line-height: 34px;
-        height: 34px;
-        width: 34px;
-        font-size: 14px
-    }
-
-    .social-icons a.facebook:hover {
-        background-color: #3b5998
-    }
-
-    
-}
-@media (max-width:767px) {
-    .social-icons li.title {
-        display: block;
-        margin-right: 0;
-        font-weight: 600
-    }
-}
-
-/* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
 @media (min-width: 1200px) {
@@ -462,78 +330,30 @@ a.category-badge>span.badge:hover {
     }
 
     .header-container {
-        padding-top: 164px;
+        padding-top: 220px;
     }
 
-    
+    .btt-button {
+        bottom: 200px;
+    }
 }
-@media (max-width:768px) {
 
-    .site-footer {
-      padding-bottom: 0
+/* add padding top to images for mobile view */
+@media (max-width: 991px) {
+    .header-container {
+        padding-top: 100px;
     }
-  
-    .footer-contact {
-      text-align: center;
-      float: none;
+
+    body {
+        height: calc(100vh - 120px);
     }
-  
-    .site-footer .copyright-text,
-    .site-footer .social-icons {
-      text-align: center
+
+    #delivery-banner h4 {
+        font-size: .9rem;
     }
-  
-    
-  
-    #main-title h1 {
-      font-size: 75px;
-  
+
+    /* make toast message fit to small screens */
+    .message-container {
+        width: 300px;
     }
-  
-  
-    .social-icons li.title {
-      display: block;
-      margin-right: 0;
-      font-weight: 600
-    }
-  
-    .footer-row>* {
-      width: 50%;
-    }
-  
-    .mailchimp-logo {
-      width: 2.5rem;
-    }
-  }
-  
-  @media screen and (min-width:769px) {
-    .dropdown:hover .dropdown-menu {
-      display: block;
-    }
-  
-  }
-  
-  @media (max-width:991px) {
-    .site-footer [class^=col-] {
-      margin-bottom: 30px
-    }
-  }
-  
-  @media screen and (min-width:1200px) {
-  
-    .text-responsive {
-      font-size: 1.5rem;
-    }
-  
-    .mailchimp-logo {
-      width: 10rem;
-    }
-  }
-  
-  @media screen and (min-width:1700px) {
-  
-    body,
-    p {
-      font-size: 1.2rem;
-    }
-  }
+}
