@@ -2,25 +2,27 @@
 
 {% load static %}
 
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'home/css/home.css' %}">
+{% endblock %}
+
 {% block page_header %}
 <div class="container header-container">
-    <div class="row">
-        <div class="col"></div>
+    <div class="row d-flex text-center">
+        <div class="col">
+            <h1 class="logo-font mt-5 text-black">
+                Welcome to Fur Pets Store
+            </h1>
+            <p class="text-black">
+                Dedication to our bests friends is what we aim for.
+            </p>
+        </div>
     </div>
 </div>
 {% endblock %}
 
 {% block content %}
-<div class="container-sm mt-2">
-    <div class="row">
-        <!-- home page heading -->
-        <div class="col-12 col-md-6 my-auto ">
-            <div class="my-5">
-               
-            </div>
-        </div>
-    </div>
-</div>
+
 
 
 <div class="container quotes-container text-black mt-5 content-container">
@@ -35,8 +37,7 @@
             <div class="col-12 col-md-6">
                 <h4>Social</h4>
                 <p>Keep up to date with all our latest offers</p>
-                <a href="https://www.facebook.com/" target="_blank"
-                    class="text-decoration-none text-info"> Follow us on
+                <a href="https://www.facebook.com/" target="_blank" class="text-decoration-none text-info"> Follow us on
                     Facebook! <i class="fa-brands fa-facebook"></i></a>
             </div>
             <div class="col-12 col-md-6 mt-3 mt-md-0">
