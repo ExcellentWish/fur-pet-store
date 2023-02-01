@@ -166,7 +166,7 @@ I have tested this project manually myself and have also had it peer-reviewed & 
 Testing document is found [here]()
 
 ### Automated Testing
-I have used the Coverage library throughout testing to keep track of how much of my Python code was covered by the tests I had written. From running the coverage report my website has 57% of my code tested. The remaining code is covered by manual testing.
+I have used the Coverage library throughout testing to keep track of how much of my Python code was covered by the tests I had written. From running the coverage report my website has 58% of my code tested. The remaining code is covered by manual testing.
 
 To generate your own coverage report from the command line:
 
