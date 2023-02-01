@@ -27,7 +27,7 @@
             </div>
         </div>
         
-        <div class="col-12 col-md-6 col-lg-4 mb-4">
+        <div class="col-12 col-md-6 col-lg-4 mb-4 text-black">
             <div class="product-details-container mb-5 mt-md-5">
                 <p class="mb-0">{{ product.name }}</p>
                 <p class="lead mb-0 text-start font-weight-bold">€{{ product.price }}</p>
@@ -48,7 +48,7 @@
                     <div class="form-row">
                         {% with product.has_sizes as s %}
                         {% if s %}
-                        <div class="col-12">
+                        <div class="col-12 text-black">
                             <p><strong>Size:</strong></p>
                             <select class="form-control rounded-0 w-50" name="product_size" id='id_product_size'>
                                 <option value="xs">XS</option>
@@ -59,7 +59,7 @@
                             </select>
                         </div>
                         {% endif %}
-                        <div class="col-12">
+                        <div class="col-12 text-black">
                             <p class="mt-3"><strong>Quantity:</strong></p>
                             <div class="form-group w-50">
                                 <div class="input-group">

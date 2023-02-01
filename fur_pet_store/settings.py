@@ -65,7 +65,7 @@ CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
-CSRF_TRUSTED_ORIGINS = ['https://8000-excellentwi-furpetstore-rexm9e7e1d0.ws-eu84.gitpod.io']
+CSRF_TRUSTED_ORIGINS = ['https://8000-excellentwi-furpetstore-ityujh42u87.ws-eu84.gitpod.io']
 
 if 'DEVELOPMENT' in os.environ:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
