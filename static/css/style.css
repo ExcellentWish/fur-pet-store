@@ -201,7 +201,7 @@ a.category-badge>span.badge:hover {
     display: inline-block;
     width: 140px;
     height: 140px;
-    background: url("fur-pet-store/media/emoji.png");
+    background: url("/media/emoji.png");
     background-size: cover;
 }
 
