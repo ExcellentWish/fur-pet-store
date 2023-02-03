@@ -41,7 +41,7 @@ It is a B2C business model, with targeted customer being individuals, and focus 
 
 ## User Experience
 
-Using the core UX principles I first started with Strategy, thinking about the target audience for this restaurant & the features they would benefit from.
+Using the core UX principles I first started with Strategy, thinking about the target audience for this pet store & the features they would benefit from.
 
 The target audience for 'Fur Pets Store' are:
 - People who have cats and dog.
@@ -50,7 +50,7 @@ The target audience for 'Fur Pets Store' are:
 These users will be looking for:
 - An informative website, with information that is easy-to-find & concise
 - Current & up-to-date products, with essential information such as price, category, and images
-- Ability to view & purchase prints that are for sale
+- Ability to view & purchase pet toys that are for sale
 - User account functionality to view past orders and store billing information
 
 This website will offer all of these things whilst also allowing for intuitive navigation and comfortability of use.
