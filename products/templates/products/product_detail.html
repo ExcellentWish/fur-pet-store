@@ -59,6 +59,22 @@
                             </select>
                         </div>
                         {% endif %}
+                        <div class="form-row">
+                            {% with product.has_color as s %}
+                            {% if s %}
+                            <div class="col-12 text-black">
+                                <p><strong>Size:</strong></p>
+                                <select class="form-control rounded-0 w-50" name="product_size" id='id_product_size'>
+                                    <option value="red">Red</option>
+                                    <option value="blue">Blue</option>
+                                    <option value="green" selected>Green</option>
+                                    <option value="yellow">Yellow</option>
+                                    <option value="grey">Grey</option>
+                                    <option value="purple">purple</option>
+                                    <option value="paige">Paige</option>
+                                </select>
+                            </div>
+                            {% endif %}
                         <div class="col-12 text-black">
                             <p class="mt-3"><strong>Quantity:</strong></p>
                             <div class="form-group w-50">
