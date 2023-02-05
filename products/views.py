@@ -25,7 +25,8 @@ def all_products(request):
             if sortkey == 'name':
                 sortkey = 'lower_name'
                 products = products.annotate(lower_name=Lower('name'))
-
+            if sortkey == 'category':
+                sortkey = 'category__name'
             if 'direction' in request.GET:
                 direction = request.GET['direction']
                 if direction == 'desc':
@@ -37,22 +38,25 @@ def all_products(request):
             products = products.filter(category__name__in=categories)
             categories = Category.objects.filter(name__in=categories)
 
-
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
-                message.error(request, "You didn't enter any search criteria!")
+                messages.error(request,
+                               ("You didn't enter any search criteria!"))
                 return redirect(reverse('products'))
+
             queries = Q(name__icontains=query) | Q(description__icontains=query)
             products = products.filter(queries)
-            
+
     current_sorting = f'{sort}_{direction}'
 
-    context ={
+    context = {
         'products': products,
         'search_term': query,
         'current_categories': categories,
+        'current_sorting': current_sorting,
     }
+
     return render(request, 'products/products.html', context)
 
 def product_detail(request, product_id):
@@ -95,7 +99,7 @@ def edit_product(request, product_id):
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
-        
+
     product = get_object_or_404(Product, pk=product_id)
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES, instance=product)
