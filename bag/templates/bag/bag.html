@@ -127,6 +127,9 @@
             </div>
         </div>
         {% else %}
+        {% block extra_css %}
+        <link rel="stylesheet" href="{% static 'product/css/product.css' %}">
+        {% endblock %}
         <p class="lead mb-5">Your bag is empty.</p>
         <a href="{% url 'products' %}" class="btn btn-outline-info rounded-0 btn-lg">
             <span class="icon">
