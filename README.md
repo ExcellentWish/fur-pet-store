@@ -11,7 +11,14 @@ This is a full-stack frameworks project built using Django, Python, HTML, CSS, a
 - [Table of Contents](#table-of-contents)
   - [Business Model](#business-model)
   - [User Experience](#user-experience)
+    - [Strategy](#strategy)
   - [User Stories](#user-stories)
+    - [**Epic 1 - Core Functionality**:](#epic-1---core-functionality)
+    - [**Epic 2 - Admin Functionality**:](#epic-2---admin-functionality)
+    - [**Epic 3 - User Account**:](#epic-3---user-account)
+    - [**Epic 4 - Products**:](#epic-4---products)
+    - [**Epic 5 - Orders and Basket**:](#epic-5---orders-and-basket)
+    - [**Epic 6 - Marketing**:](#epic-6---marketing)
   - [Scope](#scope)
   - [Structure](#structure)
     - [Databases](#databases)
@@ -41,6 +48,8 @@ It is a B2C business model, with targeted customer being individuals, and focus 
 
 ## User Experience
 
+### Strategy
+
 Using the core UX principles I first started with Strategy, thinking about the target audience for this pet store & the features they would benefit from.
 
 The target audience for 'Fur Pets Store' are:
@@ -65,28 +74,60 @@ Due to the accessibility of mobile phones, it is assumed that most users will be
 
 Please find all my defined user stories & their acceptance criteria [here](https://github.com/users/ExcellentWish/projects/6)
 
-1. As a user I can intuitively navigate through the site so that I can view desired content.
-2. 
+### **Epic 1 - Core Functionality**:
+1. [Intuitive Navigation](https://github.com/ExcellentWish/fur-pet-store/issues/1): 
+2. [Navbar & Footer ](https://github.com/ExcellentWish/fur-pet-store/issues/2):
+3. [Informative Landing Page ](https://github.com/ExcellentWish/fur-pet-store/issues/3)
+4. [Responsive Design](https://github.com/ExcellentWish/fur-pet-store/issues/4)
+5. [Messages Displayed to User ](https://github.com/ExcellentWish/fur-pet-store/issues/5)
+
+### **Epic 2 - Admin Functionality**:
+1. [Admin can Login and Access Backend](https://github.com/ExcellentWish/fur-pet-store/issues/6): 
+2. [Products have CRUD Functionality](https://github.com/ExcellentWish/fur-pet-store/issues/7):
+3. [Product Managment Access](https://github.com/ExcellentWish/fur-pet-store/issues/8):
+4.  [Stock Levels can be Updated](https://github.com/ExcellentWish/fur-pet-store/issues/9):
+    
+### **Epic 3 - User Account**:
+1. [User can Create an Account](https://github.com/ExcellentWish/fur-pet-store/issues/10):
+2. [Logged in Status Clear to User](https://github.com/ExcellentWish/fur-pet-store/issues/11)
+3. [Prompt User to Create an Account](https://github.com/ExcellentWish/fur-pet-store/issues/12)
+4. [User Profile](https://github.com/ExcellentWish/fur-pet-store/issues/13)
+
+### **Epic 4 - Products**:
+1. [Products can be Viewed](https://github.com/ExcellentWish/fur-pet-store/issues/14):
+2. [Product Information is Clear](https://github.com/ExcellentWish/fur-pet-store/issues/15)
+3. [Filter View for Products](https://github.com/ExcellentWish/fur-pet-store/issues/16)
+4. [Out of Stock Products Clearly Lablled](https://github.com/ExcellentWish/fur-pet-store/issues/17)
+
+### **Epic 5 - Orders and Basket**:
+1. [Orders can be Placed](https://github.com/ExcellentWish/fur-pet-store/issues/18):
+2. [Basket Breakdown](https://github.com/ExcellentWish/fur-pet-store/issues/19):
+3. [Out of Stock Products Cannot be Added to the Basket.](https://github.com/ExcellentWish/fur-pet-store/issues/20):
+4. [Order Confirmations Emailed To User](https://github.com/ExcellentWish/fur-pet-store/issues/21):
+
+### **Epic 6 - Marketing**:
+1. [Facebook Page](https://github.com/ExcellentWish/fur-pet-store/milestone/6)
+2. [SEO Keywords](https://github.com/ExcellentWish/fur-pet-store/issues/23):
+3. [Users can Sign Up for a Newsletter](https://github.com/ExcellentWish/fur-pet-store/issues/24):
 
 ## Scope
 
 To achieve the desired user & business goals the following features will be included in this release:
 
 - Responsive navbar that will navigate to the various pages throughout the site
-- Landing page with brief information about the site and links to the product and catogry page
+- Landing page with brief information about the site and links to the product and catogry page and newsletter signup.
+- Shop page, that displays all products available for purchase with the option to filter on the print category.
 - Register/log in feature using Django allauth
+- Custom 404 and 500 error pages.
 - Contact form using Google SMTP
-
-## Structure
 
 This website has been designed with simplicity in mind, each page only has entirely relevant information on it so that the user can find what they want quickly without having to read through unnecessary things. I have separated each key feature to highlight its functionality to the user.
 
-The website is made of apps:
-1. 
+
+## Structure
 
 ### Databases
 
-The menus and reservations app both require databases to store information so I have built custom models.
 
 ## Skeleton
 [Wireframes can be viewed here](assets/wireframes/WIREFRAMES.md)
@@ -104,6 +145,7 @@ Cats and dogs are colour blind. Fact. To see in full colour as we know it, human
 The source of this information is from https://adelaidevet.com.au/pet-library/can-animals-see-colour#:~:text=Fact,to%20colour%20blindness%20in%20humans.
 
 Which is why you will see the colors red, blue and green throughout my project.
+
 
 ## Features
 
@@ -163,7 +205,7 @@ I have used several technologies that have enabled this design to work:
 
 ### Manual Testing
 I have tested this project manually myself and have also had it peer-reviewed & tested by friends and family on multiple devices and screen sizes.
-Testing document is found [here]()
+Testing document is found [here](TESTING.md)
 
 ### Automated Testing
 I have used the Coverage library throughout testing to keep track of how much of my Python code was covered by the tests I had written. From running the coverage report my website has 58% of my code tested. The remaining code is covered by manual testing.
