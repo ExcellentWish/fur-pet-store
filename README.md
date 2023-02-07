@@ -21,7 +21,10 @@ This is a full-stack frameworks project built using Django, Python, HTML, CSS, a
     - [**Epic 6 - Marketing**:](#epic-6---marketing)
   - [Scope](#scope)
   - [Structure](#structure)
-    - [Databases](#databases)
+    - [Database](#database)
+      - [**User Account**](#user-account)
+      - [**Products App**](#products-app)
+      - [**Checkout**](#checkout)
   - [Skeleton](#skeleton)
   - [Surface](#surface)
   - [Features](#features)
@@ -126,8 +129,32 @@ This website has been designed with simplicity in mind, each page only has entir
 
 ## Structure
 
-### Databases
+### Database
+I opted to connect to the  PostgreSQL database from the beginning which is provided by ElephantSQL as Heroku have changed theie policy for a free database. For almost all of the apps (aside from home) I have created models, the Entity-Relationship Diagram below shows how the database models relate to each other: 
 
+![Database Schemas can be found here](assets/Database/Database-Schema.jpg)
+
+#### **User Account**
+This app enables authenticated users to save their information so that when they are logged in the order form is pre-filled, creating an improved user experience. The `UserProfile` model has a one-to-one field that is linked to the Django AllAuth user account, upon logging in the model method `create_or_update_user_profile` creates the profile if it isn't already present in the model.
+
+#### **Products App**
+This app controls the products that are displayed in the online shop. I have created two models to store the necessary data: `Products` & `Category`.
+
+`Products` enables individual products to be added to the database in order for them to be purchased via the online shop. Only admin users are able to access this functionality and it can be done from the front end using the `add_product` view. This model has one FK which relates to the second model in this app, the category.
+
+`Category` stores the various category types of the artwork/prints on sale, this allows the user to filter the shop page by the category if they are looking for something specific.
+
+#### **Checkout**
+
+The checkout app is used solely for the user to make purchases via the online shop; this app contains two models, `Order` & `OrderLineItem`. 
+
+`OrderLineItem` contains all of the information regarding the products that have been purchased as part of a specific order. It has a foreign key to `Product` & `Order`, it also contains the quantity purchased of that product and then the item total. This information is used to calculate the total cost for the order. For the product FK I chose to use `on_delete=models.CASCADE`, using the 'original basket' field the admin can still see what the original purchase was.
+
+`Order` contains all of the relevant address information for billing/shipping, a foreign key to the `UserProfile`, email & phone number. It also contains information regarding the payment itself, the stripe PID, original basket contents (so that if the order is changed, the admin user can see what was purchased initially). Each order has an order number which is automatically generated when a new order is added to the database using `UUID`.
+
+There are some other model methods used at various points, `order.full_address` collates all of the users' address details in one f string, used when sending the confirmation email to the user. 
+
+`update_total` calculates the overall total depending on the order items linked to the order, ensuring the value is always correct.
 
 ## Skeleton
 [Wireframes can be viewed here](assets/wireframes/WIREFRAMES.md)
