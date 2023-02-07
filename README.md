@@ -28,8 +28,22 @@ This is a full-stack frameworks project built using Django, Python, HTML, CSS, a
   - [Skeleton](#skeleton)
   - [Surface](#surface)
   - [Features](#features)
-    - [Current Features](#current-features)
+    - [Navbar](#navbar)
+    - [Footer](#footer)
     - [Home page](#home-page)
+    - [About](#about)
+    - [Privacy Policy](#privacy-policy)
+    - [Terms \& Conditions](#terms--conditions)
+    - [All products](#all-products)
+    - [Basket](#basket)
+    - [Checkout](#checkout-1)
+    - [User profile](#user-profile)
+    - [Admin](#admin)
+      - [**Product management**](#product-management)
+    - [Error pages](#error-pages)
+    - [Gmail SMTP](#gmail-smtp)
+    - [Stripe](#stripe)
+    - [AWS static and media storage](#aws-static-and-media-storage)
   - [Technology Used](#technology-used)
   - [Testing](#testing)
     - [Code Validation](#code-validation)
@@ -176,9 +190,45 @@ Which is why you will see the colors red, blue and green throughout my project.
 
 ## Features
 
-### Current Features
+### Navbar
+
+### Footer
 
 ### Home page
+
+### About
+
+### Privacy Policy
+
+### Terms & Conditions
+
+### All products
+
+### Basket
+
+### Checkout
+
+### User profile
+
+### Admin
+
+#### **Product management**
+
+### Error pages
+
+### Gmail SMTP
+
+I have used Gmail SMTP to send confirmation emails and all AllAuth related emails when the deployed version is used. I used the following [documentation](https://kb.synology.com/en-global/SRM/tutorial/How_to_use_Gmail_SMTP_server_to_send_emails_for_SRM) to set it up and add these settings to my settings.py file.
+
+### Stripe
+
+In order to take payments for the online store, I implemented Stripe; you first must create an account with them and then using the [documentation](https://stripe.com/docs/payments/quickstart) add the relevant HTML, python & JS code suitable for your needs.
+
+### AWS static and media storage
+
+All static and media files are stored in the cloud using Amazon AWS S3; I have created a bucket, user group and user that can access this site and the relevant files. In order for the files to be correctly served the following settings have to be added to your main settings.py file.
+
+
 
 ## Technology Used
 I have used several technologies that have enabled this design to work:
@@ -229,6 +279,11 @@ I have used several technologies that have enabled this design to work:
 ## Testing
 
 ### Code Validation
+[W3C Markup Validation Service](https://validator.w3.org/) 
+
+[W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/#validate_by_input)
+
+[JSHint](https://jshint.com/)
 
 ### Manual Testing
 I have tested this project manually myself and have also had it peer-reviewed & tested by friends and family on multiple devices and screen sizes.
