@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://fur-pets-store.herokuapp.com/sitemap.xml
