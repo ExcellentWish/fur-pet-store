@@ -9,6 +9,12 @@ body {
     font-family: 'Lato';
 }
 
+#social-home-page{
+    background-color: white;
+    height:50%; 
+    border-radius:5px;
+}
+
 /* from Bulma */
 .icon {
     align-items: center;
