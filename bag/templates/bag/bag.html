@@ -48,7 +48,29 @@
                         </td>
                         <td class="py-3">
                             <p class="my-0"><strong>{{ item.product.name }}</strong></p>
-                            <p class="my-0"><strong>Size: </strong>{% if item.product.has_sizes %}{{ item.size|upper }}{% else %}N/A{% endif %}</p>
+                            <p class="my-0"><strong>Size: </strong>{% if item.product.has_sizes %}{{ item.size|upper }}
+                                <select class="form-control rounded-0 w-50" name="product_size" id='id_product_size'>
+                                    <option value="xs">XS</option>
+                                    <option value="s">S</option>
+                                    <option value="m" selected>M</option>
+                                    <option value="l">L</option>
+                                    <option value="xl">XL</option>
+                                </select>
+                                {% else %}N/A
+                                {% endif %}</p>
+                            <p class="my-0"><strong>Colour: </strong>{% if item.product.has_color %}
+                                <select class="form-control rounded-0 w-50" name="product_color" id='id_product_color'>
+                                <option value="red">Red</option>
+                                <option value="blue">Blue</option>
+                                <option value="green" selected>Green</option>
+                                <option value="yellow">Yellow</option>
+                                <option value="grey">Grey</option>
+                                <option value="purple">purple</option>
+                                <option value="paige">Paige</option>
+                            </select>
+                            {{ item.color|upper }}
+                            {% else %}N/A
+                            {% endif %}</p>
                         </td>
                         <td class="py-3">
                             <p class="my-0">€{{ item.product.price }}</p>
@@ -81,11 +103,14 @@
                                         {% if item.product.has_sizes %}
                                             <input type="hidden" name="product_size" value="{{ item.size }}">
                                         {% endif %}
+                                        {% if item.product.has_color %}
+                                            <input type="hidden" name="product_color" value="{{ item.color }}">
+                                        {% endif %}
                                     </div>
                                 </div>
                             </form>
                             <a class="update-link "><small class="btn btn-success rounded-0 text-white">Update</small></a>
-                            <a class="remove-item text-white float-end" id="remove_{{ item.item_id }}" data-product_size="{{ item.size }}"><small class="btn btn-danger rounded-0">Remove</small></a>
+                            <a class="remove-item text-white float-end" id="remove_{{ item.item_id }}" data-product_size="{{ item.size }}" data-product_color="{{ item.color }}"><small class="btn btn-danger rounded-0">Remove</small></a>
                         </td>
                         <td class="py-3">
                             <p class="my-0">€{{ item.product.price | calc_subtotal:item.quantity }}</p>
