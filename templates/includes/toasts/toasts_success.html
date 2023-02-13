@@ -32,7 +32,7 @@
                     <p class="my-0 small">Size:
                         {% if item.product.has_sizes %}{{ item.size|upper }}{% else %}N/A{% endif %}</p>
                     <p class="my-0 small">Colour:
-                        {% if item.product.has_color %}{{ item.product.color|upper }}{% else %}N/A{% endif %}</p>
+                        {% if item.product.color_choice %}{{ item.color|upper }}{% else %}N/A{% endif %}</p>
                     <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
                 </div>
             </div>
