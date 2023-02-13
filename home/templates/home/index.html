@@ -13,11 +13,26 @@
             <h1 class="logo-font mt-5 text-black">
                 Welcome to Fur Pets Store
             </h1>
-            <p class="text-black">
-                Dedication to our bests friends is what we aim for.
-            </p>
+            
+            <div class="">
+                <div>
+                    <p>Join us and get access to premium deals</p>
+                </div>
+            <div>
+                <a class="btn" href="{% url 'account_login' %}">
+                    <button class="btn bg-success text-white">
+                        <span >Sign in</span>
+                    </button>
+                </a>
+                <a class= "btn" href= "{% url 'account_signup' %}">
+                    <button class="btn bg-info text-white">
+                        <span >Register</span>
+                    </button>
+                </a>
+            </div>
         </div>
     </div>
+</div>
 </div>
 {% endblock %}
 
@@ -37,7 +52,8 @@
             <div class="col-12 col-md-6" id="social-home-page">
                 <h4>Social</h4>
                 <p>Keep up to date with all our latest offers</p>
-                <a href="https://www.facebook.com/profile.php?id=100089701824108" target="_blank" class="text-decoration-none text-info" aria-label="Opens facebook page"> Follow us on
+                <a href="https://www.facebook.com/profile.php?id=100089701824108" target="_blank"
+                    class="text-decoration-none text-info" aria-label="Opens facebook page"> Follow us on
                     Facebook! <i class="fa-brands fa-facebook"></i></a>
             </div>
             <div class="col-12 col-md-6 mt-3 mt-md-0">
@@ -57,8 +73,8 @@
                             <div class="mc-field-group">
                                 <label for="mce-EMAIL">Email Address <span class="asterisk">*</span>
                                 </label>
-                                <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL"
-                                    required placeholder="Email required">
+                                <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" required
+                                    placeholder="Email required">
                                 <span id="mce-EMAIL-HELPERTEXT" class="helper_text"></span>
                             </div>
                             <div id="mce-responses" class="clear foot">
@@ -71,7 +87,7 @@
                             <div class="optionalParent">
                                 <div class="clear foot">
                                     <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe"
-                                        class="button" >
+                                        class="button">
                                     <p class="brandingLogo"><a href="http://eepurl.com/ia_yv5"
                                             title="Mailchimp - email marketing made easy and fun"><img
                                                 src="https://eep.io/mc-cdn-images/template_images/branding_logo_text_dark_dtp.svg"
