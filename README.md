@@ -306,7 +306,7 @@ solution backports.zoneinfo==0.2.1;python_version<"3.9" for heroku deployment
 
 backports.zoneinfo commented out for automatic deployment ? (test= success) 
 
-
+context processor error when adding size to bag view for 8 'dict' 
 ## Deployment
 
 To deploy my django application, I used [Code Institute Full Template](https://github.com/Code-Institute-Org/gitpod-full-template)
