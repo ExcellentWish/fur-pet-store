@@ -118,6 +118,33 @@
                         {% endwith %}
                     </div>
                 </form>
+                <div class="card-body">
+                    {% if product.in_stock %}
+                    <!-- only display add to product form if the product is in stock -->
+                                                    <!-- for wishlist -->
+                        {% if request.user.is_authenticated %}
+                        
+                            <a href="{% url 'add_to_wishlist' product.id %}" id="{{ product.id }}-wishlist-btn" class="btn card-link green-link ">
+                                <!-- if there are no items in wishlist -->
+                                {% if wishlist_items|length == 0 %}
+                                <i class="far fa-heart btn bg-info" title="add to wishlist">Add to WishList</i>
+                                {% else %}
+                                <!-- if the product is in the wishlist, display full heart -->
+                                {% if product in wishlist_items %}
+                                <i class="fas fa-heart btn bg-danger" title="remove from wishlist">Remove to WishList</i>
+                                {% else %}
+                                <!-- if the product is not in wishlist, display empty heart -->
+                                <i class="far fa-heart btn bg-info" title="add to wishlist"> Add to WishList</i>
+                                {% endif %}
+                                {% endif %}
+                            </a>
+
+                        {% else %}
+                        <h7>sorry, currently out of stock.</h7>
+
+                        {% endif %}
+                    {% endif %}
+                </div>
             </div>
         </div>
     </div>
