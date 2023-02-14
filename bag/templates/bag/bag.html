@@ -49,8 +49,6 @@
                         <td class="py-3">
                             <p class="my-0"><strong>{{ item.product.name }}</strong></p>
                             <p class="my-0"><strong>Size: </strong>{% if item.product.has_sizes %}{{ item.size|upper }}{% else %}N/A{% endif %}</p>
-                            <p class="my-0"><strong>Colour: </strong>{% if item.product.color_choice %}{{ item.color|upper }}{% else %}N/A{% endif %}</p>
-                            
                         </td>
                         <td class="py-3">
                             <p class="my-0">€{{ item.product.price }}</p>
@@ -83,14 +81,11 @@
                                         {% if item.product.has_sizes %}
                                             <input type="hidden" name="product_size" value="{{ item.size }}">
                                         {% endif %}
-                                        {% if item.product.has_color %}
-                                            <input type="hidden" name="product_color" value="{{ item.color }}">
-                                        {% endif %}
                                     </div>
                                 </div>
                             </form>
                             <a class="update-link "><small class="btn btn-success rounded-0 text-white">Update</small></a>
-                            <a class="remove-item text-white float-end" id="remove_{{ item.item_id }}" data-product_size="{{ item.size }}" data-product_color="{{ item.color }}"><small class="btn btn-danger rounded-0">Remove</small></a>
+                            <a class="remove-item text-white float-end" id="remove_{{ item.item_id }}" data-product_size="{{ item.size }}"><small class="btn btn-danger rounded-0">Remove</small></a>
                         </td>
                         <td class="py-3">
                             <p class="my-0">€{{ item.product.price | calc_subtotal:item.quantity }}</p>

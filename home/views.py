@@ -75,3 +75,4 @@ class ContactPage(View):
                 request, messages.ERROR, "Something is not right with your form - please make sure your email address is entered in the correct format.")
 
             return render(request, template, {'contact_form': contact_form})
+

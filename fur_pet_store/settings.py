@@ -127,8 +127,6 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
                 'bag.contexts_processor.bag_contents',
-                # wishlist context
-                'profiles.contexts_processor.get_wish_list',
             ],
             'builtins': [
                 'crispy_forms.templatetags.crispy_forms_tags',

@@ -64,11 +64,11 @@
                         </div>
                         {% endif %}
                         <div class="form-row">
-                            {% with product.has_color as g %}
-                            {% if g %}
+                            {% with product.has_color as s %}
+                            {% if s %}
                             <div class="col-12 text-black">
-                                <p><strong>Colour:</strong></p>
-                                <select class="form-control rounded-0 w-50" name="product_color" id='id_product_color'>
+                                <p><strong>Size:</strong></p>
+                                <select class="form-control rounded-0 w-50" name="product_size" id='id_product_size'>
                                     <option value="red">Red</option>
                                     <option value="blue">Blue</option>
                                     <option value="green" selected>Green</option>

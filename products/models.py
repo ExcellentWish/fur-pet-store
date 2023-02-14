@@ -24,9 +24,6 @@ class Product(models.Model):
     description = models.TextField()
     has_sizes = models.BooleanField(default=False, null=True, blank=True)
     has_color = models.BooleanField(default=False, null=True, blank=True)
-
-    color = (('red', 'Red'), ('blue', 'Blue'),('green', 'Green'),('purple', 'Purple'), ('paige', 'Paige'),('grey', 'Grey'),('yellow', 'Yellow'))
-    color_choice = models.CharField(max_length=20,choices=color, default='red')
     price = models.DecimalField(max_digits=6, decimal_places=2)
     rating = models.DecimalField(max_digits=6, decimal_places=2, null=True,
                                  blank=True)
