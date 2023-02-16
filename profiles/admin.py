@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import UserProfile
+from .models import UserProfile, UserWishlist
 # Register your models here.
 
 @admin.register(UserProfile)
@@ -13,3 +13,9 @@ class UserAdmin(admin.ModelAdmin):
               'default_country')
 
     list_display = ('user', 'full_name', 'default_email')
+
+@admin.register(UserWishlist)
+class WishlistAdmin(admin.ModelAdmin):
+    model = UserWishlist
+    fields = ('user', 'product')
+    list_display = ('user', 'product')

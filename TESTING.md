@@ -56,3 +56,4 @@
  
 
 
+django.db.utils.ProgrammingError: relation "profiles_userwishlist" already exists soloution Elephantsql DROP TABLE profiles_userwishlist;
