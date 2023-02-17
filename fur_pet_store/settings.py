@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'reviews',
 
     # other
+    'django_summernote',
     'crispy_forms',
     'crispy_bootstrap5',
     'django_countries',
@@ -66,7 +67,7 @@ CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
-CSRF_TRUSTED_ORIGINS = ['https://8000-excellentwi-furpetstore-kduwj7cwrsr.ws-eu86.gitpod.io']
+CSRF_TRUSTED_ORIGINS = ['https://8000-excellentwi-furpetstore-kduwj7cwrsr.ws-eu87.gitpod.io']
 
 if 'DEVELOPMENT' in os.environ:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

@@ -1,9 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block extra_css %}
-<link rel="stylesheet" href="{% static 'product/css/product.css' %}">
-{% endblock %}
+
 
 {% block page_header %}
 <div class="container header-container">
@@ -30,19 +28,84 @@
                 {% endif %}
             </div>
         </div>
-    
-        <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
-            
-            Reviews Like and dislikes
-            
+
+        <div class="col-12 col-md-6 col-lg-4 mb-4 text-black">
+            <div class="product-details-container mb-5 mt-md-5">
+
+                <div class="card-body">
+                    <div class="card-body">
+
+
+                        <!-- for wishlist -->
+
+
+                        <a href=" " id="" class=" ">
+                            <!-- if there are no items in wishlist -->
+
+                            <i class="far fa-heart btn bg-info" title="add to wishlist"></i>
+
+                            <!-- if the product is in the wishlist, display full heart -->
+
+                            <i class="fas fa-heart btn bg-danger" title="remove from wishlist"></i>
+
+                            <!-- if the product is not in wishlist, display empty heart -->
+                            <i class="far fa-heart btn bg-info" title="add to wishlist"></i>
+
+                        </a>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8 card mb-4  mt-3 ">
+                            <h3>Reviews:</h3>
+                            <div class="card-body">
+                                <!-- We want a for loop inside the empty control tags to iterate through each comment in comments -->
+                                {% for review in reviews %}
+                                <div class="reviews" style="padding: 10px;">
+                                    <p class="font-weight-bold">
+                                        <!-- The reviews name goes here. Check the model if you're not sure what that is -->
+                                        {{ review.user }}
+                                        <span class=" text-muted font-weight-normal">
+                                            <!-- The comment's created date goes here -->
+                                            {{ review.created_date }}
+                                        </span> wrote:
+                                    </p>
+                                    <!-- The body of the comment goes before the | -->
+                                    {{ review.body | linebreaks }}
+                                </div>
+                                <!-- Our for loop ends here -->
+                                {% endfor %}
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 card mb-4  mt-3 ">
+                            <div class="card-body">
+
+                                {% if reviewed %}
+                                <div class="alert alert-success" role="alert">
+                                    Your review is awaiting approval
+                                </div>
+                                {% else %}
+                                {% if user.is_authenticated %}
+
+                                <h3>Leave a review:</h3>
+                                <p>Posting as: {{ user.username }}</p>
+                                <form method="post" style="margin-top: 1.3em;">
+                                    {% csrf_token %}
+                                    {{ form | crispy }}
+                                    
+                                    <button type="submit" class="btn btn-info rounded-3">Submit</button>
+                                </form>
+                                {% endif %}
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        
-    </div>
-</div>
+        {% endblock %}
+        {% block postloadjs %}
+        {{ block.super }}
 
-{% endblock %}
-
-{% block postloadjs %}
-{{ block.super }}
-
-{% endblock %}
+        {% endblock %}

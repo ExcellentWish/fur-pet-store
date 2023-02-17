@@ -1,6 +1,5 @@
 from django.db import models
 from django.contrib.auth.models import User
-from profiles.models import UserProfile
 from products.models import Product
 
 # Create your models here.
@@ -8,14 +7,19 @@ from products.models import Product
 
 class Review(models.Model):
     title = models.CharField(max_length=200)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
     body = models.TextField()
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    posted_by = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="review_added",
+        null=True)
     likes = models.ManyToManyField(User, related_name='review_likes', blank=True)
     dislikes = models.ManyToManyField(User, related_name='review_dislikes', blank=True)
     created_date = models.DateTimeField(auto_now_add=True)
     approved = models.BooleanField(default=False)
 
+    """will order class based on crrated on date.
+        inspired by code institue blog walk through project """
     class Meta:
         ordering = ["-created_date"]
 
