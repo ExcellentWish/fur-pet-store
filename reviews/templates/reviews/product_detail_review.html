@@ -31,7 +31,7 @@
 
         <div class="col-12 col-md-6 col-lg-4 mb-4 text-black">
             <div class="product-details-container mb-5 mt-md-5">
-
+                <p class="mb-0">{{ product.name }}</p>
                 <div class="card-body">
                     <div class="card-body">
 
@@ -46,7 +46,7 @@
 
                             <!-- if the product is in the wishlist, display full heart -->
 
-                            <i class="fas fa-heart btn bg-danger" title="remove from wishlist"></i>
+                            <i class="fa-solid fa-thumbs-down btn bg-danger" title="dislike"></i>
 
                             <!-- if the product is not in wishlist, display empty heart -->
                             <i class="far fa-heart btn bg-info" title="add to wishlist"></i>
@@ -60,20 +60,27 @@
                                 <!-- We want a for loop inside the empty control tags to iterate through each review -->
                                 {% for review in reviews %}
                                 <div class="review">
+                                    <hr>
+                                    <p>Written by {{ review.user }}</p>
                                     <p>{{ review.body }}</p>
-                                    <p>Written by {{ review.user }} on {{ review.created_date }}</p>
+                                    <p>{{ review.created_date }}</p>
                                 </div>
+                                <hr>
                                 {% endfor %}
                                 <!-- Our for loop ends here -->
-                                
+
                             </div>
                         </div>
 
                     </div>
                     <div class="row">
-                        <div class="col-md-4 card mb-4  mt-3 ">
+                        <div class="col-md-8 card mb-4  mt-3 ">
                             <div class="card-body">
-
+                                {% if reviewed %}
+                                <div class="alert alert-success" role="alert">
+                                    Your Review is awaiting approval
+                                </div>
+                                {% else %}
                                 {% if user.is_authenticated %}
 
                                 <h3>Leave a review:</h3>
@@ -85,8 +92,10 @@
                                     <button type="submit" class="btn btn-info rounded-3">Submit</button>
                                 </form>
                                 {% else %}
-                                please log in to leave a review
-                                
+                                <h3>please log in to leave a review</h3>
+                                <a href="{% url 'account_signup' %}" class="btn btn-success">Register</a>
+                                <a href="{% url 'account_login' %}" class="btn btn-info">Login</a>
+                                {% endif %}
                                 {% endif %}
                             </div>
                         </div>

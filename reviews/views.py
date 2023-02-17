@@ -13,13 +13,12 @@ from products.models import Product
 class ProductDetailReview(View):
     def get(self, request, product_id, *args, **kwargs):
         product = get_object_or_404(Product, pk=product_id)
-        reviews = Review.objects.filter(product=product)
+        reviews = Review.objects.filter(product=product, approved=True).order_by("-created_date")
         template = 'reviews/product_detail_review.html'
         liked = False
         for review in reviews:
             if review.likes.filter(id=self.request.user.id).exists():
                 liked = True
-                
 
         return render(request,
             template,
@@ -34,13 +33,23 @@ class ProductDetailReview(View):
 
     def post(self, request, product_id, *args, **kwargs):
         product = get_object_or_404(Product, pk=product_id)
-        reviews = Review.objects.filter(product=product)
+        reviews = Review.objects.filter(product=product, approved=True).order_by("-created_date")
         liked = False
         for review in reviews:
             if review.likes.filter(id=self.request.user.id).exists():
                 liked = True
-                
 
+        form = ReviewForm(data=request.POST)
+        if form.is_valid():
+            form.instance.user = request.user
+            form.instance.product = product
+            review = form.save(commit=False)
+            Review.objects.filter(user_id=3).delete()
+            review = form.save()
+            
+        else:
+            form = ReviewForm()
+        
         return render(
             request,
             "reviews/product_detail_review.html",
@@ -49,7 +58,7 @@ class ProductDetailReview(View):
                 "reviews": reviews,
                 "liked": liked,
                 "reviewed": True,
-                "form": ReviewForm()
+                "form": form
             },
         )
 
@@ -63,40 +72,3 @@ class ReviewLike(View):
             review.likes.add(request.user)
 
         return HttpResponseRedirect(reverse("reviews/product_detail_review.html", args=[review.product.pk]))
-
-@login_required
-def add_review(request, product_id):
-    """
-    view to add reviews to the db
-    """
-    # checks if user has permition to add products
-    if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only site admin can do that.')
-        return redirect(reverse('products'))
-
-    if request.method == 'POST':
-        product = get_object_or_404(Product, pk=product_id)
-        print(product)        
-        form = ReviewForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save(commit=False)
-            form.instance.posted_by = request.user
-            form.instance.product = product
-            form.save()
-            messages.success(request, 'review Added')
-            return redirect(reverse('products',))
-        else:
-            messages.error(
-                request,
-                'The review was not added. Please check the form is valid.'
-            )
-    else:
-        form = ReviewForm()
-
-    template = "reviews/product_detail_review.html"
-    context = {
-        'form': form,
-    }
-
-    return render(request, template, context)
-
