@@ -19,7 +19,7 @@ class ProductDetailReview(View):
         for review in reviews:
             if review.likes.filter(id=self.request.user.id).exists():
                 liked = True
-                break
+                
 
         return render(request,
             template,
@@ -39,7 +39,7 @@ class ProductDetailReview(View):
         for review in reviews:
             if review.likes.filter(id=self.request.user.id).exists():
                 liked = True
-                break
+                
 
         return render(
             request,
@@ -48,7 +48,8 @@ class ProductDetailReview(View):
                 "product": product,
                 "reviews": reviews,
                 "liked": liked,
-                "reviewed": False
+                "reviewed": True,
+                "form": ReviewForm()
             },
         )
 
@@ -74,7 +75,6 @@ def add_review(request, product_id):
         return redirect(reverse('products'))
 
     if request.method == 'POST':
-    
         product = get_object_or_404(Product, pk=product_id)
         print(product)        
         form = ReviewForm(request.POST, request.FILES)

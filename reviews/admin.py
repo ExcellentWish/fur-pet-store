@@ -8,7 +8,7 @@ from django_summernote.admin import SummernoteModelAdmin
 
 @admin.register(Review)
 class ReviewAdmin(admin.ModelAdmin):
-    list_display = ('user', 'body', 'created_date', 'approved')
+    list_display = ('user','title', 'body', 'created_date', 'approved')
     list_filter = ('approved', 'created_date')
     search_fields = ('name', 'email', 'body')
     actions = ['approve_comments']
