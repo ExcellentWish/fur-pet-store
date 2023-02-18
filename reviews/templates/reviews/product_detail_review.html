@@ -1,7 +1,9 @@
 {% extends "base.html" %}
 {% load static %}
 
-
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'home/css/home.css' %}">
+{% endblock %}
 
 {% block page_header %}
 <div class="container header-container">
@@ -42,14 +44,14 @@
                         <a href=" " id="" class=" ">
                             <!-- if there are no items in wishlist -->
 
-                            <i class="far fa-heart btn bg-info" title="add to wishlist"></i>
+                            <i class="far fa-heart btn bg-info" title="like"></i>
 
                             <!-- if the product is in the wishlist, display full heart -->
 
                             <i class="fa-solid fa-thumbs-down btn bg-danger" title="dislike"></i>
 
                             <!-- if the product is not in wishlist, display empty heart -->
-                            <i class="far fa-heart btn bg-info" title="add to wishlist"></i>
+                            <i class="fas fa-heart btn bg-info" title="liked"></i>
 
                         </a>
                     </div>
@@ -87,31 +89,25 @@
                         <div class="col-md-8 card mb-4  mt-3 ">
                             <div class="card-body">
                                 {% if user.is_authenticated %}
-                                {% for review in reviews %}
-                                    {% if review and user == review.posted_by %}
-                                    <h3>Thank you for the review</h3>
-                                    <p>We appreciate your feedback</p>
-
+                                    {% if reviewed %}
+        
+                                        <h3>Thank you for the review</h3>
+                                        <p>We appreciate your feedback</p>
                                     {% else %}
-                                    <h3>Leave a review:</h3>
-                                    <p>Posting as: {{ user.username }}</p>
-                                    <form method="POST" >
-                                        {% csrf_token %}
-                                        {{ form.as_p }}
-
-                                        <button type="submit" class="btn btn-info rounded-3">Submit A Review</button>
-                                        
-                                    </form>
+                                        <h3>Leave a review:</h3>
+                                        <p>Posting as: {{ user.username }}</p>
+                                        <form method="POST" >
+                                            {% csrf_token %}
+                                            {{ form.as_p }}
+                                            <button type="submit" class="btn btn-info rounded-3">Submit A Review</button>
+                                        </form>
                                     {% endif %}
-                                    {% endfor %}
-
-                                {% else %}
+                                    
+                                {% else %}    
                                 <h3>Please log in to leave a review</h3>
                                 <a href="{% url 'account_signup' %}" class="btn btn-success">Register</a>
                                 <a href="{% url 'account_login' %}" class="btn btn-info">Login</a>
-
-                                {% endif %}
-                                
+                                {% endif %}   
                             </div>
                         </div>
                     </div>

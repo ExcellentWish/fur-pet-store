@@ -17,6 +17,15 @@ class ProductDetailReview(View):
         reviews = Review.objects.filter(product=product, approved=True).order_by("-created_date")
         template = 'reviews/product_detail_review.html'
         liked = False
+        reviewed = False
+        if request.user.is_authenticated:
+            try:
+                Review.objects.get(product=product, user=request.user)
+                reviewed = True
+            except Review.DoesNotExist:
+                pass
+
+
         for review in reviews:
             if review.likes.filter(id=self.request.user.id).exists():
                 liked = True
@@ -25,7 +34,7 @@ class ProductDetailReview(View):
                 "product": product,
                 'reviews': reviews,
                 "liked": liked,
-                "reviewed": False,
+                "reviewed": reviewed,
                 "form": ReviewForm(),      
              },
         )
@@ -34,6 +43,7 @@ class ProductDetailReview(View):
         product = get_object_or_404(Product, pk=product_id)
         reviews = Review.objects.filter(product=product, approved=True).order_by("-created_date")
         liked = False
+        
         for review in reviews:
             if review.likes.filter(id=self.request.user.id).exists():
                 liked = True
