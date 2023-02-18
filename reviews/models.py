@@ -24,6 +24,9 @@ class Review(models.Model):
         ordering = ["-created_date"]
 
     def __str__(self):
+        return self.title
+        
+    def __str__(self):
         return f"Comment {self.body} by {self.user}"
 
     def number_of_likes(self):

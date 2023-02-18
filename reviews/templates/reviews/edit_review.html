@@ -19,7 +19,7 @@
                 <ul class="full-form">
 
                     {% csrf_token %}
-                    {{ form | crispy }}
+                    {{ form.as_p }}
                     <button type="submit" class="button mt-4 text-center submit-button">Edit Review</button>
                 </ul>
             </form>

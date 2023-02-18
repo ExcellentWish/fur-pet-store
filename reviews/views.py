@@ -1,4 +1,5 @@
 from django.shortcuts import render, reverse, redirect, get_object_or_404
+from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .models import Review
@@ -22,10 +23,10 @@ class ProductDetailReview(View):
 
         return render(request, template, {
                 "product": product,
+                'reviews': reviews,
                 "liked": liked,
                 "reviewed": False,
-                "form": ReviewForm(),
-                
+                "form": ReviewForm(),      
              },
         )
 
@@ -37,27 +38,28 @@ class ProductDetailReview(View):
             if review.likes.filter(id=self.request.user.id).exists():
                 liked = True
 
-        form = ReviewForm(data=request.POST)
+        # Create a new instance of the ReviewForm using the POST data
+        form = ReviewForm(request.POST, request.FILES)
         if form.is_valid():
-            form.instance.user = request.user
-            form.instance.product = product
+            # Save the form and associate it with the current user and product
             review = form.save(commit=False)
-            Review.objects.filter(user_id=3).delete()
-            review = form.save()
+            review.user = request.user
             
-        else:
-            form = ReviewForm()
+            review.product = product
+            review.save()
+            return HttpResponseRedirect(reverse('product_detail_review', args=[product_id]))
         
+        # If the form is not valid, return to the template with the errors and the original form data
         return render(
             request,
             "reviews/product_detail_review.html",
             {
                 "product": product,
+                'reviews': reviews,
                 "reviews": reviews,
                 "liked": liked,
                 "reviewed": True,
-                "form": form
-                
+                "form": form,
             },
         )
 
@@ -127,6 +129,9 @@ def delete_review(request, review_id):
     # View for user to delete review
     def get(self, request, review_id, *args, **kwargs):
         return render(request, "reviews/delete_review.html")   
+
+
+
 
 class ReviewLike(View):
     

@@ -59,12 +59,23 @@
                             <div class="card-body">
                                 <!-- We want a for loop inside the empty control tags to iterate through each review -->
                                 {% for review in reviews %}
+                                
+                                
                                 <div class="review">
                                     <hr>
+                                    
                                     <p>Written by {{ review.user }}</p>
+                                    <hr>
+                                    <p>{{ review.title }}</p>
+                                    <hr>
                                     <p>{{ review.body }}</p>
+                                    <hr>
                                     <p>{{ review.created_date }}</p>
+                                    
+                                    
                                 </div>
+                                {% empty %}
+                                <p>No reviews yet.</p>
                                 <hr>
                                 {% endfor %}
                                 <!-- Our for loop ends here -->
@@ -80,14 +91,15 @@
 
                                 <h3>Leave a review:</h3>
                                 <p>Posting as: {{ user.username }}</p>
-                                <form method="post" style="margin-top: 1.3em;">
+                                <form method="POST" >
                                     {% csrf_token %}
-                                    {{ form | crispy }}
+                                    {{ form.as_p }}
 
-                                    <button type="submit" class="btn btn-info rounded-3">Submit A Review</button>
-
+                                    
                                     {% if user == review.posted_by %}
-                                    <a href="{% url 'edit_review' review_id %}" class="btn btn-success rounded-3">Edit Review</a>
+                                    <a href="{% url 'edit_review' review.id %}" class="btn btn-success rounded-3">Edit Review</a>
+                                    {% else %}
+                                    <button type="submit" class="btn btn-info rounded-3">Submit A Review</button>
                                     {% endif %}
                                 </form>
 

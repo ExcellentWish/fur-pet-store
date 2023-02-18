@@ -13,9 +13,15 @@
             <h1 class="logo-font mt-5 text-black">
                 Welcome to Fur Pets Store
             </h1>
-            <p class="text-black">
+            {% if user.is_authenticated %}
+            <h4 class="text-black">
                 Dedication to our bests friends is what we aim for.
-            </p>
+            </h4>
+            {% else %}
+            <h4>Please log in or register for an account</h4>
+            <a href="{% url 'account_signup' %}" class="btn btn-success">Register</a>
+            <a href="{% url 'account_login' %}" class="btn btn-info">Login</a>
+            {% endif %}
         </div>
     </div>
 </div>
