@@ -70,6 +70,7 @@
                                     <p>{{ review.created_date }} Written by {{ review.user }}</p>
                                     {% if review and user == review.posted_by %}
                                     <a href="{% url 'edit_review' review.id %}" class="btn btn-success rounded-3">Edit Review</a>
+                                    <a href="{% url 'delete_review' review.id %}" class="btn btn-danger rounded-3">Delete Review</a>
                                     {% endif %}
                                 </div>
                                 {% empty %}
@@ -86,18 +87,23 @@
                         <div class="col-md-8 card mb-4  mt-3 ">
                             <div class="card-body">
                                 {% if user.is_authenticated %}
+                                {% for review in reviews %}
+                                    {% if review and user == review.posted_by %}
+                                    <h3>Thank you for the review</h3>
+                                    <p>We appreciate your feedback</p>
 
-                                <h3>Leave a review:</h3>
-                                <p>Posting as: {{ user.username }}</p>
-                                <form method="POST" >
-                                    {% csrf_token %}
-                                    {{ form.as_p }}
+                                    {% else %}
+                                    <h3>Leave a review:</h3>
+                                    <p>Posting as: {{ user.username }}</p>
+                                    <form method="POST" >
+                                        {% csrf_token %}
+                                        {{ form.as_p }}
 
-                                    <button type="submit" class="btn btn-info rounded-3">Submit A Review</button>
-                                    
-                                </form>
-
-
+                                        <button type="submit" class="btn btn-info rounded-3">Submit A Review</button>
+                                        
+                                    </form>
+                                    {% endif %}
+                                    {% endfor %}
 
                                 {% else %}
                                 <h3>Please log in to leave a review</h3>

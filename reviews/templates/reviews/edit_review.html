@@ -2,6 +2,10 @@
 
 {% load static %}
 
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'home/css/home.css' %}">
+{% endblock %}
+
 {% block page_header %}
 <div class="container header-container">
     <div class="row">
@@ -28,9 +32,11 @@
 
                     {% csrf_token %}
                     {{ form.as_p }}
-                    <button type="submit" class="button mt-4 text-center submit-button">Edit Review</button>
+                    
+                    <button type="submit" class="btn btn-success rounded-3">Edit Review</button>
+                    <a href="{% url 'delete_review' review.id %}" class="btn btn-danger rounded-3">Delete Review</a>
                 </ul>
-                <a href="{% url 'delete_review' review.id %}" class="btn btn-success rounded-3">delete Review</a>
+                
             </form>
         </div>
     </div>

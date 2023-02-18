@@ -46,6 +46,7 @@ class ProductDetailReview(View):
             review.user = request.user
             review.product = product
             review.save()
+            messages.success(request, 'You left a review. Please wait for approval')
             return HttpResponseRedirect(reverse('product_detail_review', args=[product_id]))
         
         # If the form is not valid, return to the template with the errors and the original form data
@@ -97,6 +98,7 @@ class EditReview(View):
             # Save the edited review
             edited_review = form.save()            
             # Redirect to the product detail page
+            messages.success(request, 'Your review has been edited.')
             return redirect(reverse('product_detail_review', args=[review.product.id]))
         
         return render(
@@ -111,11 +113,26 @@ class EditReview(View):
 
 
 class DeleteReview(View):
-    @login_required
-    def delete_review(request, review_id):
-        # View for user to delete review
-        def get(self, request, review_id, *args, **kwargs):
-            return render(request, "reviews/delete_review.html")   
+
+    def get(self, request, review_id):
+        review = get_object_or_404(Review, id=review_id)
+        # Check if the current user has permission to delete the review
+        if request.user != review.user:
+            messages.error(request, 'Sorry, only the user who created this review can delete it.')
+            return redirect(reverse('product_detail_review', args=[review.product.id]))
+
+        context = {'review': review}
+
+        return render(request, 'reviews/delete_review.html', context)
+
+    def post(self, request, review_id):
+        # Get the review to delete
+        review = get_object_or_404(Review, pk=review_id)
+        # Delete the review
+        review.delete()
+        messages.success(request, 'Your review has been deleted.')
+        # Redirect to the product detail page
+        return redirect(reverse('product_detail_review', args=[review.product.id])) 
 
 
 
