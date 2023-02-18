@@ -2,6 +2,14 @@
 
 {% load static %}
 
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
 {% block content %}
 <div class="container">
     <div class="row d-flex justify-content-center">
@@ -22,6 +30,7 @@
                     {{ form.as_p }}
                     <button type="submit" class="button mt-4 text-center submit-button">Edit Review</button>
                 </ul>
+                <a href="{% url 'delete_review' review.id %}" class="btn btn-success rounded-3">delete Review</a>
             </form>
         </div>
     </div>

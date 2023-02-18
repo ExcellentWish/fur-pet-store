@@ -44,7 +44,6 @@ class ProductDetailReview(View):
             # Save the form and associate it with the current user and product
             review = form.save(commit=False)
             review.user = request.user
-            
             review.product = product
             review.save()
             return HttpResponseRedirect(reverse('product_detail_review', args=[product_id]))
@@ -65,70 +64,58 @@ class ProductDetailReview(View):
 
 class EditReview(View):
     def get(self, request, review_id, *args, **kwargs):
-        reviews  = get_object_or_404(Reviews, pk=review_id)
+        # Get the review object to edit
+        review = get_object_or_404(Review, pk=review_id)
 
-        # checks if user has permition to add products
+        # checks if user has permission to edit there review
         if request.user != review.posted_by:
             messages.error(request, 'Sorry, only the user the created this review can do that.')
             return redirect(reverse('product_detail_review'))
         
-        reviews = Review.objects.filter(product=product, approved=True).order_by("-created_date")
         template = 'reviews/edit_review.html'
-        liked = False
-        for review in reviews:
-            if review.likes.filter(id=self.request.user.id).exists():
-                liked = True
+        form = ReviewForm(instance=review)
 
         return render(request,
             template,
             {
-                "product": product,
-                "liked": liked,
-                "reviewed": False,
-                "form": ReviewForm(),
-                'review_id' : review_id
+                "product": review.product,
+                "review": review,
+                "form": form,
              },
         )
 
     def post(self, request, review_id, *args, **kwargs):
-        product = get_object_or_404(Product, pk=review_id)
-        reviews = Review.objects.filter(product=product, approved=True).order_by("-created_date")
-        liked = False
-        for review in reviews:
-            if review.likes.filter(id=self.request.user.id).exists():
-                liked = True
+        # Get the review to edit
+        review = get_object_or_404(Review, pk=review_id)
 
-        form = ReviewForm(data=request.POST)
+        if request.user != review.user:
+            messages.error(request, 'Sorry, only the user who created this review can edit it.')
+            return redirect(reverse('product_detail_review', args=[review.product.id]))
+
+        form = ReviewForm(request.POST, instance=review)
         if form.is_valid():
-            form.instance.user = request.user
-            form.instance.product = product
-            review = form.save(commit=False)
-            Review.objects.filter(user_id=3).delete()
-            review = form.save()
-            
-        else:
-            form = ReviewForm()
+            # Save the edited review
+            edited_review = form.save()            
+            # Redirect to the product detail page
+            return redirect(reverse('product_detail_review', args=[review.product.id]))
         
         return render(
             request,
             "reviews/edit_review.html",
             {
-                "product": product,
-                "reviews": reviews,
-                "liked": liked,
-                "reviewed": True,
-                "form": form,
-                'review_id' : review_id
+                'form': form,
+                'review': review,
             },
         ) 
     
 
 
-@login_required
-def delete_review(request, review_id):
-    # View for user to delete review
-    def get(self, request, review_id, *args, **kwargs):
-        return render(request, "reviews/delete_review.html")   
+class DeleteReview(View):
+    @login_required
+    def delete_review(request, review_id):
+        # View for user to delete review
+        def get(self, request, review_id, *args, **kwargs):
+            return render(request, "reviews/delete_review.html")   
 
 
 

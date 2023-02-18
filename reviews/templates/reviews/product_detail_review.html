@@ -63,16 +63,14 @@
                                 
                                 <div class="review">
                                     <hr>
-                                    
-                                    <p>Written by {{ review.user }}</p>
-                                    <hr>
-                                    <p>{{ review.title }}</p>
+                                    <p>Title: {{ review.title }}</p>
                                     <hr>
                                     <p>{{ review.body }}</p>
                                     <hr>
-                                    <p>{{ review.created_date }}</p>
-                                    
-                                    
+                                    <p>{{ review.created_date }} Written by {{ review.user }}</p>
+                                    {% if review and user == review.posted_by %}
+                                    <a href="{% url 'edit_review' review.id %}" class="btn btn-success rounded-3">Edit Review</a>
+                                    {% endif %}
                                 </div>
                                 {% empty %}
                                 <p>No reviews yet.</p>
@@ -95,12 +93,8 @@
                                     {% csrf_token %}
                                     {{ form.as_p }}
 
-                                    
-                                    {% if user == review.posted_by %}
-                                    <a href="{% url 'edit_review' review.id %}" class="btn btn-success rounded-3">Edit Review</a>
-                                    {% else %}
                                     <button type="submit" class="btn btn-info rounded-3">Submit A Review</button>
-                                    {% endif %}
+                                    
                                 </form>
 
 
