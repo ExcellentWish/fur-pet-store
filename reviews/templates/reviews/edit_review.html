@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <div class="row d-flex justify-content-center">
+
+        <div class="col-sm-8">
+            <h2 class="text-center mt-2 mb-3">Edit your Review</h2>
+        </div>
+    </div>
+
+    <div class="row d-flex justify-content-center">
+
+        <div class="col-sm-6">
+            <!--  form -->
+            <form method="POST" class="mb-5">
+                <ul class="full-form">
+
+                    {% csrf_token %}
+                    {{ form | crispy }}
+                    <button type="submit" class="button mt-4 text-center submit-button">Edit Review</button>
+                </ul>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

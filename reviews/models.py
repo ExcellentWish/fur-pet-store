@@ -7,7 +7,7 @@ from products.models import Product
 
 class Review(models.Model):
     title = models.CharField(max_length=200)
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='reviews')
     body = models.TextField()
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     posted_by = models.ForeignKey(
