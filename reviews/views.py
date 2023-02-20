@@ -15,7 +15,7 @@ class ProductDetailReview(View):
     def get(self, request, product_id, *args, **kwargs):
         product = get_object_or_404(Product, pk=product_id)
         try:
-            review = Review.objects.get(product=product, user=request.user)
+            review = Review.objects.get(product=product)
         except Review.DoesNotExist:
             review = None
         reviews = Review.objects.filter(product=product, approved=True).order_by("-created_date")
