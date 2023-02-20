@@ -40,23 +40,25 @@
                         {% if review %}
                         <form method="post" action="{% url 'review_like_dislike' pk=review.pk %}">
                             {% csrf_token %}
-                            <button type="submit" name="like" class="btn btn-sm btn-outline-primary {% if liked %}active{% endif %}">
+                            <button type="submit" name="like"
+                                class="btn btn-sm btn-success {% if liked %}active{% endif %}">
                                 <i class="fas fa-thumbs-up"></i> Like<p>{{ review.number_of_likes }}</p>
                             </button>
-                            <button type="submit" name="dislike" class="btn btn-sm btn-outline-secondary {% if disliked %}active{% endif %}">
-                                <i class="fas fa-thumbs-down"></i> Dislike<p>{{ review.number_of_dislikes }}</p>
+                            <button type="submit" name="dislike"
+                                class="btn btn-sm btn-danger {% if disliked %}active{% endif %}">
+                                <i class="fas fa-thumbs-down"></i> Dislike <p>{{ review.number_of_dislikes }}</p>
                             </button>
                         </form>
                         {% else %}
-                                <p>No reviews yet. Be the first to leave a review:</p>
-                                <hr>
+                        <p>No reviews yet. Be the first to leave a review:</p>
+                        <hr>
                         {% endif %}
                     </div>
                     <div class="row">
                         <div class="col-md-8 card mb-4  mt-3 ">
                             <h3>Reviews:</h3>
                             <div class="card-body">
-                                
+
                                 <!-- We want a for loop inside the empty control tags to iterate through each review -->
                                 {% if review %}
                                 {% for review in reviews %}
@@ -74,10 +76,10 @@
                                         class="btn btn-danger rounded-3">Delete Review</a>
                                     {% endif %}
                                 </div>
-                                
+
                                 <hr>
                                 {% endfor %}
-                                
+
                                 <!-- Our for loop ends here -->
                                 {% else %}
                                 <hr>
