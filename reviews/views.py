@@ -14,7 +14,10 @@ from products.models import Product
 class ProductDetailReview(View):
     def get(self, request, product_id, *args, **kwargs):
         product = get_object_or_404(Product, pk=product_id)
-        review = get_object_or_404(Review, product=product, user=request.user)
+        try:
+            review = Review.objects.get(product=product, user=request.user)
+        except Review.DoesNotExist:
+            review = None
         reviews = Review.objects.filter(product=product, approved=True).order_by("-created_date")
         template = 'reviews/product_detail_review.html'
         liked = False
