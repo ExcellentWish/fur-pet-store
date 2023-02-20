@@ -36,24 +36,18 @@
                 <p class="mb-0">{{ product.name }}</p>
                 <div class="card-body">
                     <div class="card-body">
-
-
-                        <!-- for wishlist -->
-
-
-                        <a href=" " id="" class=" ">
-                            <!-- if there are no items in wishlist -->
-
-                            <i class="far fa-heart btn bg-info" title="like"></i>
-
-                            <!-- if the product is in the wishlist, display full heart -->
-
-                            <i class="fa-solid fa-thumbs-down btn bg-danger" title="dislike"></i>
-
-                            <!-- if the product is not in wishlist, display empty heart -->
-                            <i class="fas fa-heart btn bg-info" title="liked"></i>
-
-                        </a>
+                        <p>Review ID: {{ review.pk }}</p>
+                        <p>{{ review.number_of_likes }}</p>
+                        <p>{{ review.number_of_dislikes }}</p>
+                        <form method="post" action="{% url 'review_like_dislike' pk=review.pk %}">
+                            {% csrf_token %}
+                            <button type="submit" name="like" class="btn btn-sm btn-outline-primary {% if liked %}active{% endif %}">
+                                <i class="fas fa-thumbs-up"></i> Like
+                            </button>
+                            <button type="submit" name="dislike" class="btn btn-sm btn-outline-secondary {% if disliked %}active{% endif %}">
+                                <i class="fas fa-thumbs-down"></i> Dislike
+                            </button>
+                        </form>
                     </div>
                     <div class="row">
                         <div class="col-md-8 card mb-4  mt-3 ">
@@ -61,8 +55,8 @@
                             <div class="card-body">
                                 <!-- We want a for loop inside the empty control tags to iterate through each review -->
                                 {% for review in reviews %}
-                                
-                                
+
+
                                 <div class="review">
                                     <hr>
                                     <p>Title: {{ review.title }}</p>
@@ -71,8 +65,10 @@
                                     <hr>
                                     <p>{{ review.created_date }} Written by {{ review.user }}</p>
                                     {% if review and user == review.posted_by %}
-                                    <a href="{% url 'edit_review' review.id %}" class="btn btn-success rounded-3">Edit Review</a>
-                                    <a href="{% url 'delete_review' review.id %}" class="btn btn-danger rounded-3">Delete Review</a>
+                                    <a href="{% url 'edit_review' review.id %}" class="btn btn-success rounded-3">Edit
+                                        Review</a>
+                                    <a href="{% url 'delete_review' review.id %}"
+                                        class="btn btn-danger rounded-3">Delete Review</a>
                                     {% endif %}
                                 </div>
                                 {% empty %}
@@ -89,25 +85,25 @@
                         <div class="col-md-8 card mb-4  mt-3 ">
                             <div class="card-body">
                                 {% if user.is_authenticated %}
-                                    {% if reviewed %}
-        
-                                        <h3>Thank you for the review</h3>
-                                        <p>We appreciate your feedback</p>
-                                    {% else %}
-                                        <h3>Leave a review:</h3>
-                                        <p>Posting as: {{ user.username }}</p>
-                                        <form method="POST" >
-                                            {% csrf_token %}
-                                            {{ form.as_p }}
-                                            <button type="submit" class="btn btn-info rounded-3">Submit A Review</button>
-                                        </form>
-                                    {% endif %}
-                                    
-                                {% else %}    
+                                {% if reviewed %}
+
+                                <h3>Thank you for the review</h3>
+                                <p>We appreciate your feedback</p>
+                                {% else %}
+                                <h3>Leave a review:</h3>
+                                <p>Posting as: {{ user.username }}</p>
+                                <form method="POST">
+                                    {% csrf_token %}
+                                    {{ form.as_p }}
+                                    <button type="submit" class="btn btn-info rounded-3">Submit A Review</button>
+                                </form>
+                                {% endif %}
+
+                                {% else %}
                                 <h3>Please log in to leave a review</h3>
                                 <a href="{% url 'account_signup' %}" class="btn btn-success">Register</a>
                                 <a href="{% url 'account_login' %}" class="btn btn-info">Login</a>
-                                {% endif %}   
+                                {% endif %}
                             </div>
                         </div>
                     </div>

@@ -14,9 +14,11 @@ from products.models import Product
 class ProductDetailReview(View):
     def get(self, request, product_id, *args, **kwargs):
         product = get_object_or_404(Product, pk=product_id)
+        review = get_object_or_404(Review, product=product, user=request.user)
         reviews = Review.objects.filter(product=product, approved=True).order_by("-created_date")
         template = 'reviews/product_detail_review.html'
         liked = False
+        disliked = False
         reviewed = False
         if request.user.is_authenticated:
             try:
@@ -24,18 +26,21 @@ class ProductDetailReview(View):
                 reviewed = True
             except Review.DoesNotExist:
                 pass
-
-
+                
         for review in reviews:
-            if review.likes.filter(id=self.request.user.id).exists():
+            if review.likes.filter(id=request.user.pk).exists():
                 liked = True
+            if review.dislikes.filter(id=request.user.pk).exists():
+                disliked = True
 
         return render(request, template, {
                 "product": product,
                 'reviews': reviews,
                 "liked": liked,
+                "disliked": disliked,
                 "reviewed": reviewed,
-                "form": ReviewForm(),      
+                "form": ReviewForm(),
+                "review": review,
              },
         )
 
@@ -43,11 +48,12 @@ class ProductDetailReview(View):
         product = get_object_or_404(Product, pk=product_id)
         reviews = Review.objects.filter(product=product, approved=True).order_by("-created_date")
         liked = False
-        
+        disliked = False
         for review in reviews:
-            if review.likes.filter(id=self.request.user.id).exists():
+            if review.likes.filter(id=request.user.pk).exists():
                 liked = True
-
+            if review.dislikes.filter(id=request.user.pk).exists():
+                disliked = True 
         # Create a new instance of the ReviewForm using the POST data
         form = ReviewForm(request.POST, request.FILES)
         if form.is_valid():
@@ -68,6 +74,7 @@ class ProductDetailReview(View):
                 'reviews': reviews,
                 "reviews": reviews,
                 "liked": liked,
+                "disliked": disliked,
                 "reviewed": True,
                 "form": form,
             },
@@ -146,14 +153,21 @@ class DeleteReview(View):
 
 
 
-
-class ReviewLike(View):
-    
-    def post(self, request, like, *args, **kwargs):
-        review = get_object_or_404(Review, pk=like)
-        if review.likes.filter(id=request.user.id).exists():
-            review.likes.remove(request.user)
-        else:
-            review.likes.add(request.user)
-
-        return HttpResponseRedirect(reverse("reviews/product_detail_review.html", args=[review.product.pk]))
+class ReviewLikeDislike(View):
+    def post(self, request, pk):
+        review = get_object_or_404(Review, pk=pk)
+        user = request.user
+        if 'like' in request.POST:
+            if user in review.likes.all():
+                review.likes.remove(user)
+            else:
+                review.likes.add(user)
+                review.dislikes.remove(user)
+        elif 'dislike' in request.POST:
+            if user in review.dislikes.all():
+                review.dislikes.remove(user)
+            else:
+                review.dislikes.add(user)
+                review.likes.remove(user)
+        product = review.product
+        return redirect(reverse('product_detail_review', kwargs={'product_id': product.pk}))

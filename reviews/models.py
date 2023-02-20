@@ -14,7 +14,9 @@ class Review(models.Model):
         User, on_delete=models.CASCADE, related_name="review_added",
         null=True)
     likes = models.ManyToManyField(User, related_name='review_likes', blank=True)
+    like_count = models.PositiveIntegerField(default=0)
     dislikes = models.ManyToManyField(User, related_name='review_dislikes', blank=True)
+    dislike_count = models.PositiveIntegerField(default=0)
     created_date = models.DateTimeField(auto_now_add=True)
     approved = models.BooleanField(default=False)
 
@@ -34,3 +36,8 @@ class Review(models.Model):
     
     def number_of_dislikes(self):
         return self.dislikes.count()
+        
+    def save(self, *args, **kwargs):
+        self.like_count = self.likes.count()
+        self.dislike_count = self.dislikes.count()
+        super(Review, self).save(*args, **kwargs)
