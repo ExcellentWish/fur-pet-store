@@ -46,6 +46,7 @@ This is a full-stack frameworks project built using Django, Python, HTML, CSS, a
     - [User wishlist](#user-wishlist)
     - [Admin](#admin)
       - [**Product management**](#product-management)
+      - [Review](#review)
     - [Error pages](#error-pages)
     - [Gmail SMTP](#gmail-smtp)
     - [Stripe](#stripe)
@@ -309,14 +310,42 @@ If there is nothing in the basket then there is no table is displayed, and inste
 ### Checkout
 
 This page is where the user can complete their purchase, split into two columns, billing & card details on one side and their basket overview on the other. The forms are simple, with placeholders explaining what each input is for.
+![](assets/images/checkout.jpg)
+
+
+The card payment feature has been built using [Stripe](https://stripe.com/ie), to make test payments I have used the card details found in Stripe docs:
+![](assets/images/stripe-test-details.jpg)
+
+So upon submission of the payment form information is passed to stripe and then back, if successful the user is taken to the 'checkout success' page, which displays the order number and delivery details. 
+![](assets/images/checkout_success.jpg)
+
+If the payment is not successful, the form does not submit, an inline error message is displayed and the user is able to rectify the issues.
+![](assets/images/invalid_card.jpg)
 
 ### User profile
+A logged-in user can access the `my profile` link, this page displays `personal details update`, ` previous orders` and `wishlist` link.
+
+The personal details is where the user can update their default shipping/billing address and contact information.
+
+The previous order displays a list of all the orders previously made by the user and a link to wishlist page from the user
+![](assets/images/profile-page.jpg)
 
 ### User wishlist
 
+Wishlist displays the list of items the user has saved to their wishlist, with the ability to remove the product.
+![](assets/images/wishlist-page.jpg)
+
 ### Admin
+The admin section of this website allows a logged-in superuser to update the products stock and add products from the front end.
 
 #### **Product management**
+Products can be added using the `product management` dropdown, the superuser is taken to a form whereupon submission the product is added to the model:
+![](assets/images/product-management.jpg)
+
+Products can be edited or deleted using the `edit` or `delete`  buttons on the product pages, the superuser is taken to a form whereupon submission the product is edited to the model:
+![](assets/images/edit_product.jpg)
+
+#### Review
 
 ### Error pages
 

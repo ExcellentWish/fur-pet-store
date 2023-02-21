@@ -42,10 +42,11 @@
                 {% endif %}
                 {% if request.user.is_superuser %}
                 <small class="ml-3">
-                    <button class="text-info" href="{% url 'edit_product' product.id %}">Edit</button> |
+
+                    <a class=" btn text-info" href="{% url 'edit_product' product.id %}">Edit</a> |
 
                     <button type="button" href="{% url 'delete_product' product.id %}" data-bs-toggle="modal"
-                        data-bs-target="#confirmationModal-{{ product.id }}" class="text-danger"
+                        data-bs-target="#confirmationModal-{{ product.id }}" class="btn btn-danger rounded-3"
                         id="delete-product-{{ product.id }}">
                         Delete Product
                     </button>
