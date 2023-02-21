@@ -287,10 +287,28 @@ Terms & Conditions [Generator](https://www.freeprivacypolicy.com/free-terms-and-
 ![](assets/images/Terms-conditions-page.jpg)
 
 ### All products
+This page displays all of the products sold on the site, displayed in a grid of bootstrap cards, each product has an image, product title, price and rating.
+![](assets/images/all-products.jpg)
+
+Additionally, if a user is logged in then an empty love heart icon is displayed with add to wishlist, once clicked this will add the product to the user's wishlist and the icon becomes solid. If clicked again the product is removed from the wishlist and the heart becomes empty again.
+![](assets/images/wishlist%2Bsuperuserbuttons.jpg)
+
+The cards and columns are all responsive so that on mobile there is the same functionality and the images aren't warped.
+![](assets/images/mobile-all-products.jpg)
 
 ### Basket
 
+The basket page provides an overview of all of the items added by the user, the information is displayed in a table that has product name, image, quantity, price and subtotal. The user can amend the quantity of each product and also remove it whilst on this page and below there are buttons to proceed to the checkout or to keep shopping.  
+
+![](assets/images/basket.jpg)
+
+If there is nothing in the basket then there is no table is displayed, and instead a message that says 'your bag is empty.'
+
+![](assets/images/empty-bag.jpg)
+
 ### Checkout
+
+This page is where the user can complete their purchase, split into two columns, billing & card details on one side and their basket overview on the other. The forms are simple, with placeholders explaining what each input is for.
 
 ### User profile
 
