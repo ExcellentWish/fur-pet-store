@@ -43,6 +43,7 @@ This is a full-stack frameworks project built using Django, Python, HTML, CSS, a
     - [Basket](#basket)
     - [Checkout](#checkout-1)
     - [User profile](#user-profile)
+    - [User wishlist](#user-wishlist)
     - [Admin](#admin)
       - [**Product management**](#product-management)
     - [Error pages](#error-pages)
@@ -233,19 +234,57 @@ Users are also able to subscribe to receive a newsletter, using the MailChimp fo
 
 I conducted SEO research to decide on the keywords and phrases that would be used across the website, I wrote a list of as many words and phrases I could think of and then using Google, I searched by these keywords to see the sort of websites that were returned. 
 
+![](assets/images/seo-searchjpg)
+
+In addition to my research, once the bulk of the website had been built I used an online tool called [Semrush](https://www.semrush.com/) which provided a report on ways that I could improve my SEO. I chose the keep the meta tags and descriptions the same across each page as the content wouldn't have varied too much and there would have been a lot of replication. By using the name of the breed of a cat or dog, it impoved my SEO.
+
+![](assets/images/seo-research.jpg)
+
 ## Features
 
 ### Navbar
 
+I have implemented a fixed navbar that remains at the top of the screen at all times, allowing the user to easily navigate through the website. Furthermore, it is responsive and so it collapses into a burger menu on smaller screens.
+![](assets/images/header-nav-bar.jpg)
+
+On mobile, the menu is a list displayed on the left, with search , user and basket displayed horizontal:
+
+![](assets/images/mobile-header-nav.jpg)
+
+The basket icon with a subtotal displayed below it, to allow the user to keep track of the cost of the products in their basket.
+
 ### Footer
+The footer keeps with the colour theme as the surface. I wanted this information displayed as part of the footer so the user can find it. However it made the page look clunky, so I opted for a slim and easy footer that takes a user to my github and give a copy-right date.
+
+Here is my old style of footer
+![](assets/images/old-footer-old-index.jpg)
+
+Here is my current style of footer
+![](assets/images/new-footer.jpg)
 
 ### Home page
 
+The home page, in keeping with the theme, is very simple. There is an `h1` title followed by an `h4` message. I wanted to create a carousel of the products to showcase, but I didn't like it. 
+
+![](assets/images/old-footer-old-index.jpg)
+
+Instead I opted to use this for the marketing, by adding the Facebook links and Mailchimp. I like this better as it was simple but effective.
+
+![](assets/images/index-page.jpg)
+
 ### About
 
+The about page provides an insight into Fur-pets, the ethos and a link to help animal charities; there is also a link to the products page to encourage the user to continue exploring the website and to increase the chance of sales.
+![](assets/images/about-page.jpg)
+
 ### Privacy Policy
+Privacy Policy, one of the most important policy for online business, privacy policy explains how we collect, use, and protect your personal information when you use our website or services.To demostrate that we take GDPR very serious. [Privacy Policy Generator](https://www.privacypolicygenerator.info/) was used to generate the privacy policy.
+
+![](assets/images/privacy-policy.jpg)
 
 ### Terms & Conditions
+Terms & Conditions [Generator](https://www.freeprivacypolicy.com/free-terms-and-conditions-generator/) used for an "Agreement" for use of the website and services. 
+![](assets/images/Terms-conditions-page.jpg)
 
 ### All products
 
@@ -254,6 +293,8 @@ I conducted SEO research to decide on the keywords and phrases that would be use
 ### Checkout
 
 ### User profile
+
+### User wishlist
 
 ### Admin
 
