@@ -2,7 +2,9 @@
 
 {% load static %}
 
-
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'product/css/product.css' %}">
+{% endblock %}
 
 {% block page_header %}
 <div class="container header-container">
@@ -136,15 +138,14 @@
                                     {% endif %}
                                     {% if request.user.is_superuser %}
                                     <small class="ml-3">
-                                        <a class="btn text-info"
-                                            href="{% url 'edit_product' product.id %}">Edit</a> |
-                                            
+                                        <a class="btn text-info" href="{% url 'edit_product' product.id %}">Edit</a> |
+
                                         <button type="button" href="{% url 'delete_product' product.id %}"
                                             data-bs-toggle="modal" data-bs-target="#confirmationModal-{{ product.id }}"
                                             class="btn btn-danger rounded-3" id="delete-product-{{ product.id }}">
                                             Delete Product
                                         </button>
-                                        
+
                                         <div class="modal fade" id="confirmationModal-{{ product.id }}" tabindex="-1"
                                             role="dialog" aria-labelledby="confirmationModal-{{ product.id }}"
                                             aria-hidden="true">
@@ -169,13 +170,13 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            
+
                                         </div>
-                                        
+
                                     </small>
-                                    
+
                                     {% endif %}
-                                    
+
                                 </div>
                             </div>
                         </div>
@@ -242,9 +243,5 @@
             window.location.replace(currentUrl);
         }
     })
-
-    
-    
-
 </script>
 {% endblock %}

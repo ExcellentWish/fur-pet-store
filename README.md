@@ -163,7 +163,7 @@ I opted to connect to the  PostgreSQL database from the beginning which is provi
 
 This has been updated to include my wishlist and review
 
-![Database Schemas can be found here](assets/Database/databaseSchema.jpg)
+![Database Schemas can be found here](assets/Database/dataSchema.jpg)
 
 #### **User Account**
 This app enables authenticated users to save their information so that when they are logged in the order form is pre-filled, creating an improved user experience. The `UserProfile` model has a one-to-one field that is linked to the Django AllAuth user account, upon logging in the model method `create_or_update_user_profile` creates the profile if it isn't already present in the model.
@@ -276,6 +276,7 @@ Instead I opted to use this for the marketing, by adding the Facebook links and 
 ### About
 
 The about page provides an insight into Fur-pets, the ethos and a link to help animal charities; there is also a link to the products page to encourage the user to continue exploring the website and to increase the chance of sales.
+
 ![](assets/images/about-page.jpg)
 
 ### Privacy Policy
@@ -285,16 +286,20 @@ Privacy Policy, one of the most important policy for online business, privacy po
 
 ### Terms & Conditions
 Terms & Conditions [Generator](https://www.freeprivacypolicy.com/free-terms-and-conditions-generator/) used for an "Agreement" for use of the website and services. 
+
 ![](assets/images/Terms-conditions-page.jpg)
 
 ### All products
 This page displays all of the products sold on the site, displayed in a grid of bootstrap cards, each product has an image, product title, price and rating.
+
 ![](assets/images/all-products.jpg)
 
 Additionally, if a user is logged in then an empty love heart icon is displayed with add to wishlist, once clicked this will add the product to the user's wishlist and the icon becomes solid. If clicked again the product is removed from the wishlist and the heart becomes empty again.
+
 ![](assets/images/wishlist%2Bsuperuserbuttons.jpg)
 
 The cards and columns are all responsive so that on mobile there is the same functionality and the images aren't warped.
+
 ![](assets/images/mobile-all-products.jpg)
 
 ### Basket
@@ -340,14 +345,45 @@ The admin section of this website allows a logged-in superuser to update the pro
 
 #### **Product management**
 Products can be added using the `product management` dropdown, the superuser is taken to a form whereupon submission the product is added to the model:
+
 ![](assets/images/product-management.jpg)
 
-Products can be edited or deleted using the `edit` or `delete`  buttons on the product pages, the superuser is taken to a form whereupon submission the product is edited to the model:
+Products can be edited or deleted using the `edit` or `delete`  buttons on the product pages.
+
+![](assets/images/wishlist%2Bsuperuserbuttons.jpg)
+
+The superuser is taken to a form whereupon submission the product is edited to the model:
+
 ![](assets/images/edit_product.jpg)
 
+If the superuser tries to delete a product a modal is displayed to verify the cancelation:
+
+![](assets/images/delete_product_modal.jpg)
+
 #### Review
+For the  product review I have a button that takes the user to the review page:
+
+![](assets/images/see_reviews.jpg)
+
+In the review page there is a like and dislike button with a counter. This helps a customer in their decision when purchasing a product.
+A customer can also leave a review `edit` or `delete` their review
+
+![](assets/images/review_page.jpg)
+
+If a product has no reviews, but a customer can leave one.
+
+![](assets/images/no_review.jpg)
+
+Only a user that is logged in can leave a review.
+
+![](assets/images/not_logged-in.jpg)
 
 ### Error pages
+
+The error templates was made by [Colorlib](https://colorlib.com/wp/template/colorlib-error-404-18/), this allows the user to easily navigate back to the home page should they experience any errors.
+
+![](assets/images/404error.jpg)
+
 
 ### Gmail SMTP
 
@@ -410,6 +446,8 @@ I have used several technologies that have enabled this design to work:
   - I have ElephantSQL database in deployment to store the data for my models.
 
 ## Testing
+
+I have used a combination of manual and automated testing to ensure the website's functionality meets the desired intent.
 
 ### Code Validation
 [W3C Markup Validation Service](https://validator.w3.org/) 
