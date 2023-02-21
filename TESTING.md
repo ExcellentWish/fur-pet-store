@@ -53,6 +53,13 @@
 1. [Facebook Page](https://github.com/ExcellentWish/fur-pet-store/milestone/6)
 2. [SEO Keywords](https://github.com/ExcellentWish/fur-pet-store/issues/23):
 3. [Users can Sign Up for a Newsletter](https://github.com/ExcellentWish/fur-pet-store/issues/24):
+
+## Epic 7- Customer Reviews
+### User Stories
+1. [Customer See Reviews on Product](https://github.com/ExcellentWish/fur-pet-store/issues/26)
+2. [Customer Can Like and Dislike Products](https://github.com/ExcellentWish/fur-pet-store/issues/27)
+3. [View Reviews](https://github.com/ExcellentWish/fur-pet-store/issues/28)
+4. [Manage reviews](https://github.com/ExcellentWish/fur-pet-store/issues/29)
  
 
 

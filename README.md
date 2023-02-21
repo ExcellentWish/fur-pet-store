@@ -173,7 +173,7 @@ The second model in this app is `UserWishlist`, this model has two foreign keys,
 #### **Products App**
 This app controls the products that are displayed in the online shop. I have created two models to store the necessary data: `Products` & `Category`.
 
-`Products` enables individual products to be added to the database in order for them to be purchased via the online shop. Only admin users are able to access this functionality and it can be done from the front end using the `add_product` view. This model has one FK which relates to the second model in this app, the category. This was edited from boutique ado as I can add the `animal_choice` and if a product `has_color` and a `in_stock` option.
+`Products` enables individual products to be added to the database in order for them to be purchased via the online shop. Only admin users are able to access this functionality and it can be done from the front end using the `add_product` view. This model has one FK which relates to the second model in this app, the category. This was edited from boutique ado as I can add the `animal_choice` and if a product `has_color` and an `in_stock` option.
 
 `Category` stores the various category types of the products on sale, this allows the user to filter the shop page by the category if they are looking for something specific.
 
@@ -416,6 +416,7 @@ I have used several technologies that have enabled this design to work:
 - [GitHub](https://github.com/)
     - Used to store code for the project after being pushed.
 - [Git](https://git-scm.com/)
+  - For version control
 - [Grammerly](https://www.grammarly.com/)
   - For spell checking my readme.md
 - [Amazon Web Services AWS]()
@@ -450,7 +451,7 @@ I have used several technologies that have enabled this design to work:
 I have used a combination of manual and automated testing to ensure the website's functionality meets the desired intent.
 
 ### Code Validation
-All of my code has been validated using an online validator specific to the language, all code now passes with zero errors. 
+All of my code has been validated using an online validator specific to the language, all code now passes. 
 
 - [W3C Markup Validation Service](https://validator.w3.org/) 
     - Used to validate all HTML code written and used in this webpage.
@@ -465,9 +466,14 @@ All of my code has been validated using an online validator specific to the lang
     - Used to validate JS code
 
 - [Pycodestyle](https://pypi.org/project/pycodestyle/)
-    - Used to test my Python code for any issues or errors;
+    - Used to test my Python code for any issues or errors; Please note some line I was unable to amend and have been left as they are
+    - 
+  ![](assets/images/python_errors.jpg)
     
-    
+- [Color Contrast Accessibility Validator](https://color.a11y.com/)
+  - Allowed me to test the colour contrast of my webpage.
+  
+  ![](assets/images/colour-contrast.jpg)
 
 ### Manual Testing
 I have tested this project manually myself and have also had it peer-reviewed & tested by friends and family on multiple devices and screen sizes.
@@ -487,12 +493,24 @@ To generate your own coverage report from the command line:
 
 ### Bugs and Fixes
 
-Issue with back backports.zoneinfo==0.2.1 
-solution backports.zoneinfo==0.2.1;python_version<"3.9" for heroku deployment
+Here is a list of issues encountered during the development process, along with their corresponding fixes.
 
-backports.zoneinfo commented out for automatic deployment ? (test= success) 
+Issue with backports.zoneinfo==0.2.1
+Issue: The backports.zoneinfo==0.2.1 package caused issues with Heroku deployment, leading to errors in the application.
 
-context processor error when adding size to bag view for 8 'dict' 
+Solution: The issue was resolved by commenting out backports.zoneinfo for automatic deployment.
+
+Context Processor Error with adding color to bag view
+Issue: An error occurred when adding colour options to the bag view, with the following error message:
+
+
+`django.db.utils.ProgrammingError: relation "profiles_userwishlist"` already exists
+Issue: The django.db.utils.ProgrammingError was raised with the error message relation "profiles_userwishlist" already exists.
+
+Solution: The issue was resolved by dropping the table with the following SQL command: DROP TABLE profiles_userwishlist;.
+
+Note: This issue may have been caused by a table that was not properly deleted or renamed, leading to a conflict with the existing table during migration. It's important to ensure that all tables and database objects are properly managed during development to avoid such conflicts.
+
 ## Deployment
 
 To deploy my django application, I used [Code Institute Full Template](https://github.com/Code-Institute-Org/gitpod-full-template)
