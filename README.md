@@ -19,6 +19,7 @@ This is a full-stack frameworks project built using Django, Python, HTML, CSS, a
     - [**Epic 4 - Products**:](#epic-4---products)
     - [**Epic 5 - Orders and Basket**:](#epic-5---orders-and-basket)
     - [**Epic 6 - Marketing**:](#epic-6---marketing)
+    - [**Epic 7 - Customer Reviews**:](#epic-7---customer-reviews)
   - [Scope](#scope)
   - [Structure](#structure)
     - [Database](#database)
@@ -57,11 +58,10 @@ This is a full-stack frameworks project built using Django, Python, HTML, CSS, a
       - [Heroku Deployment](#heroku-deployment)
   - [Credits](#credits)
   - [Acknowledgements](#acknowledgements)
-  - [Gitpod Reminders](#gitpod-reminders)
 
 
 ## Business Model
-It is a B2C business model, with targeted customer being individuals, and focus on single transactions. It is aiming to target individuals who is interested in online shopping, pet lovers and looking for unique pet toys. Or people who want to purchase unique gifts for their family or friends pets.
+It is a B2C business model, with targeted customer being individuals, and focus on single transactions. It is aiming to target individuals who is interested in online shopping, pet lovers and looking for unique pet toys. Or people who want to purchase unique gifts for their family or friends pets. Products sourced from AliExpress and can be dropshipped to a customer.
 
 ## User Experience
 
@@ -127,6 +127,12 @@ Please find all my defined user stories & their acceptance criteria [here](https
 2. [SEO Keywords](https://github.com/ExcellentWish/fur-pet-store/issues/23):
 3. [Users can Sign Up for a Newsletter](https://github.com/ExcellentWish/fur-pet-store/issues/24):
 
+### **Epic 7 - Customer Reviews**:
+1. [Can See Reviews on Product](https://github.com/ExcellentWish/fur-pet-store/issues/26)
+2. [Customer Can Like and Dislike Products](https://github.com/ExcellentWish/fur-pet-store/issues/27):
+3. [View Reviews](https://github.com/ExcellentWish/fur-pet-store/issues/28):
+4. [Manage Review](https://github.com/ExcellentWish/fur-pet-store/issues/29)
+   
 ## Scope
 
 To achieve the desired user & business goals the following features will be included in this release:
@@ -147,6 +153,10 @@ This website has been designed with simplicity in mind, each page only has entir
 I opted to connect to the  PostgreSQL database from the beginning which is provided by ElephantSQL as Heroku have changed theie policy for a free database. For almost all of the apps (aside from home) I have created models, the Entity-Relationship Diagram below shows how the database models relate to each other: 
 
 ![Database Schemas can be found here](assets/Database/Database-Schema.jpg)
+
+This has been updated to include my wishlist and review
+
+![Database Schemas can be found here](assets/Database/databaseSchema.jpg)
 
 #### **User Account**
 This app enables authenticated users to save their information so that when they are logged in the order form is pre-filled, creating an improved user experience. The `UserProfile` model has a one-to-one field that is linked to the Django AllAuth user account, upon logging in the model method `create_or_update_user_profile` creates the profile if it isn't already present in the model.
@@ -251,7 +261,7 @@ I have used several technologies that have enabled this design to work:
   - For spell checking my readme.md
 - [Amazon Web Services AWS]()
     - For media storage
-- [Balsamiq](https://balsamiq.com/)
+- [Lucid](https://www.lucidchart.com/pages/)
   - For wireframes and flow charts
 - [Pycodestyle](https://pypi.org/project/pycodestyle/)
   - Used to test my code for any issues or errors.
@@ -259,7 +269,7 @@ I have used several technologies that have enabled this design to work:
     - For Deployment of this website
 - [Color Contrast Accessibility Validator](https://color.a11y.com/)
     - To help test colours I used
-- [Coolers] (https://coolors.co)
+- [Coolers](https://coolors.co)
     - To help find colours to use
 - [W3C Markup Validation Service](https://validator.w3.org/) 
     - Used to validate all HTML code written and used in this webpage.
@@ -372,39 +382,3 @@ https://codepen.io/scanfcode for footer
 ## Acknowledgements
 
 I would like to thank my course mentor Ronan McClelland for his support and guidance throughout the project and Kasia Bogucka and my peers from Msletb slack group for their support & feedback. Code Institute Slack channels for a massive resource of information and help.
-
-
-Project 5 of code institute
-## Gitpod Reminders
-
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
-
-`python3 -m http.server`
-
-A blue button should appear to click: _Make Public_,
-
-Another blue button should appear to click: _Open Browser_.
-
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
-
-A blue button should appear to click: _Make Public_,
-
-Another blue button should appear to click: _Open Browser_.
-
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
-
-To log into the Heroku toolbelt CLI:
-
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
-
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
-
-------
-
-
-
-
