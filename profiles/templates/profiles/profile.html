@@ -3,6 +3,7 @@
 
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'profiles/css/profile.css' %}">
+    <link rel="stylesheet" href="{% static 'product/css/product.css' %}">
 {% endblock %}
 
 {% block page_header %}
@@ -29,7 +30,7 @@
                 <form class="mt-3" action="{% url 'profile' %}" method="POST" id="profile-update-form">
                     {% csrf_token %}
                     {{ form|crispy }}
-                    <button class="btn btn-black rounded-0 text-uppercase float-right">Update Information</button>
+                    <button class="btn btn-success rounded-3 text-uppercase float-right">Update Information</button>
                 </form>
             </div>
             <div class="col-12 col-lg-6">
@@ -73,19 +74,20 @@
                 </div>
             </div>
         </div>
-    </div>   
-    <div class="col-sm-6">
-        <a href="{% url 'wishlist' %}" class="btn green-link w-100 mb-1">
-            <div class="card">
-                <div class="card-title bg-brand-blue text-white p-3">
-                    <h3>wishlist <span class=""><i class="fas fa-heart"></i></span></h3>
-                </div>
-                <div class="card-body brand-blue">
-                    <p>View the products you can't wait to have.</p>
-                </div>
-            </div>
-        </a>
-    </div>   
+        <div class="row">  
+            <div class="col-12 col-lg-6">
+                <a href="{% url 'wishlist' %}" class="btn green-link w-100 mb-1">
+                    <div class="card">
+                        <div class="bg-info text-white p-3">
+                            <h3>Wishlist <span><i class="far fa-heart"></i></span></h3>
+                            <p>View the products you can't wait to have.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>   
+        </div> 
+    </div>
+    
 {% endblock %}
 
 {% block postloadjs %}
