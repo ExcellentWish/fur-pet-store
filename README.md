@@ -26,8 +26,12 @@ This is a full-stack frameworks project built using Django, Python, HTML, CSS, a
       - [**User Account**](#user-account)
       - [**Products App**](#products-app)
       - [**Checkout**](#checkout)
+      - [**Reviews**](#reviews)
   - [Skeleton](#skeleton)
   - [Surface](#surface)
+  - [Marketing](#marketing)
+    - [Plan](#plan)
+    - [SEO's](#seos)
   - [Features](#features)
     - [Navbar](#navbar)
     - [Footer](#footer)
@@ -139,7 +143,8 @@ To achieve the desired user & business goals the following features will be incl
 
 - Responsive navbar that will navigate to the various pages throughout the site
 - Landing page with brief information about the site and links to the product and catogry page and newsletter signup.
-- Shop page, that displays all products available for purchase with the option to filter on the print category.
+- Shop page, that displays all products available for purchase with the option to filter on the product category.
+- Reviews page, that displays reviews on a product.
 - Register/log in feature using Django allauth
 - Custom 404 and 500 error pages.
 - Contact form using Google SMTP
@@ -161,12 +166,14 @@ This has been updated to include my wishlist and review
 #### **User Account**
 This app enables authenticated users to save their information so that when they are logged in the order form is pre-filled, creating an improved user experience. The `UserProfile` model has a one-to-one field that is linked to the Django AllAuth user account, upon logging in the model method `create_or_update_user_profile` creates the profile if it isn't already present in the model.
 
+The second model in this app is `UserWishlist`, this model has two foreign keys, one relating to the `UserProfile` and the other is `Product`. This model stores the products that the user wants to be saved to their wishlist. This information is then displayed in the wishlist view.
+
 #### **Products App**
 This app controls the products that are displayed in the online shop. I have created two models to store the necessary data: `Products` & `Category`.
 
-`Products` enables individual products to be added to the database in order for them to be purchased via the online shop. Only admin users are able to access this functionality and it can be done from the front end using the `add_product` view. This model has one FK which relates to the second model in this app, the category.
+`Products` enables individual products to be added to the database in order for them to be purchased via the online shop. Only admin users are able to access this functionality and it can be done from the front end using the `add_product` view. This model has one FK which relates to the second model in this app, the category. This was edited from boutique ado as I can add the `animal_choice` and if a product `has_color` and a `in_stock` option.
 
-`Category` stores the various category types of the artwork/prints on sale, this allows the user to filter the shop page by the category if they are looking for something specific.
+`Category` stores the various category types of the products on sale, this allows the user to filter the shop page by the category if they are looking for something specific.
 
 #### **Checkout**
 
@@ -180,6 +187,11 @@ There are some other model methods used at various points, `order.full_address` 
 
 `update_total` calculates the overall total depending on the order items linked to the order, ensuring the value is always correct.
 
+#### **Reviews**
+
+The reviews app contains one model - `Reviews` - that enables the admin or user to add reviews to the database in order to be displayed on the website. This model has connections with the products and user. The information added is `title, body, user , date and time` and `approved` which allows the admin to decide what is displayed on the website. There are a few model methods in place that calculate the `likes` and `dislikes` depending on if the product has been reviewed as it allows users to know that the product was bought before.
+
+
 ## Skeleton
 [Wireframes can be viewed here](assets/wireframes/WIREFRAMES.md)
 
@@ -189,7 +201,7 @@ The theme of simplicity follows through to the design, I've used bootstrap colum
 Some content has been hidden on mobiles to ensure that there is never any information overload or that the screen is taken up by content not completely required.
 
 ## Surface
-Animals only see in black and white. Myth. It was once thought that animals, including cats and dogs, could only see in black and white. However, scientists have proven this to be a myth. In all animals, including humans, the perception of colour is determined by the presence of cells in the eye called cone photoreceptors. Cats and dogs have two kinds of cones, which are sensitive to blue and green light
+Animals only see in black and white is a myth. It was once thought that animals, including cats and dogs, could only see in black and white. However, scientists have proven this to be a myth. In all animals, including humans, the perception of colour is determined by the presence of cells in the eye called cone photoreceptors. Cats and dogs have two kinds of cones, which are sensitive to blue and green light
 
 Cats and dogs are colour blind. Fact. To see in full colour as we know it, humans use three cones – red, blue and green. However cats and dogs only have blue and green cones. This means they have a much more muted perception of colour, which is akin to colour blindness in humans. 
 
@@ -197,6 +209,29 @@ The source of this information is from https://adelaidevet.com.au/pet-library/ca
 
 Which is why you will see the colors red, blue and green throughout my project.
 
+![](assets/images/coolors.jpg)
+
+I chose the font Exo.I wanted a bold/statement font to use for headings which is why I chose 'Exo', I also believe it is good for the general content as it's easier to read for the user.
+
+## Marketing
+
+### Plan
+
+Fur Pets store's website is a business to customer e-commerce platform, built and designed to sell products to the user & inform customers about product with reviews. Before beginning this project I wrote a marketing plan which can be found here:
+
+[Marketing plan](assets/documents/marketing-plan.dox)
+
+To further enhance sales there is also a Facebook page, that will display information about new products that are for sale:
+
+![](assets/images/facebook_page.jpg)
+
+Users are also able to subscribe to receive a newsletter, using the MailChimp form found in the index.html. With the link to our facebook page. 
+
+![](assets/images/mail-chimp-facebook.jpg)
+
+### SEO's
+
+I conducted SEO research to decide on the keywords and phrases that would be used across the website, I wrote a list of as many words and phrases I could think of and then using Google, I searched by these keywords to see the sort of websites that were returned. 
 
 ## Features
 

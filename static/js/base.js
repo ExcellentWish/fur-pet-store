@@ -56,7 +56,7 @@ $(document).ready(function () {
         var itemId = $(this).data('item_id');
         handleEnableDisable(itemId);
     });
-
+// For reviews
     function deleteModal() {
         $("#delete-review").on('click', function () {
             $('#confirmationModal').modal('show');
@@ -67,5 +67,15 @@ $(document).ready(function () {
         });
     }
     deleteModal();
+// for superuser delete
+    function deleteProductModal() {
+        $("#delete-product-{{ product.id }}").on('click', function () {
+            $('#confirmationModal-{{ product.id }}').modal('show');
+        });
 
+        $(".close").on('click', function () {
+            $('#confirmationModal-{{ product.id }}').modal('hide');
+        });
+    }
+    deleteProductModal();
 });

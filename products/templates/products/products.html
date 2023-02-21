@@ -244,16 +244,7 @@
     })
 
     
-    function deleteProductModal() {
-        $("#delete-product-{{ product.id }}").on('click', function () {
-            $('#confirmationModal-{{ product.id }}').modal('show');
-        });
-
-        $(".close").on('click', function () {
-            $('#confirmationModal-{{ product.id }}').modal('hide');
-        });
-    }
-    deleteProductModal();
+    
 
 </script>
 {% endblock %}
