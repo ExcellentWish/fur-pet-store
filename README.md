@@ -505,9 +505,9 @@ Issue: An error occurred when adding colour options to the bag view, with the fo
 
 
 `django.db.utils.ProgrammingError: relation "profiles_userwishlist"` already exists
-Issue: The django.db.utils.ProgrammingError was raised with the error message relation "profiles_userwishlist" already exists.
+Issue: The `django.db.utils.ProgrammingError` was raised with the error message relation `"profiles_userwishlist"` already exists.
 
-Solution: The issue was resolved by dropping the table with the following SQL command: DROP TABLE profiles_userwishlist;.
+Solution: The issue was resolved by dropping the table with the following SQL command: `DROP TABLE profiles_userwishlist;`.
 
 Note: This issue may have been caused by a table that was not properly deleted or renamed, leading to a conflict with the existing table during migration. It's important to ensure that all tables and database objects are properly managed during development to avoid such conflicts.
 

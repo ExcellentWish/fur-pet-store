@@ -6,12 +6,37 @@
 
 ### User Stories
 
-1. [Intuitive Navigation](https://github.com/ExcellentWish/fur-pet-store/issues/1): 
+1. [Intuitive Navigation](https://github.com/ExcellentWish/fur-pet-store/issues/1):
 2. [Navbar & Footer ](https://github.com/ExcellentWish/fur-pet-store/issues/2):
 3. [Informative Landing Page ](https://github.com/ExcellentWish/fur-pet-store/issues/3)
 4. [Responsive Design](https://github.com/ExcellentWish/fur-pet-store/issues/4)
 5. [Messages Displayed to User ](https://github.com/ExcellentWish/fur-pet-store/issues/5)
 
+- The navigation bar is fixed at the top of the screen, meaning it is always seen by the user, allowing the user to navigate through the content easily & intuitively. Each nav link is named with an obvious link to the page content, for the shop and admin links there are dropdowns for subsections of the website so that there isn't too much information in the navbar.
+
+![](assets/images/header-nav-bar.jpg)
+
+- I have added a back to top button that appears when the user scrolls down any of the pages, enabling them to quickly navigate back to the top without having to scroll:
+
+![](assets/images/back_to_top.jpg)
+
+- The footer is at the bottom of the page is a simple one with copyright and cretor
+
+![](assets/images/new-footer.jpg)
+
+ As a **user** I am notified about any changes I have made so that I have a clear understanding of what has been completed/updated/failed.
+
+- I have used bootstrap toasts to display messages to the user at various points throughout their customer journey. The success toast is used often and when adding a product to the basket also displays a short basket overview:
+
+![](assets/images/add_to_bag.jpg)
+
+- I have also used info, warning and error toasts to display various other messages; this ensures the user has awareness of any changes that have been made or have been unsuccessful:
+  
+As a **user** I can access the website on both mobile and desktop so that I can view the information regardless of my location.
+
+- As I have used bootstrap the website is entirely responsive and can be viewed on any size screen and have the same functionality; however, some non-critical content has been hidden on smaller screens to enhance the user experience.
+  
+  ![](assets/images/mobile-all-products.jpg)
 
 
 ## Epic 2 - Admin functionality
@@ -22,7 +47,40 @@
 3. [Product Managment Access](https://github.com/ExcellentWish/fur-pet-store/issues/8):
 4. [Stock Levels can be Updated](https://github.com/ExcellentWish/fur-pet-store/issues/9):
 
+As an **admin user** I can log in so that I can access the site's backend.
 
+- Using a specified superuser account an admin user can access the `/admin` URL and login, they will then be taken to the 'Django Administration' page:
+
+![](assets/images/django_admin.jpg)
+
+As an **admin user** I am able to log in to see the product management page so that I can make changes in the front end.
+
+- Once logged in as an admin superuser the account navbar displays `product management`, clicking this shows the below menu:
+- From here, if the user clicks `product management` they are taken to the product management page. This page displays a form to add products to the site.
+![](assets/images/product-management.jpg)
+
+
+As an **admin user** I can edit/remove items from the product model so that I can make sure the website is up to date and accurately reflects what is being sold.
+
+- The `edit` button takes the user to a specified edit page, the user can only edit the stock level using the form. 
+
+![](assets/images/wishlist%2Bsuperuserbuttons.jpg)
+
+- The `delete` button takes the user to a specified delete page for the product.
+
+![](assets/images/delete-prodcut.jpg)
+
+- If the user clicks `delete product` then a modal pops up to ensure that the user definitely wants to delete the product and has not pressed this by mistake
+
+![](assets/images/delete_product_modal.jpg)
+
+- If the user clicks `yes, delete` then the product is deleted from the model, the user is taken back to the product management page and a toast confirming the deletion appears.
+
+As an **admin user** I can update the stock levels for the products so that customers are only able to purchase items in stock.
+
+- In the a column of the product management table  `Quantity in stock` , the user can update stock levels or mark it out of stock.
+
+![](assets/images/stock)
 
 
 ## Epic 3 - User Authentication
@@ -62,5 +120,10 @@
 4. [Manage reviews](https://github.com/ExcellentWish/fur-pet-store/issues/29)
  
 
+## JavaScript Tests
 
-django.db.utils.ProgrammingError: relation "profiles_userwishlist" already exists soloution Elephantsql DROP TABLE profiles_userwishlist;
+I have written a small number of JS functions that handle some animation & event listeners to add classes and attributes to elements created dynamically.
+
+**`deleteProductModal`** - This function opens the confirmation modal when a superuser is trying to delete a product.
+
+**`deleteModal`** - This function opens the confirmation modal when a user is trying to delete.
