@@ -7,7 +7,6 @@ from products.models import Product
 # Create your views here.
 
 
-
 def profile(request):
     # display the user's profile
     profile = get_object_or_404(UserProfile, user=request.user)
@@ -16,9 +15,15 @@ def profile(request):
         form = UserProfileForm(request.POST, instance=profile)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Your profile has been updated successfully')
+            messages.success(
+                request,
+                'Your profile has been updated successfully'
+            )
         else:
-            messages.error(request, 'Update failed. Please make sure the information is valid.')
+            messages.error(
+                request,
+                'Update failed. Please make sure the information is valid.'
+            )
     else:
         form = UserProfileForm(instance=profile)
     orders = profile.orders.all()
@@ -32,6 +37,7 @@ def profile(request):
     }
 
     return render(request, template, context)
+
 
 def order_history(request, order_number):
     order = get_object_or_404(Order, order_number=order_number)
@@ -50,6 +56,7 @@ def order_history(request, order_number):
 
     return render(request, template, context)
 
+
 def user_wishlist(request):
     """ display wishlist """
     if request.user.is_authenticated:
@@ -58,23 +65,31 @@ def user_wishlist(request):
         messages.error(request, "You must be logged in to view a wishlist.")
         return redirect('home')
 
+
 def add_to_wishlist(request, item_id):
     """ view to display orders to user """
     if request.user.is_authenticated:
         user = UserProfile.objects.get(user=request.user)
         product = get_object_or_404(Product, pk=item_id)
         if UserWishlist.objects.filter(user=user, product=product).exists():
-            wishlist_item = UserWishlist.objects.get(user=user, product=product)
+            wishlist_item = UserWishlist.objects.get(
+                user=user,
+                product=product
+            )
             wishlist_item.delete()
             messages.info(request, "removed from wishlist")
             return redirect('products')
         else:
-            wishlist_item = UserWishlist.objects.create(user=user, product=product)
+            wishlist_item = UserWishlist.objects.create(
+                user=user,
+                product=product
+            )
             messages.success(request, f"{wishlist_item} added to wishlist")
             return redirect(reverse('products'))
     else:
         messages.error(request, "You must be logged in to create a wishlist.")
         return redirect(reverse('products'))
+
 
 def remove_from_wishlist(request, item_id):
     """ view to display orders to user """

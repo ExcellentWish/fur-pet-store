@@ -11,13 +11,16 @@ from profiles.models import UserProfile
 
 # Create your views here.
 
+
 def index(request):
     # A view to return index page
     return render(request, 'home/index.html')
 
+
 def about(request):
     """ A view to return the about page """
     return render(request, 'home/about.html')
+
 
 def privacy_policy(request):
     """ A view to return the about page """
@@ -27,6 +30,7 @@ def privacy_policy(request):
 def terms_conditions(request):
     """ A view to return the about page """
     return render(request, 'home/terms_conditions.html')
+
 
 def send_message(request, contact_form):
     # Function to send email after contact form submitted
@@ -53,7 +57,13 @@ class ContactPage(View):
         template = 'home/contact_us.html'
         if request.user.is_authenticated:
             # if user is logged in pre-populate the fields
-            contact_form = ContactForm(initial={'name': request.user.first_name + " " + request.user.last_name, 'email': request.user.email})
+            contact_form = ContactForm(
+                initial={
+                    'name': request.user.first_name + " " + request.user.last_name,
+                    'email': request.user.email
+                }
+            )
+
         else:
             contact_form = ContactForm()
         return render(request, template, {'contact_form': contact_form})
@@ -66,13 +76,24 @@ class ContactPage(View):
                 send_message(request, contact_form)
                 contact_form = ContactForm()
                 messages.add_message(
-                    request, messages.SUCCESS, "Thank you for contacting us, one of our staff will be in touch shortly."
+                    request,
+                    messages.SUCCESS,
+                    "Thank you for contacting us,\
+                    one of our staff will be in touch shortly."
                 )
-                return render(request, 'home/contact_us.html', {'contact_form': contact_form})
+                return render(
+                    request,
+                    'home/contact_us.html',
+                    {'contact_form': contact_form}
+                )
             else:
                 contact_form = ContactForm(request.POST)
                 messages.add_message(
-                request, messages.ERROR, "Something is not right with your form - please make sure your email address is entered in the correct format.")
+                    request,
+                    messages.ERROR,
+                    "Something is not right with your form -\
+                    please make sure your email address\
+                    is entered in the correct format."
+                )
 
             return render(request, template, {'contact_form': contact_form})
-

@@ -16,7 +16,7 @@ class UserProfileForm(forms.ModelForm):
         placeholders = {
             'default_phone_number': 'Phone Number',
             'full_name': 'Full Name',
-            'default_email' :'Email Address',
+            'default_email': 'Email Address',
             'default_postcode': 'Postal Code',
             'default_town_or_city': 'Town or City',
             'default_street_address1': 'Street Address 1',
@@ -32,5 +32,6 @@ class UserProfileForm(forms.ModelForm):
                 else:
                     placeholder = placeholders[field]
                 self.fields[field].widget.attrs['placeholder'] = placeholder
-            self.fields[field].widget.attrs['class'] = 'border-black rounded-0 profile-form-input'
+            self.fields[field].widget.attrs['class'] = \
+                'border-success rounded-3 profile-form-input'
             self.fields[field].label = False

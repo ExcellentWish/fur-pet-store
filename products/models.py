@@ -1,6 +1,8 @@
 from django.db import models
 
 # Create your models here.
+
+
 class Category(models.Model):
 
     class Meta:
@@ -31,14 +33,13 @@ class Product(models.Model):
     quantity_in_stock = models.IntegerField(blank=False)
     in_stock = models.BooleanField(default=False)
     animal = (('dog', 'Dog'), ('cat', 'Cat'),)
-    animal_choice = models.CharField(max_length=20,choices=animal)
-
+    animal_choice = models.CharField(max_length=20, choices=animal)
 
     def __str__(self):
         return self.name
 
     def get_stock_level(self):
-        # get number in stock 
+        # get number in stock
         return self.quantity_in_stock
 
     def change_to_out_of_stock(self):

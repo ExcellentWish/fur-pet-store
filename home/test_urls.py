@@ -20,7 +20,6 @@ class TestHomeUrls(SimpleTestCase):
         url = reverse('terms_conditions')
         self.assertEqual(resolve(url).func, terms_conditions)
 
-    
     def test_privacy_policy_url_is_resolved(self):
         """ privacy_policy page """
         url = reverse('privacy_policy')

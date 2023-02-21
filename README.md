@@ -450,18 +450,33 @@ I have used several technologies that have enabled this design to work:
 I have used a combination of manual and automated testing to ensure the website's functionality meets the desired intent.
 
 ### Code Validation
-[W3C Markup Validation Service](https://validator.w3.org/) 
+All of my code has been validated using an online validator specific to the language, all code now passes with zero errors. 
+
+- [W3C Markup Validation Service](https://validator.w3.org/) 
+    - Used to validate all HTML code written and used in this webpage.
+
+ ![](assets/images/html_verifcation_fix.jpg) 
 
 [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/#validate_by_input)
 
-[JSHint](https://jshint.com/)
+![](assets/images/css-validator-results.jpg)
+
+- [JSHint](https://jshint.com/)
+    - Used to validate JS code
+
+- [Pycodestyle](https://pypi.org/project/pycodestyle/)
+    - Used to test my Python code for any issues or errors;
+    
+    
 
 ### Manual Testing
 I have tested this project manually myself and have also had it peer-reviewed & tested by friends and family on multiple devices and screen sizes.
 Testing document is found [here](TESTING.md)
 
 ### Automated Testing
-I have used the Coverage library throughout testing to keep track of how much of my Python code was covered by the tests I had written. From running the coverage report my website has 58% of my code tested. The remaining code is covered by manual testing.
+I have used the Coverage library throughout testing to keep track of how much of my Python code was covered by the tests I had written. From running the coverage report my website has 61% of my code tested. The remaining code is covered by manual testing.
+
+![](assets/images/coverage_report.jpg)
 
 To generate your own coverage report from the command line:
 

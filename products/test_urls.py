@@ -17,13 +17,12 @@ class TestProductsUrls(SimpleTestCase):
         """ adding a product """
         url = reverse('add_product')
         self.assertEqual(resolve(url).func, add_product)
-    
+
     def test_product_detail_url_is_resolved(self):
         """ product detail """
         product_id = 1
         url = reverse('product_detail', args=[product_id])
         self.assertEqual(resolve(url).func, product_detail)
-        
 
     def test_animal_products_url_is_resolved(self):
         """ sort animal product """
