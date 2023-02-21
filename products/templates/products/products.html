@@ -115,13 +115,13 @@
                                 <i class="far fa-heart btn bg-info" title="add to wishlist"> Add to WishList</i>
                                 {% endif %}
                                 {% endif %}
-
+                            </a>
                                 {% endif %}
                                 {% else %}
-                                <h7>Sorry, currently out of stock.</h7>
+                                <p>Sorry, currently out of stock.</p>
                                 {% endif %}
 
-                            </a>
+                            
                         </div>
                         <div class="card-body pb-0">
                             <p class="mb-0">{{ product.name }}</p>
@@ -216,13 +216,13 @@
 
 {% block postloadjs %}
 {{ block.super }}
-<script type="text/javascript">
+<script>
     $('.btt-link').click(function (e) {
         window.scrollTo(0, 0)
     })
 </script>
 
-<script type="text/javascript">
+<script>
     $('#sort-selector').change(function () {
         var selector = $(this);
         var currentUrl = new URL(window.location);
