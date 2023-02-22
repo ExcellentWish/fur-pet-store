@@ -162,6 +162,32 @@ As a **user** I can view all products that are in stock and available to buy
 3. [Out of Stock Products Cannot be Added to the Basket.](https://github.com/ExcellentWish/fur-pet-store/issues/20):
 4. [Order Confirmations Emailed To User](https://github.com/ExcellentWish/fur-pet-store/issues/21):
 
+ As a **user** I am able to process orders by making a card payment.
+
+- Using Stripe, each time the checkout page is loaded a payment intent is created and a card element is injected into the page. Using the test card details from the Stripe documentation you can test the checkout process, if successful the user is redirected to the checkout success page.
+
+![](assets/images/checkout_success.jpg)
+
+ As a **user** I can view a breakdown of their current basket so that I can make changes if required.
+
+- The basket page displays all of the information regarding the users current basket, product name & image, subtotal and quantity.
+
+![](assets/images/basket.jpg)
+
+- The plus or minus buttons will change the quantity in the select box and then pressing update pushes those changes to the user's current basket.
+
+As a **user** I can only add prints to my basket that are in stock so that I can avoid later frustration if my order cannot be fulfilled.
+
+- As the `add to bag` button is removed the user is not easily able to add any product to the basket. However, if they were to try and overwrite the URL by changing the product pk passed, then I have used defensive programming so that if the required data is not passed through the post request the user is shown an error message and they are redirected back to the all_products page.
+
+![](assets/images/add-without-quantity-error.jpg)
+
+As a **user** I receive order confirmations to be sure my order has been processed.
+
+- Upon submitting the payment form, if successful and the user is redirected to checkout success then the `send_confirmation_email` function is called, which uses the email address from the order form, this function sends an email that has the order total, shipping details, order number and products purchased in:
+
+![](assets/images/order-confirmation.jpg)
+
 ## Epic 6 - Marketing
 ### User Stories
 1. [Facebook Page](https://github.com/ExcellentWish/fur-pet-store/milestone/6)
