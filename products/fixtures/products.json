@@ -1,30 +1,158 @@
 [{
-    "pk": 1,
-    "model": "products.product",
-    "fields": {
-        "name": "Automatic Ball Thrower",
-        "description": "Keep your dog entertained for hours with an automatic thrower and save your elbow.",
-        "price": 19.99,
-        "category": 2,
-        "rating": 4.6,
-        "image": "dog-automatic-throw.jpg",
-        "quantity_in_stock": "10",
-        "in_stock": true,
-        "animal_choice" : "Dog"
-    }
-}, {
-    "pk": 2,
-    "model": "products.product",
-    "fields": {
-        "name": "Cat Ball Toy",
-        "description": "Keep your purr-fect pet entertained for hours with this ball",
-        "price": 4.99,
-        "category": 2,
-        "rating": 4.1,
-        "image": "cat-ball-toy.jpg",
-        "quantity_in_stock": "10",
-        "in_stock": true,
-        "animal_choice" : "Cat"
-    }
+        "pk": 1,
+        "model": "products.product",
+        "fields": {
+            "name": "Automatic Ball Thrower",
+            "description": "Keep your dog entertained for hours with an automatic thrower and save your elbow.",
+            "price": 19.99,
+            "category": 2,
+            "rating": 4.6,
+            "image": "dog-automatic-throw.jpg",
+            "quantity_in_stock": "10",
+            "in_stock": true,
+            "animal_choice": "Dog"
+        }
+    }, {
+        "pk": 2,
+        "model": "products.product",
+        "fields": {
+            "name": "Cat Ball Toy",
+            "description": "Keep your purr-fect pet entertained for hours with this ball",
+            "price": 4.99,
+            "category": 2,
+            "rating": 4.1,
+            "image": "cat-ball-toy.jpg",
+            "quantity_in_stock": "10",
+            "in_stock": true,
+            "animal_choice": "Cat"
+        }
 
-}]
+    }, {
+        "pk": 3,
+        "model": "products.product",
+        "fields": {
+            "name": "Small Dog Bed",
+            "description": "Keep your little buddy cozy at night",
+            "price": 15.99,
+            "category": 1,
+            "rating": 4.7,
+            "image": "Dog-bed_CvBjmds.jpg",
+            "quantity_in_stock": "10",
+            "in_stock": true,
+            "animal_choice": "Dog"
+        }
+
+    },
+    {
+        "pk": 4,
+        "model": "products.product",
+        "fields": {
+            "name": "Dog ToothBrush",
+            "description": "Keep their teeth healthy with this brush",
+            "price": 12.99,
+            "category": 2,
+            "rating": 4.3,
+            "image": "dog-toothbrush.jpg",
+            "quantity_in_stock": "10",
+            "in_stock": true,
+            "animal_choice": "Dog"
+        }
+
+    },
+    {
+        "pk": 5,
+        "model": "products.product",
+        "fields": {
+            "name": "Kitty bed",
+            "description": "Keep your purr-fect pet cozy with this bed",
+            "price": 4.99,
+            "category": 1,
+            "rating": 4.1,
+            "image": "cat-bedding_bZu7Hns.jpg",
+            "quantity_in_stock": "10",
+            "in_stock": true,
+            "animal_choice": "Cat"
+        }
+
+    },
+    {
+        "pk": 6,
+        "model": "products.product",
+        "fields": {
+            "name": "Cat Feather Wand",
+            "description": "Keep your purr-fect pet entertained for hours with this wand",
+            "price": 4.99,
+            "category": 2,
+            "rating": 4.9,
+            "image": "cat-feather-wand.jpg",
+            "quantity_in_stock": "0",
+            "in_stock": false,
+            "animal_choice": "Cat"
+        }
+
+    },
+    {
+        "pk": 7,
+        "model": "products.product",
+        "fields": {
+            "name": "Dog Colar",
+            "description": "Perfect Collar for your dog",
+            "price": 9.99,
+            "category": 3,
+            "rating": 4.7,
+            "image": "Dog-collar.jpg",
+            "quantity_in_stock": "10",
+            "in_stock": true,
+            "animal_choice": "Dog"
+        }
+
+    },
+    {
+        "pk": 8,
+        "model": "products.product",
+        "fields": {
+            "name": "Large Dog Bed",
+            "description": "Keep your big buddy cozy for the nights",
+            "price": 20.99,
+            "category": 1,
+            "rating": 4.5,
+            "image": "large-dog-bed.jpg",
+            "quantity_in_stock": "10",
+            "in_stock": true,
+            "animal_choice": "Dog"
+        }
+
+    },
+    {
+        "pk": 9,
+        "model": "products.product",
+        "fields": {
+            "name": "Cat Collar",
+            "description": "Purr-fect collar for your cat",
+            "price": 4.99,
+            "category": 3,
+            "rating": 4.3,
+            "image": "cat-collar.jpg",
+            "quantity_in_stock": "10",
+            "in_stock": true,
+            "animal_choice": "Cat"
+        }
+
+    },
+    {
+        "pk": 10,
+        "model": "products.product",
+        "fields": {
+            "name": "5 Meter Dog Lead",
+            "description": "Great Lead for a long walk",
+            "price": 12.99,
+            "category": 3,
+            "rating": 4.9,
+            "image": "Dog-lead-long.jpg",
+            "quantity_in_stock": "10",
+            "in_stock": true,
+            "animal_choice": "Dog"
+        }
+
+    }
+]

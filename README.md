@@ -464,6 +464,9 @@ All of my code has been validated using an online validator specific to the lang
 
 - [JSHint](https://jshint.com/)
     - Used to validate JS code
+  
+-[jsonlint](https://jsonlint.com/) 
+  - Used for My Fixtures 
 
 - [Pycodestyle](https://pypi.org/project/pycodestyle/)
     - Used to test my Python code for any issues or errors; Please note some line I was unable to amend and have been left as they are
@@ -509,7 +512,12 @@ Issue: The `django.db.utils.ProgrammingError` was raised with the error message 
 
 Solution: The issue was resolved by dropping the table with the following SQL command: `DROP TABLE profiles_userwishlist;`.
 
-Note: This issue may have been caused by a table that was not properly deleted or renamed, leading to a conflict with the existing table during migration. It's important to ensure that all tables and database objects are properly managed during development to avoid such conflicts.
+
+Issue: `ProgrammingError at /checkout/ relation "checkout_order" does not exist`. While trying to fix an issue I had I thought my solution at the time was to `DROP TABLE checkout_order;` This did not work and caused other issues. This happend while testing the order confirmaition email.
+
+Solution: Delete mirgrations and set up new database with elephantSql. This was an extreme option. 
+
+Note: This issue may have been caused by a table that was not properly deleted or renamed, leading to a conflict with the existing table during migration. It's important to ensure that all tables and database objects are properly managed during development to avoid such conflicts. And to back up your Database
 
 ## Deployment
 
