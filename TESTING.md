@@ -78,9 +78,10 @@ As an **admin user** I can edit/remove items from the product model so that I ca
 
 As an **admin user** I can update the stock levels for the products so that customers are only able to purchase items in stock.
 
-- In the a column of the product management table  `Quantity in stock` , the user can update stock levels or mark it out of stock.
+- In the a column of the product management table  `Quantity in stock` , the user can update stock levels or mark it out of stock. They can also decide if it is for a cat or dog.
 
-![](assets/images/stock)
+![](assets/images/stock.jpg)
+
 
 
 ## Epic 3 - User Authentication
