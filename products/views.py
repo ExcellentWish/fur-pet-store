@@ -12,7 +12,7 @@ from .models import Product, Category
 
 
 def all_products(request):
-    # A view to return all products including sorting and search queries page
+    """ A view to show all products, including sorting and search queries """
     products = Product.objects.all()
     query = None
     categories = None
@@ -38,6 +38,8 @@ def all_products(request):
             categories = request.GET['category'].split(',')
             products = products.filter(category__name__in=categories)
             categories = Category.objects.filter(name__in=categories)
+        else:
+            categories = Category.objects.none()
 
         if 'q' in request.GET:
             query = request.GET['q']
@@ -46,8 +48,7 @@ def all_products(request):
                                ("You didn't enter any search criteria!"))
                 return redirect(reverse('products'))
 
-            queries = (Q(name__icontains=query) |
-                       Q(description__icontains=query))
+            queries = Q(name__icontains=query) | Q(description__icontains=query)
             products = products.filter(queries)
 
     current_sorting = f'{sort}_{direction}'

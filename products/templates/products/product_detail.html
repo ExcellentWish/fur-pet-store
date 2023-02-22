@@ -40,6 +40,13 @@
                 {% else %}
                 <small class="text-muted">No Rating</small>
                 {% endif %}
+                {% if product.category %}
+                <p class="small mt-1 mb-0">
+                    <a class="text-muted" href="{% url 'products' %}?category={{ product.category.name }}">
+                        <i class="fas fa-tag mr-1"></i>{{ product.category.friendly_name }}
+                    </a>
+                </p>
+                {% endif %}
                 {% if request.user.is_superuser %}
                 <small class="ml-3">
 
@@ -99,7 +106,7 @@
                         {% with product.has_color as s %}
                         {% if s %}
                         <div class="col-12 text-black">
-                            <p><strong>Size:</strong></p>
+                            <p><strong>Colour:</strong></p>
                             <select class="form-control rounded-0 w-50" name="product_size" id='id_product_size'>
                                 <option value="red">Red</option>
                                 <option value="blue">Blue</option>
@@ -143,8 +150,12 @@
                                 </span>
                                 <span class="text-uppercase text-black">Keep Shopping</span>
                             </a>
+                            {% if product.in_stock %}
                             <input type="submit" class="btn btn-info rounded-0 text-uppercase mt-5 text-white"
                                 value="Add to Bag">
+                            {% else %}
+                            <button class="btn btn-outline-danger rounded-0 mt-5">Sorry, currently out of stock.</button>
+                            {% endif %}
                         </div>
                         <input type="hidden" name="redirect_url" value="{{ request.path }}">
                         {% endwith %}
@@ -153,7 +164,7 @@
                 </div>
             </form>
             <div class="card-body">
-                {% if product.in_stock %}
+
                 <!-- only display add to product form if the product is in stock -->
                 <!-- for wishlist -->
                 {% if request.user.is_authenticated %}
@@ -174,9 +185,7 @@
                     {% endif %}
                 </a>
                 {% endif %}
-                {% else %}
-                <h7>Sorry, currently out of stock.</h7>
-                {% endif %}
+
             </div>
             <div class="card-body">
                 <a href="{% url 'product_detail_review' product.id %}" class="btn btn-info">See reviews</a>

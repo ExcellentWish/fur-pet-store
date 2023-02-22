@@ -78,7 +78,7 @@ As an **admin user** I can edit/remove items from the product model so that I ca
 
 As an **admin user** I can update the stock levels for the products so that customers are only able to purchase items in stock.
 
-- In the a column of the product management table  `Quantity in stock` , the user can update stock levels or mark it out of stock. They can also decide if it is for a cat or dog.
+- In the a column of the product management table  `Quantity in stock` , the user can update stock levels or mark it out of stock. They can also decide if it is for a `cat or dog`.
 
 ![](assets/images/stock.jpg)
 
@@ -92,6 +92,35 @@ As an **admin user** I can update the stock levels for the products so that cust
 4. [User Profile](https://github.com/ExcellentWish/fur-pet-store/issues/13)
 
 
+As a **user** I am prompted to register for an account so that I can create an account and receive the benefits of having a profile.
+
+- The register link in the index is the first prompt for a user to log in or create an account:
+
+![](assets/images/sign-up.jpg)
+
+As a **user** I can easily see if I'm logged in or not so that I can choose to log in or log out.
+- When the user logs on there is a message to the user: 
+  
+![](assets/images/logged_in.jpg)
+
+- Also when they log out:
+![](assets/images/logged_out.jpg)
+
+- and if the user is not authenticated then `register` and `login` are displayed. This differentiation makes it very clear and obvious to the user if they are currently logged in:
+
+![](assets/images/index_not_log.jpg)
+
+ As a **user** I can register & login so that I can view my orders/wishlist.
+
+- Once a user is logged in, they will be able to access `my profile`
+
+![](assets/images/my-profile.jpg)
+
+Here they can see there previous orders and wishlist.
+
+![](assets/images/profile-page.jpg)
+
+
 ## Epic 4 -  Products
 ### User Stories
 1. [Products can be Viewed](https://github.com/ExcellentWish/fur-pet-store/issues/14):
@@ -99,6 +128,32 @@ As an **admin user** I can update the stock levels for the products so that cust
 3. [Filter View for Products](https://github.com/ExcellentWish/fur-pet-store/issues/16)
 4. [Out of Stock Products Clearly Lablled](https://github.com/ExcellentWish/fur-pet-store/issues/17)
 
+As a **user** I can view all products that are in stock and available to buy
+
+- Using the `product category` linksthe user is directed to the `products` page, this is a view that returns all products in the product model.
+
+![](assets/images/all-products.jpg)
+
+ As a **user** I can easily find all of the relevant information about the products so that I can make informed decisions before purchasing.
+
+- Each product card displays a name, size, price and colour if it has the option giving the user all information they could want before deciding to buy
+
+![](assets/images/product-details.jpg)
+
+
+ As a **user** I can filter by categories to have more control over what I'm viewing.
+
+- At the top of the products page are four buttons that allow the user to filter by category:
+
+![](assets/images/filtering.jpg)
+
+- Clicking on one of these buttons sends a query to the database and returns the relevant products:
+
+ As a **user** I can easily identify prints that are not in stock so that I can avoid later frustration if they are not available.
+
+- Products have a clear `'sorry, not in stock'`  and the add to bag button is disabled so that it is extremely clear for the user this product cannot currently be purchased.
+
+![](assets/images/out-of-stock.jpg)
 
 ## Epic 5 - Orders and Basket
 ### User Stories
