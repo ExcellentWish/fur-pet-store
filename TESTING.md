@@ -184,20 +184,77 @@ As a **user** I can only add products to my basket that are in stock so that I c
 
 As a **user** I receive order confirmations to be sure my order has been processed.
 
+- Upon submitting the payment form, if successful and the user is redirected to checkout success then the `send_confirmation_email` function is called, which uses the email address from the order form, this function sends an email that has the order total, shipping details, order number and products purchased in
+  
+![](assets/images/confirmation_email.jpg)
 
 ## Epic 6 - Marketing
 ### User Stories
 1. [Facebook Page](https://github.com/ExcellentWish/fur-pet-store/milestone/6)
 2. [SEO Keywords](https://github.com/ExcellentWish/fur-pet-store/issues/23):
 3. [Users can Sign Up for a Newsletter](https://github.com/ExcellentWish/fur-pet-store/issues/24):
+   
+  
+As a **user** I can sign up for a newsletter to receive up to date offers on the store.
+
+- In the index there is a MailChimp sign up form to allow the user to sign up:
+
+![](assets/images/index-page.jpg)
+
+As an **admin user** I conducted research and implemented SEO keywords to increase traction to my website.
+
+- During the planning stage, SEO research was conducted to decide which keywords would help with SEOs:
+
+![](assets/images/seo-research.jpg)
+
+- These keywords were then added across the website content and added in the meta tags & descriptions:
+
+![](assets/images/meta.jpg)
+
+1.  As an **admin user** I have created a FB shop page to increase traction to my website.
+
+- Facebook page for Fur Pets can be found here:
+
+![](assets/images/facebook_page.jpg)
 
 ## Epic 7- Customer Reviews
 ### User Stories
 1. [Customer See Reviews on Product](https://github.com/ExcellentWish/fur-pet-store/issues/26)
 2. [Customer Can Like and Dislike Products](https://github.com/ExcellentWish/fur-pet-store/issues/27)
-3. [View Reviews](https://github.com/ExcellentWish/fur-pet-store/issues/28)
+3. [Make Reviews](https://github.com/ExcellentWish/fur-pet-store/issues/28)
 4. [Manage reviews](https://github.com/ExcellentWish/fur-pet-store/issues/29)
  
+As a **user** I want to see reviews on a product
+
+ - In Product detail I have created a see reviews button to take a user to a review page for each product.
+  
+  ![](assets/images/see_reviews.jpg)
+
+  If a product has no reviews the user is notified
+
+  ![](assets/images/no_review.jpg)
+
+As a **user** I want to see reviews likes and dislikes on a product
+
+  - In the review page I have created a like and dilike field, which gives a user a sentiment of the product.
+  ![](assets/images/like_dislike.jpg)
+
+  - To note there is no like or dislike if the product has no reviews as this indicates that the product was never bought.
+  - 
+  ![](assets/images/no_review.jpg)
+
+As a **user** I want to make reviews on a product.
+
+ - If a user is logged in they are able to create a review on a product.
+  ![](assets/images/no_review.jpg)
+
+  - If a user is not logged in they are not able to create a review, but are prompted to create an account or log in.
+  ![](assets/images/not_logged-in.jpg)
+
+As a **user** or **Admin** I can create, read, update and delete reviews so that I can manage my review
+
+To protect against any profanity on a product or to other users a messages is displayed to the review that it is under review
+
 
 ## JavaScript Tests
 

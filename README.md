@@ -445,6 +445,8 @@ I have used several technologies that have enabled this design to work:
     - Used to help improve Lighthouse score.
 - [ElephantSQL](https://www.elephantsql.com/)
   - I have ElephantSQL database in deployment to store the data for my models.
+- [10minutemail.com/](https://10minutemail.com/)
+  - To test emails to user
 
 ## Testing
 

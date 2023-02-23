@@ -38,22 +38,26 @@
                     <div class="card-body">
 
                         {% if review %}
-                        <form method="post" action="{% url 'review_like_dislike' pk=review.pk %}">
+                        <a href="{% url  'review_like' pk=review.pk %}">
                             {% csrf_token %}
-                            <button type="submit" name="like"
-                                class="btn btn-sm btn-success {% if liked %}active{% endif %}">
-                                <i class="fas fa-thumbs-up"></i> Like<p>{{ review.number_of_likes }}</p>
+                            <button type="submit" name="like" value="like" class="btn btn-sm btn-success{% if liked %} active{% endif %}">
+                                <i class="fas fa-thumbs-up"></i> Like
+                                <p>{{ review.like_count.count }}</p>
                             </button>
-                            <button type="submit" name="dislike"
-                                class="btn btn-sm btn-danger {% if disliked %}active{% endif %}">
-                                <i class="fas fa-thumbs-down"></i> Dislike <p>{{ review.number_of_dislikes }}</p>
+                        </a>
+                        
+                        <a href="{% url 'review_dislike' pk=review.pk %}">
+                            {% csrf_token %}
+                            <button type="submit" name="dislike" value="" class="btn btn-sm btn-danger{% if disliked %} active{% endif %}">
+                                <i class="fas fa-thumbs-down"></i> Dislike
+                                <p>{{ review.dislike_count.count }}</p>
                             </button>
-                        </form>
+                        </a>
                         {% else %}
                         <p>No reviews yet. Be the first to leave a review:</p>
                         <hr>
                         {% endif %}
-                    </div>
+                    </div>                    
                     <div class="row">
                         <div class="col-md-8 card mb-4  mt-3 ">
                             <h3>Reviews:</h3>

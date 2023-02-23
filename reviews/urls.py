@@ -7,11 +7,9 @@ urlpatterns = [
         views.ProductDetailReview.as_view(),
         name='product_detail_review'
     ),
-    path(
-        '<int:pk>/like-dislike/',
-        views.ReviewLikeDislike.as_view(),
-        name='review_like_dislike'
-    ),
+    
+    path('<int:pk>/like', views.ReviewLike.as_view(), name='review_like'),
+    path('<int:pk>/dislike', views.ReviewDislike.as_view(), name='review_dislike'),
     path(
         'edit/<int:review_id>',
         views.EditReview.as_view(),
