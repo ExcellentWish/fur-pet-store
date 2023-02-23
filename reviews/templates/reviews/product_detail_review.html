@@ -38,21 +38,17 @@
                     <div class="card-body">
 
                         {% if review %}
-                        <a href="{% url  'review_like' pk=review.pk %}">
+                        <form method="post" action="{% url 'review_like_dislike' pk=review.pk %}">
                             {% csrf_token %}
-                            <button type="submit" name="like" value="like" class="btn btn-sm btn-success{% if liked %} active{% endif %}">
-                                <i class="fas fa-thumbs-up"></i> Like
-                                <p>{{ review.like_count.count }}</p>
+                            <button type="submit" name="like"
+                                class="btn btn-sm btn-success {% if liked %}active{% endif %}">
+                                <i class="fas fa-thumbs-up"></i> Like<p>{{ review.number_of_likes }}</p>
                             </button>
-                        </a>
-                        
-                        <a href="{% url 'review_dislike' pk=review.pk %}">
-                            {% csrf_token %}
-                            <button type="submit" name="dislike" value="" class="btn btn-sm btn-danger{% if disliked %} active{% endif %}">
-                                <i class="fas fa-thumbs-down"></i> Dislike
-                                <p>{{ review.dislike_count.count }}</p>
+                            <button type="submit" name="dislike"
+                                class="btn btn-sm btn-danger {% if disliked %}active{% endif %}">
+                                <i class="fas fa-thumbs-down"></i> Dislike <p>{{ review.number_of_dislikes }}</p>
                             </button>
-                        </a>
+                        </form>
                         {% else %}
                         <p>No reviews yet. Be the first to leave a review:</p>
                         <hr>
