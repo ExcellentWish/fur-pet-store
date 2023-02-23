@@ -272,17 +272,6 @@ a.category-badge>span.badge:hover {
 }
 
 
-/* Hide footer https://codepen.io/MarinaKam/pen/RBPKgq  */
-
-#footer-container {
-    position: relative;
-    bottom: 0px;
-    left: 0;
-    width: 100%;
-    text-align: center;
-    margin: auto;
-
-}
 
 /* Mailchimp */
 #mc_embed_signup {
@@ -306,17 +295,17 @@ a.category-badge>span.badge:hover {
 }
 
 /* -------------------------------- Footer from https://codepen.io/scanfcode/pen/MEZPNd*/
-
-
-.site-footer {
-    left: 0;
+footer{
     bottom: 0;
+    left: 0;
+    position: relative;
     width: 100%;
     background-color: #B44;
     font-size: 15px;
     line-height: 24px;
     color: #fff;
 }
+
 .site-footer a{
     color: #fff
 }
@@ -324,12 +313,6 @@ a.category-badge>span.badge:hover {
 .site-footer a:hover{
     color: #000
 }
-
-
-
-
-
-
 
 
 .copyright-text {
