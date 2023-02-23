@@ -67,7 +67,9 @@ CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
-CSRF_TRUSTED_ORIGINS = ['https://8000-excellentwi-furpetstore-kduwj7cwrsr.ws-eu87.gitpod.io']
+CSRF_TRUSTED_ORIGINS = [
+    'https://8000-excellentwi-furpetstore-kduwj7cwrsr.ws-eu87.gitpod.io'
+    ]
 
 
 if 'DEVELOPMENT' in os.environ:

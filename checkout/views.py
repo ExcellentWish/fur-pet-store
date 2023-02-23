@@ -39,23 +39,23 @@ def cache_checkout_data(request):
         )
         return HttpResponse(content=e, status=400)
 
-def send_confirmation_email(self, order_number):
-        """Send the user a confirmation email"""
-        print('sending messages...')
-        order = Order.objects.get(order_number=order_number)
-        customer_name = order.full_name
-        email_from = f"Fur Pets Store <{settings.DEFAULT_FROM_EMAIL}>"
-        cust_email = order.email
-        subject = render_to_string(
-            'checkout/confirmation_emails/confirmation_email_subject.txt',
-            {'order': order})
-        body = render_to_string(
-            'checkout/confirmation_emails/confirmation_email_body.txt',
-            {'order': order, 'contact_email': settings.DEFAULT_FROM_EMAIL})
 
-        recipient_list = (order.email,)
-        send_mail(subject, body, email_from, recipient_list, fail_silently=False)
-        print('message sent')
+def send_confirmation_email(self, order_number):
+    """Send the user a confirmation email"""
+    order = Order.objects.get(order_number=order_number)
+    customer_name = order.full_name
+    email_from = f"Fur Pets Store <{settings.DEFAULT_FROM_EMAIL}>"
+    cust_email = order.email
+    subject = render_to_string(
+        'checkout/confirmation_emails/confirmation_email_subject.txt',
+        {'order': order})
+    body = render_to_string(
+        'checkout/confirmation_emails/confirmation_email_body.txt',
+        {'order': order, 'contact_email': settings.DEFAULT_FROM_EMAIL})
+
+    recipient_list = (order.email,)
+    send_mail(subject, body, email_from, recipient_list, fail_silently=False)
+
 
 def checkout(request):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
@@ -182,4 +182,3 @@ def checkout_success(request, order_number):
     }
 
     return render(request, template, context)
-
