@@ -3,6 +3,8 @@ from django.shortcuts import get_object_or_404, HttpResponse
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
 from .forms import OrderForm
 from .models import Order, OrderLineItem
 from products.models import Product
@@ -37,6 +39,23 @@ def cache_checkout_data(request):
         )
         return HttpResponse(content=e, status=400)
 
+def send_confirmation_email(self, order_number):
+        """Send the user a confirmation email"""
+        print('sending messages...')
+        order = Order.objects.get(order_number=order_number)
+        customer_name = order.full_name
+        email_from = f"Fur Pets Store <{settings.DEFAULT_FROM_EMAIL}>"
+        cust_email = order.email
+        subject = render_to_string(
+            'checkout/confirmation_emails/confirmation_email_subject.txt',
+            {'order': order})
+        body = render_to_string(
+            'checkout/confirmation_emails/confirmation_email_body.txt',
+            {'order': order, 'contact_email': settings.DEFAULT_FROM_EMAIL})
+
+        recipient_list = (order.email,)
+        send_mail(subject, body, email_from, recipient_list, fail_silently=False)
+        print('message sent')
 
 def checkout(request):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
@@ -143,6 +162,10 @@ def checkout_success(request, order_number):
     """
     save_info = request.session.get("save_info")
     order = get_object_or_404(Order, order_number=order_number)
+
+    # send confirmation email to customer
+    send_confirmation_email(request, order_number)
+
     messages.success(
         request,
         f"Order successfully processed! \
@@ -159,3 +182,4 @@ def checkout_success(request, order_number):
     }
 
     return render(request, template, context)
+

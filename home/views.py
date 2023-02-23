@@ -33,13 +33,14 @@ def terms_conditions(request):
 
 
 def send_message(request, contact_form):
-    # Function to send email after contact form submitted
-    customer_name = contact_form.cleaned_data['name']
-    email_from = contact_form.cleaned_data['email']
-    subject = (f'Message from {customer_name}, {email_from}')
-    message = contact_form.cleaned_data['message']
-    recipient_list = [settings.EMAIL_HOST_USER]
-    send_mail(subject, message, email_from, recipient_list)
+        # Function to send email after contact form submitted
+        customer_name = contact_form.cleaned_data['name']
+        email_from = contact_form.cleaned_data['email']
+        subject = (f'Message from {customer_name}, {email_from}')
+        message = contact_form.cleaned_data['message']
+        recipient_list = [settings.EMAIL_HOST_USER]
+        send_mail(subject, message, email_from, recipient_list)
+        
 
 
 def get_customer_instance(request, User):
@@ -97,3 +98,4 @@ class ContactPage(View):
                 )
 
             return render(request, template, {'contact_form': contact_form})
+
