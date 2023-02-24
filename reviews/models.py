@@ -10,6 +10,7 @@ class Review(models.Model):
     title = models.CharField(max_length=200)
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='reviews')
     body = models.TextField()
+    likes = models.ManyToManyField(User, blank=True, related_name='product_like')
     posted_by = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="review_added",
         null=True)
@@ -23,6 +24,6 @@ class Review(models.Model):
 
     def __str__(self):
         return self.title
-        
-    def __str__(self):
-        return f"Comment {self.body} by {self.user}"
+    
+    def number_of_likes(self):
+        return self.likes.count()

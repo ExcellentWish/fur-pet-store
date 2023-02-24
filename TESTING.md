@@ -236,7 +236,7 @@ As a **user** I want to see reviews on a product
 
 As a **user** I want to see reviews likes and dislikes on a product
 
-  - In the review page I have created a like and dilike field, which gives a user a sentiment of the product.
+  - In the review page I have created a like and dislike field, which gives a user a sentiment of the product.
   ![](assets/images/like_dislike.jpg)
 
   - To note there is no like or dislike if the product has no reviews as this indicates that the product was never bought.

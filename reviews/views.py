@@ -14,49 +14,38 @@ from products.models import Product
 class ProductDetailReview(View):
     def get(self, request, product_id, *args, **kwargs):
         product = get_object_or_404(Product, pk=product_id)
-        try:
-            review = Review.objects.get(product=product, user=request.user)
-        except Review.DoesNotExist:
-            review = None
+        review = None
+        if request.user.is_authenticated:
+            try:
+                review = Review.objects.get(product=product, user=request.user)
+            except Review.DoesNotExist:
+                pass
         reviews = Review.objects.filter(product=product, approved=True).order_by("-created_date")
         template = 'reviews/product_detail_review.html'
-        liked = False
-        disliked = False
         reviewed = False
         if request.user.is_authenticated:
             try:
-                Review.objects.get(product=product, user=request.user)
+                Review.objects.get(product=product, user=request.user,)
                 reviewed = True
             except Review.DoesNotExist:
                 pass
                 
-        for review in reviews:
-            if review.likes.filter(id=request.user.pk).exists():
-                liked = True
-            if review.dislikes.filter(id=request.user.pk).exists():
-                disliked = True
+        
 
-        return render(request, template, {
-                "product": product,
-                'reviews': reviews,
-                "liked": liked,
-                "disliked": disliked,
-                "reviewed": reviewed,
-                "form": ReviewForm(),
-                "review": review,
-             },
-        )
+        context = {
+            "product": product,
+            'reviews': reviews,
+            "reviewed": reviewed,
+            "form": ReviewForm(),
+            "review": review,
+        }
+
+        return render(request, template, context)
 
     def post(self, request, product_id, *args, **kwargs):
         product = get_object_or_404(Product, pk=product_id)
         reviews = Review.objects.filter(product=product, approved=True).order_by("-created_date")
-        liked = False
-        disliked = False
-        for review in reviews:
-            if review.likes.filter(id=request.user.pk).exists():
-                liked = True
-            if review.dislikes.filter(id=request.user.pk).exists():
-                disliked = True 
+        review = None        
         # Create a new instance of the ReviewForm using the POST data
         form = ReviewForm(request.POST, request.FILES)
         if form.is_valid():
@@ -69,19 +58,16 @@ class ProductDetailReview(View):
             return HttpResponseRedirect(reverse('product_detail_review', args=[product_id]))
         
         # If the form is not valid, return to the template with the errors and the original form data
-        return render(
-            request,
-            "reviews/product_detail_review.html",
-            {
-                "product": product,
-                'reviews': reviews,
-                "reviews": reviews,
-                "liked": liked,
-                "disliked": disliked,
-                "reviewed": True,
-                "form": form,
-            },
-        )
+        context = {
+            "product": product,
+            'reviews': reviews,
+            "reviewed": True,
+            "form": form,
+            'review': review,
+        }
+        
+        return render(request, "reviews/product_detail_review.html", context)
+
 
 class EditReview(View):
     def get(self, request, review_id, *args, **kwargs):
@@ -155,22 +141,3 @@ class DeleteReview(View):
         return redirect(reverse('product_detail_review', args=[review.product.id])) 
 
 
-
-class ReviewLikeDislike(View):
-    def post(self, request, pk):
-        review = get_object_or_404(Review, pk=pk)
-        user = request.user
-        if 'like' in request.POST:
-            if user in review.likes.all():
-                review.likes.remove(user)
-            else:
-                review.likes.add(user)
-                review.dislikes.remove(user)
-        elif 'dislike' in request.POST:
-            if user in review.dislikes.all():
-                review.dislikes.remove(user)
-            else:
-                review.dislikes.add(user)
-                review.likes.remove(user)
-        product = review.product
-        return redirect(reverse('product_detail_review', kwargs={'product_id': product.pk}))
