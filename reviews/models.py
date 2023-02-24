@@ -11,6 +11,7 @@ class Review(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='reviews')
     body = models.TextField()
     likes = models.ManyToManyField(User, blank=True, related_name='product_like')
+    dislikes = models.ManyToManyField(User, blank=True, related_name='product_dislike')
     posted_by = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="review_added",
         null=True)
@@ -27,3 +28,6 @@ class Review(models.Model):
     
     def number_of_likes(self):
         return self.likes.count()
+    
+    def number_of_dislikes(self):
+        return self.dislikes.count()

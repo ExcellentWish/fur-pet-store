@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'home/css/home.css' %}">
+<link rel="stylesheet" href="{% static 'reviews/css/reviews.css' %}">
 {% endblock %}
 
 {% block page_header %}
@@ -37,8 +37,8 @@
                 <div class="card-body">
                     <div class="card-body">
                         {% for review in product.reviews.all %}
-                        
-                        <p>{{ review.number_of_likes }} like this Product.</p>
+
+                        <p>{{ review.number_of_likes }} like this Product. {{ review.number_of_dislikes }}  dislikes on this product</p>
 
                         {% if request.user in review.likes.all %}
                         <form action="{% url 'like_review' review_id=review.id %}" method="POST">
@@ -48,7 +48,20 @@
                         {% else %}
                         <form action="{% url 'like_review' review_id=review.id %}" method="POST">
                             {% csrf_token %}
-                            <button type="submit" class=" btn btn-success"><i class="fa-regular fa-thumbs-up"> Like</i></button>
+                            <button type="submit" class=" btn btn-success"><i class="fa-regular fa-thumbs-up">
+                                    Like</i></button>
+                        </form>
+                        {% endif %}
+
+                        {% if request.user in review.dislikes.all %}
+                        <form action="{% url 'dislike_review' review_id=review.id %}" method="POST">
+                            {% csrf_token %}
+                            <button type="submit" class=" btn btn-success"><i class="fa-solid fa-thumbs-down"></i></button>
+                        </form>
+                        {% else %}
+                        <form action="{% url 'dislike_review' review_id=review.id %}" method="POST">
+                            {% csrf_token %}
+                            <button type="submit" class=" btn btn-danger"><i class="fa-regular fa-thumbs-up">DisLike</i></button>
                         </form>
                         {% endif %}
                         {% endfor %}

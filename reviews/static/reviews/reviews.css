@@ -1,0 +1,15 @@
+.site-footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #B44;
+    font-size: 15px;
+    line-height: 24px;
+    color: #fff;
+}
+
+form {
+    display: inline-block;
+    margin-right: 10px;
+}
