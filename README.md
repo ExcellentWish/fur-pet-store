@@ -185,7 +185,7 @@ The checkout app is used solely for the user to make purchases via the online sh
 
 `Order` contains all of the relevant address information for billing/shipping, a foreign key to the `UserProfile`, email & phone number. It also contains information regarding the payment itself, the stripe PID, original basket contents (so that if the order is changed, the admin user can see what was purchased initially). Each order has an order number which is automatically generated when a new order is added to the database using `UUID`.
 
-There are some other model methods used at various points, `order.full_address` collates all of the users' address details in one f string, used when sending the confirmation email to the user. 
+When sending the confirmation email to the user, I created a send confirmation email in the view of checkout. 
 
 `update_total` calculates the overall total depending on the order items linked to the order, ensuring the value is always correct.
 
@@ -585,9 +585,32 @@ In the Deploy tab:
 6. Once you have chosen your deployment method and have clicked `Deploy Branch` your application will be built and you should see the below `View` button, click this to open your application:
 
 ## Credits
+Throughout the process of building this website, I have used various sources online to help me fix bugs & tackle problems, in addition to various modules to build the functionality of this website:
 
-https://codepen.io/scanfcode for footer
+[Codepen](https://codepen.io/scanfcode)
+
+[XML sitemaps](https://www.xml-sitemaps.com/)
+
+[Chewy](https://www.chewy.com/)
+
+[Medium.com](https://medium.com/djangotube/django-like-and-dislike-buttons-model-design-like-youtube-f152b95e7f21)
+
+[Coverage](https://coverage.readthedocs.io/en/6.2/)
+
+[Code Institute](https://codeinstitute.net/)
+
+[Crispy Forms](https://django-crispy-forms.readthedocs.io/en/latest/)
+
+[Slack msletb-mar-2022 Channel](https://slack.com/) And all other Slack Channels form 
+
+[Django Allauth](https://django-allauth.readthedocs.io/en/latest/installation.html)
+
+[atlassian](https://www.atlassian.com/git/tutorials/setting-up-a-repository)
+
+[Ben's Computer Science Videos](https://www.youtube.com/@benscomputersciencevideos4701)
+
+[StackOverFlow](https://stackoverflow.com/questions/47701162/like-button-with-ajax)
 
 ## Acknowledgements
 
-I would like to thank my course mentor Ronan McClelland for his support and guidance throughout the project and Kasia Bogucka and my peers from Msletb slack group for their support & feedback. Code Institute Slack channels for a massive resource of information and help.
+I would like to thank my course mentor Ronan McClelland for his support and guidance throughout the project and Kasia Bogucka and my peers from Msletb slack group for their support & feedback. Code Institute Slack channels for a massive resource of information.

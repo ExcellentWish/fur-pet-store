@@ -267,5 +267,8 @@ To protect against any profanity on a product or to other users a messages is di
 I have written a small number of JS functions that handle some animation & event listeners to add classes and attributes to elements created dynamically.
 
 **`deleteProductModal`** - This function opens the confirmation modal when a superuser is trying to delete a product.
+![](assets/images/delete_product_modal.jpg)
 
-**`deleteModal`** - This function opens the confirmation modal when a user is trying to delete.
+**`deleteModal`** - This function opens the confirmation modal when a user is trying to delete there review.
+
+![](assets/images/delete_model.jpg)
