@@ -237,7 +237,12 @@ As a **user** I want to see reviews on a product
 As a **user** I want to see reviews likes and dislikes on a product
 
   - In the review page I have created a like and dislike field, which gives a user a sentiment of the product.
-  ![](assets/images/like_dislike.jpg)
+  ![](assets/images/1like_dislike.jpg)
+
+  ![](assets/images/dislikes.jpg)
+
+  ![](assets/images/liked.jpg)
+
 
   - To note there is no like or dislike if the product has no reviews as this indicates that the product was never bought.
   - 
@@ -253,7 +258,8 @@ As a **user** I want to make reviews on a product.
 
 As a **user** or **Admin** I can create, read, update and delete reviews so that I can manage my review
 
-To protect against any profanity on a product or to other users a messages is displayed to the review that it is under review
+To protect against any profanity on a product or to other users a messages is displayed to the review that it is under review.
+![](assets/images/profanity_check.jpg)
 
 
 ## JavaScript Tests
