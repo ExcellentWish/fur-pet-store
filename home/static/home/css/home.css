@@ -12,3 +12,8 @@
     line-height: 24px;
     color: #fff;
 }
+
+form {
+    display: inline-block;
+    margin-right: 10px;
+}
