@@ -140,4 +140,10 @@ class DeleteReview(View):
         # Redirect to the product detail page
         return redirect(reverse('product_detail_review', args=[review.product.id])) 
 
-
+def like_review(request, review_id):
+    review = get_object_or_404(Review, id=review_id)
+    if request.user in review.likes.all():
+        review.likes.remove(request.user)
+    else:
+        review.likes.add(request.user)
+    return redirect('product_detail_review', product_id=review.product.id)

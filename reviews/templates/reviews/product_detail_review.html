@@ -35,7 +35,24 @@
             <div class="product-details-container mb-5 mt-md-5">
                 <p class="mb-0">{{ product.name }}</p>
                 <div class="card-body">
-                    
+                    <div class="card-body">
+                        {% for review in product.reviews.all %}
+                        
+                        <p>{{ review.number_of_likes }} like this Product.</p>
+
+                        {% if request.user in review.likes.all %}
+                        <form action="{% url 'like_review' review_id=review.id %}" method="POST">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-danger"><i class="fa-solid fa-thumbs-up"></i></button>
+                        </form>
+                        {% else %}
+                        <form action="{% url 'like_review' review_id=review.id %}" method="POST">
+                            {% csrf_token %}
+                            <button type="submit" class=" btn btn-success"><i class="fa-regular fa-thumbs-up"> Like</i></button>
+                        </form>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
                     <div class="row">
                         <div class="col-md-8 card mb-4  mt-3 ">
                             <h3>Reviews:</h3>
