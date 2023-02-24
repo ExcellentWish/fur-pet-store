@@ -2,7 +2,7 @@
 
 ![](assets/images/amIresponsive.jpg)
 
-This is a full-stack frameworks project built using Django, Python, HTML, CSS, and JavaScript. This is a website designed for cat and god owners. This project has been built for educational purposes.
+This is a full-stack frameworks project built using Django, Python, HTML, CSS, and JavaScript. This is a website designed for cat and dog owners. This project has been built for educational purposes.
 
 [Live application can be found here](https://fur-pets-store.herokuapp.com/)
 
@@ -67,13 +67,13 @@ This is a full-stack frameworks project built using Django, Python, HTML, CSS, a
 
 
 ## Business Model
-It is a B2C business model, with targeted customer being individuals, and focus on single transactions. It is aiming to target individuals who is interested in online shopping, pet lovers and looking for unique pet toys. Or people who want to purchase unique gifts for their family or friends pets. Products sourced from AliExpress and can be dropshipped to a customer.
+It is a B2C business model, with the targeted customer being individuals, and focus on single transactions. It is aiming to target individuals who is interested in online shopping, pet lovers and looking for unique pet toys. Or people who want to purchase unique gifts for their family or friends pets. Products sourced from AliExpress and can be dropshipped to a customer.
 
 ## User Experience
 
 ### Strategy
 
-Using the core UX principles I first started with Strategy, thinking about the target audience for this pet store & the features they would benefit from.
+Using the core UX principles I first started with Strategy, thinking about the target audience for this pet store & the features they would benefit.
 
 The target audience for 'Fur Pets Store' are:
 - People who have cats and dog.
@@ -301,6 +301,10 @@ Additionally, if a user is logged in then an empty love heart icon is displayed 
 The cards and columns are all responsive so that on mobile there is the same functionality and the images aren't warped.
 
 ![](assets/images/mobile-all-products.jpg)
+
+In the porducts section a user a able to sort by cat or dog. This was done after editing the `product.model` and using `sort/<str:animal_choice>/`.
+
+![](assets/images/sort_by.jpg)
 
 ### Basket
 
