@@ -521,6 +521,11 @@ Solution: Delete mirgrations and set up new database with elephantSql. This was 
 
 Note: This issue may have been caused by a table that was not properly deleted or renamed, leading to a conflict with the existing table during migration. It's important to ensure that all tables and database objects are properly managed during development to avoid such conflicts. And to back up your Database
 
+
+Issue `duplicate key value violates unique constraint "reviews_review_user_id_key" DETAIL:  Key (user_id)=(1) already exists.`. User was set to a one to one field. 
+
+Solution: It should of been a foreign key.
+
 ## Deployment
 
 To deploy my django application, I used [Code Institute Full Template](https://github.com/Code-Institute-Org/gitpod-full-template)
